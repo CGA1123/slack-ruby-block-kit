@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Slack
-  module Blocks
+  module BlockKit
     module Composition
       class OptionGroup
         def initialize(label:, options:)

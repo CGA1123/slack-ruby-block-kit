@@ -11,6 +11,22 @@ module Slack
           @verbatim = verbatim
         end
 
+        def self.plaintext(text:, emoji: nil)
+          new(
+            type: 'plain_text',
+            text: text,
+            emoji: emoji
+          )
+        end
+
+        def self.markdown(text:, verbatim: nil)
+          new(
+            type: 'mrkdwn',
+            text: text,
+            verbatim: verbatim
+          )
+        end
+
         def as_json(*)
           {
             type: @type,

@@ -13,12 +13,12 @@ module Slack
           @block_id = block_id
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
             image_url: @image_url,
             alt_text: @alt_text,
-            title: @title&.to_h,
+            title: @title&.as_json,
             block_id: @block_id
           }.compact
         end

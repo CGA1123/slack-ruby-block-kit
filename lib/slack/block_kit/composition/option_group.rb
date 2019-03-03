@@ -9,10 +9,10 @@ module Slack
           @options = options
         end
 
-        def to_h
+        def as_json(*)
           {
-            label: @label.to_h,
-            options: options.map(&:to_h)
+            label: @label.as_json,
+            options: options.map(&:as_json)
           }
         end
       end

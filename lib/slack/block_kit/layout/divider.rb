@@ -10,7 +10,7 @@ module Slack
           @block_id = block_id
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
             block_id: @block_id

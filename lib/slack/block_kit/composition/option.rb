@@ -9,9 +9,9 @@ module Slack
           @value = value
         end
 
-        def to_h
+        def as_json(*)
           {
-            text: @text.to_h,
+            text: @text.as_json,
             value: @value
           }
         end

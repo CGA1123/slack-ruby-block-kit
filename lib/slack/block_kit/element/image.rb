@@ -11,7 +11,7 @@ module Slack
           @alt_text = alt_text
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
             image_url: @image_url,

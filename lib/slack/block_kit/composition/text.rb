@@ -11,7 +11,7 @@ module Slack
           @verbatim = verbatim
         end
 
-        def to_h
+        def as_json(*)
           {
             type: @type,
             text: @text,

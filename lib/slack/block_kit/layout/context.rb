@@ -11,10 +11,10 @@ module Slack
           @block_id = block_id
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
-            elements: @elements.map(&:to_h),
+            elements: @elements.map(&:as_json),
             block_id: @block_id
           }.compact
         end

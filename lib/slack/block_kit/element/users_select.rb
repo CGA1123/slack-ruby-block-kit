@@ -13,13 +13,13 @@ module Slack
           @confirm = confirm
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
-            placeholder: @placeholder.to_h,
+            placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_user: @initial_user,
-            confirm: @confirm&.to_h
+            confirm: @confirm&.as_json
           }.compact
         end
       end

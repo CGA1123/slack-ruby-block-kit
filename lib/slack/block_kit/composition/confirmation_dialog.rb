@@ -11,12 +11,12 @@ module Slack
           @deny = deny
         end
 
-        def to_h
+        def as_json(*)
           {
-            title: @title.to_h,
-            text: @text.to_h,
-            confirm: @confirm.to_h,
-            deny: @deny.to_h
+            title: @title.as_json,
+            text: @text.as_json,
+            confirm: @confirm.as_json,
+            deny: @deny.as_json
           }
         end
       end

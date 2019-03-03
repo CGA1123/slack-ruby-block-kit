@@ -13,13 +13,13 @@ module Slack
           @accessory = accessory
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
-            text: @text.to_h,
+            text: @text.as_json,
             block_id: block_id,
-            fields: @fields&.map(&:to_h),
-            accessory: @accessory&.to_h
+            fields: @fields&.map(&:as_json),
+            accessory: @accessory&.as_json
           }.compact
         end
       end

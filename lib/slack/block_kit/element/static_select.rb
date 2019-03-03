@@ -15,15 +15,15 @@ module Slack
           @confirm = confirm
         end
 
-        def to_h
+        def as_json(*)
           {
             type: TYPE,
-            placeholder: @placeholder.to_h,
+            placeholder: @placeholder.as_json,
             action_id: @action_id,
-            options: @options&.map(&:to_h),
-            option_groups: @option_groups&.map(&:to_h),
-            initial_option: @initial_option&.to_h,
-            confirm: @confirm&.to_h
+            options: @options&.map(&:as_json),
+            option_groups: @option_groups&.map(&:as_json),
+            initial_option: @initial_option&.as_json,
+            confirm: @confirm&.as_json
           }.compact
         end
       end

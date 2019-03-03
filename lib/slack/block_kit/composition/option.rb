@@ -3,9 +3,14 @@
 module Slack
   module BlockKit
     module Composition
+
+      # An object that represents a single selectable item in a select menu.
+      #
+      # https://api.slack.com/reference/messaging/composition-objects#option
+      # https://api.slack.com/reference/messaging/block-elements#select
       class Option
-        def initialize(text:, value:)
-          @text = text
+        def initialize(value:, text:, emoji: nil)
+          @text = PlainText.new(text: text, emoji: emoji)
           @value = value
         end
 

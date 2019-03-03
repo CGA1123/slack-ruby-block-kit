@@ -1,6 +1,14 @@
 # Slack::BlockKit
 
-TODO
+A collection of ruby objects that represent Slack's block kit.
+
+You can play around with the block kit using [Slack's block kit builder!](https://api.slack.com/tools/block-kit-builder)
+
+The 'blocks' availables are split in line with how Slack documents them, that is:
+
+- `Slack::BlockKit::Layout` contains the [Layout blocks](https://api.slack.com/reference/messaging/blocks)
+- `Slack::BlockKit::Element` contains the [Block elements](https://api.slack.com/reference/messaging/block-elements)
+- `Slack::BlockKit::Composition` contains the [Message composition objects](https://api.slack.com/reference/messaging/composition-objects)
 
 ## Installation
 
@@ -29,6 +37,8 @@ require 'slack/block_kit'
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CGA1123/slack_block_kit-ruby
+
+See [issues](https://github.com/CGA1123/slack_block_kit-ruby/issues) if you want any inspiration as to what to help with!
 
 ## License
 

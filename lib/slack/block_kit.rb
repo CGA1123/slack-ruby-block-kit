@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
 module Slack
-  module BlockKit; end
+  module BlockKit
+    module Composition; end
+    module Element; end
+    module Layout;end
+
+    VERSION = '0.1.0'
+
+    Dir[File.join(__dir__, 'block_kit', 'composition', '*.rb')].each { |file| require file }
+    Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].each { |file| require file }
+    Dir[File.join(__dir__, 'block_kit', 'layout', '*.rb')].each { |file| require file }
+  end
 end

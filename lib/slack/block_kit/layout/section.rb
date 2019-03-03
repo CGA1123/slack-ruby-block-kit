@@ -17,7 +17,7 @@ module Slack
           {
             type: TYPE,
             text: @text.as_json,
-            block_id: block_id,
+            block_id: @block_id,
             fields: @fields&.map(&:as_json),
             accessory: @accessory&.as_json
           }.compact

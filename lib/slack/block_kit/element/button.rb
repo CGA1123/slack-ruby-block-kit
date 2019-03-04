@@ -3,15 +3,32 @@
 module Slack
   module BlockKit
     module Element
+
+      # An interactive element that inserts a button.
+      # The button can be a trigger for anything from opening a simple link
+      # to starting a complex workflow.
+      #
+      # https://api.slack.com/reference/messaging/block-elements#button
       class Button
         TYPE = 'button'
 
-        def initialize(text:, action_id:, url: nil, value: nil, confirm: nil)
-          @text = text
+        attr_accessor :confirm
+
+        def initialize(text:, action_id:, emoji: nil, url: nil, value: nil)
+          @text = Composition::PlainText.new(text: text, emoji: emoji)
           @action_id = action_id
           @url = url
           @value = value
-          @confirm = confirm
+
+          yield(self) if block_given?
+        end
+
+        def confirmation_dialog
+          @confirm = Composition::ConfirmationDialog.new
+
+          yield(@confirm) if block_given?
+
+          @confirm
         end
 
         def as_json(*)

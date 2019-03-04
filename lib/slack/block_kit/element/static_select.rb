@@ -3,16 +3,66 @@
 module Slack
   module BlockKit
     module Element
+
+      # A select menu, just as with a standard HTML <select> tag, creates a drop
+      # down menu with a list of options for a user to choose. The select menu
+      # also includes type-ahead functionality, where a user can type a part or
+      # all of an option string to filter the list.
+      #
+      # This is the simplest form of select menu, with a static list of options
+      # passed in when defining the element.
+      #
+      # https://api.slack.com/reference/messaging/block-elements#static-select
       class StaticSelect
         TYPE = 'static_select'
 
-        def initialize(placeholder:, action_id:, options:, option_groups:, initial_option: nil, confirm: nil)
-          @placeholder = placeholder
+        attr_accessor :confirm, :options, :option_groups, :initial_option
+
+        def initialize(placeholder:, action_id:, emoji: nil)
+          @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
-          @options = options
-          @option_groups = option_groups
-          @initial_option = initial_option
-          @confirm = confirm
+
+          yield(self) if block_given?
+        end
+
+        def confirmation_dialog
+          @confirm = Composition::ConfirmationDialog.new
+
+          yield(@confirm) if block_given?
+
+          self
+        end
+
+        def option(value:, text:, emoji: nil)
+          @options ||= []
+          @options << Composition::Option.new(
+            value: value,
+            text: text,
+            emoji: emoji
+          )
+
+          self
+        end
+
+        def option_group(label:, emoji: nil)
+          option_group = Composition::OptionGroup.new(label: label, emoji: emoji)
+
+          yield(option_group) if block_given?
+
+          @option_groups ||= []
+          @option_groups << option_group
+
+          self
+        end
+
+        def initial(value:, text:, emoji: nil)
+          @initial_option = Composition::Option.new(
+            value: value,
+            text: text,
+            emoji: emoji
+          )
+
+          self
         end
 
         def as_json(*)

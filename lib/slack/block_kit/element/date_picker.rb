@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Element
-
       # An element which lets users easily select a date from a calendar style
       # UI.
       #
@@ -16,10 +15,12 @@ module Slack
         def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
           @action_id = action_id
           @initial_date = initial
-          @placeholder = Composition::PlainText.new(
-            text: placeholder,
-            emoji: emoji
-          ) if placeholder
+          if placeholder
+            @placeholder = Composition::PlainText.new(
+              text: placeholder,
+              emoji: emoji
+            )
+          end
 
           yield(self) if block_given?
         end

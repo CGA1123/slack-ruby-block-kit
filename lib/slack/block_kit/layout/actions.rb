@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Layout
-
       # A block that is used to hold interactive elements.
       #
       # https://api.slack.com/reference/messaging/blocks#actions
@@ -35,7 +34,7 @@ module Slack
 
         def channel_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ChannelsSelect.new(
-            placholder: placehloder,
+            placholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji

@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Composition
-
       # Provides a way to group options in a select menu.
       #
       # https://api.slack.com/reference/messaging/composition-objects#option-group
@@ -24,6 +23,7 @@ module Slack
 
         def as_json(*)
           raise 'Options Empty' if @options.empty?
+
           {
             label: @label.as_json,
             options: @options.map(&:as_json)

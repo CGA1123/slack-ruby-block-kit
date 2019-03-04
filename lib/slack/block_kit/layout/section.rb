@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Layout
-
       # A section is one of the most flexible blocks available - it can be used
       # as a simple text block, in combination with text fields, or side-by-side
       # with any of the available block elements.
@@ -35,7 +34,7 @@ module Slack
         end
 
         def mrkdwn(text:, verbatim: nil)
-          @text = Composition::Mrkdwn.new(text: text, emoji: emoji)
+          @text = Composition::Mrkdwn.new(text: text, verbatim: verbatim)
 
           self
         end
@@ -56,7 +55,7 @@ module Slack
 
         def channel_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ChannelsSelect.new(
-            placholder: placehloder,
+            placholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji

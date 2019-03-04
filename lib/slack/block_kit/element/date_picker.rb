@@ -3,14 +3,33 @@
 module Slack
   module BlockKit
     module Element
+
+      # An element which lets users easily select a date from a calendar style
+      # UI.
+      #
+      # Date picker elements can be used inside of section and actions blocks.
+      #
+      # https://api.slack.com/reference/messaging/block-elements#datepicker
       class DatePicker
         TYPE = 'datepicker'
 
-        def initialize(action_id:, placeholder: nil, initial_date: nil, confirm: nil)
+        def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
           @action_id = action_id
-          @placeholder = placeholder
-          @initial_date = initial_date
-          @confirm = confirm
+          @initial_date = initial
+          @placeholder = Composition::PlainText.new(
+            text: placeholder,
+            emoji: emoji
+          ) if placeholder
+
+          yield(self) if block_given?
+        end
+
+        def confirmation_dialog
+          @confirm = Composition::ConfirmationDialog.new
+
+          yield(@confirm) if block_given?
+
+          self
         end
 
         def as_json(*)

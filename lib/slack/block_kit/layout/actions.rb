@@ -34,7 +34,7 @@ module Slack
 
         def channel_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ChannelsSelect.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji
@@ -47,7 +47,7 @@ module Slack
 
         def converstation_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ConversationsSelect.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji
@@ -60,7 +60,7 @@ module Slack
 
         def date_picker(action_id:, placeholder: nil, initial: nil, emoji: nil)
           element = Element::DatePicker.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji

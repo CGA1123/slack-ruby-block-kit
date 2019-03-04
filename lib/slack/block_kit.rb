@@ -11,6 +11,7 @@ module Slack
     Dir[File.join(__dir__, 'block_kit', 'composition', '*.rb')].each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', 'layout', '*.rb')].each { |file| require file }
+    Dir[File.join(__dir__, 'block_kit', '*.rb')].each { |file| require file }
 
     module_function
 

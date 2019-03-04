@@ -19,10 +19,18 @@ module Slack
           yield(self) if block_given?
         end
 
-        def field(text:, emoji: nil)
+        def plaintext_field(text:, emoji: nil)
           @fields ||= []
 
           @fields << Composition::PlainText.new(text: text, emoji: emoji)
+
+          self
+        end
+
+        def mrkdwn_field(text:, verbatim: nil)
+          @fields ||= []
+
+          @fields << Composition::Mrkdwn.new(text: text, verbatim: verbatim)
 
           self
         end
@@ -55,7 +63,7 @@ module Slack
 
         def channel_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ChannelsSelect.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji
@@ -68,7 +76,7 @@ module Slack
 
         def converstation_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ConversationsSelect.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji
@@ -81,7 +89,7 @@ module Slack
 
         def date_picker(action_id:, placeholder: nil, initial: nil, emoji: nil)
           element = Element::DatePicker.new(
-            placholder: placeholder,
+            placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji
@@ -143,7 +151,7 @@ module Slack
           accessorize(Element::Image.new(image_url: url, alt_text: alt_text))
         end
 
-        def accessorize(element)
+        def accessorise(element)
           @accessory = element
 
           self

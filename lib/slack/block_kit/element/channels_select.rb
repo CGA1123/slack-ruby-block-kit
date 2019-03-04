@@ -40,7 +40,7 @@ module Slack
             action_id: @action_id,
             initial_channel: @initial_channel,
             confirm: @confirm&.as_json
-          }
+          }.compact
         end
       end
     end

@@ -4,7 +4,7 @@ module Slack
   module BlockKit
     module Composition; end
     module Element; end
-    module Layout;end
+    module Layout; end
 
     VERSION = '0.1.0'
 

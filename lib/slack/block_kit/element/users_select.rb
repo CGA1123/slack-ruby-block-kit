@@ -3,6 +3,15 @@
 module Slack
   module BlockKit
     module Element
+      # A select menu, just as with a standard HTML <select> tag, creates a drop
+      # down menu with a list of options for a user to choose. The select menu
+      # also includes type-ahead functionality, where a user can type a part or
+      # all of an option string to filter the list.
+      #
+      # This select menu will populate its options with a list of Slack users
+      # visible to the current user in the active workspace.
+      #
+      # https://api.slack.com/reference/messaging/block-elements#users-select
       class UsersSelect
         TYPE = 'users_select'
 

@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Composition
-
       # An object that represents a single selectable item in a select menu.
       #
       # https://api.slack.com/reference/messaging/composition-objects#option

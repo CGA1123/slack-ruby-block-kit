@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Element
-
       # A select menu, just as with a standard HTML <select> tag, creates a drop
       # down menu with a list of options for a user to choose. The select menu
       # also includes type-ahead functionality, where a user can type a part or
@@ -19,7 +18,7 @@ module Slack
         attr_accessor :confirm
 
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil)
-          @placeholder = Composition::PlainText.new(text: placeholder, emoji: nil)
+          @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_channel = initial
 

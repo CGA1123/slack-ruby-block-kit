@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Element
-
       # An interactive element that inserts a button.
       # The button can be a trigger for anything from opening a simple link
       # to starting a complex workflow.

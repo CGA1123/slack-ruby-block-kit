@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Composition
-
       # An object that defines a dialog that provides a confirmation step to any
       # interactive element. This dialog will ask the user to confirm their
       # action by offering confirm and deny buttons.
@@ -35,7 +34,7 @@ module Slack
         end
 
         def mrkdwn_title(text:, verbatim: nil)
-          @title = Mrkdwn.new(text: text, emoji: emoji)
+          @title = Mrkdwn.new(text: text, verbatim: verbatim)
 
           self
         end

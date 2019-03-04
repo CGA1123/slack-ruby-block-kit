@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Layout
-
       # A simple image block, designed to make those cat photos really pop.
       #
       # https://api.slack.com/reference/messaging/blocks#context
@@ -14,10 +13,13 @@ module Slack
           @image_url = url
           @alt_text = alt_text
           @block_id = block_id
+
+          return unless title
+
           @title = Composition::PlainText.new(
             text: title,
             emoji: emoji
-          ) if title
+          )
         end
 
         def as_json(*)

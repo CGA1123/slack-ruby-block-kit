@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Layout
-
       # Displays message context, which can include both images and text.
       #
       # https://api.slack.com/reference/messaging/blocks#context
@@ -23,11 +22,11 @@ module Slack
         end
 
         def plain_text(text:, emoji: nil)
-          append(Composition::PlainText.new(text: text, emoji: emoji)
+          append(Composition::PlainText.new(text: text, emoji: emoji))
         end
 
         def mrkdwn(text:, verbatim: nil)
-          append(Composition::Mrkdwn.new(text: text, verbatim: verbatim)
+          append(Composition::Mrkdwn.new(text: text, verbatim: verbatim))
         end
 
         def append(element)

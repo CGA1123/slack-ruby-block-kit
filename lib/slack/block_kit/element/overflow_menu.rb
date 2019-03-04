@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Element
-
       # This is like a cross between a button and a select menu - when a user
       # clicks on this overflow button, they will be presented with a list of
       # options to choose from. Unlike the select menu, there is no typeahead

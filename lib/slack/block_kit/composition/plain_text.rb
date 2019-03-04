@@ -3,7 +3,6 @@
 module Slack
   module BlockKit
     module Composition
-
       # An object containing some text, formatted using plain text.
       #
       # https://api.slack.com/reference/messaging/composition-objects#text

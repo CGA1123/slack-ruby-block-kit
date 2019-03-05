@@ -27,14 +27,14 @@ module Slack
           self
         end
 
-        def plaintext_title(text:, emoji: nil)
-          @title = PlainText.new(text: text, emoji: emoji)
+        def plain_text(text:, emoji: nil)
+          @text = PlainText.new(text: text, emoji: emoji)
 
           self
         end
 
-        def mrkdwn_title(text:, verbatim: nil)
-          @title = Mrkdwn.new(text: text, verbatim: verbatim)
+        def mrkdwn(text:, verbatim: nil)
+          @text = Mrkdwn.new(text: text, verbatim: verbatim)
 
           self
         end

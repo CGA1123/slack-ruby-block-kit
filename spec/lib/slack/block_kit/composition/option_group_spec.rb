@@ -22,10 +22,47 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
   end
 
   describe '#option' do
-    pending
+    it 'appends an option to options array' do
+      instance = described_class.new(label: 'hello')
+
+      expect { instance.option(text: 'option', value: 'o') }
+        .to change { instance.options.count }.from(0).to(1)
+    end
+
+    it 'appends a Slack::BlockKit::Composition::Option object' do
+      instance = described_class.new(label: 'hello')
+      expected = Slack::BlockKit::Composition::Option.new(text: 'option', value: 'o')
+
+      instance.option(text: 'option', value: 'o')
+
+      expect(instance.options.last.as_json).to eq(expected.as_json)
+    end
+
+    it 'returns self' do
+      instance = described_class.new(label: 'hello')
+      returned = instance.option(text: 't', value: 'v')
+
+      expect(returned).to be(instance)
+    end
   end
 
   describe '#as_json' do
-    pending
+    it 'correctly serializes' do
+      instance = described_class.new(label: 'label', emoji: true) do |i|
+        i.option(text: 'text', value: 'value')
+      end
+
+      expected = {
+        label: Slack::BlockKit::Composition::PlainText.new(text: 'label', emoji: true).as_json,
+        options: [
+          Slack::BlockKit::Composition::Option.new(
+            text: 'text',
+            value: 'value'
+          )
+        ].map(&:as_json)
+      }
+
+      expect(instance.as_json).to eq(expected)
+    end
   end
 end

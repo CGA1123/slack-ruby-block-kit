@@ -38,6 +38,8 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
+    rubocop-rspec (1.32.0)
+      rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     unicode-display_width (1.4.1)
 
@@ -50,6 +52,7 @@ DEPENDENCIES
   rspec
   rspec_junit_formatter
   rubocop
+  rubocop-rspec
   slack_block_kit!
 
 BUNDLED WITH

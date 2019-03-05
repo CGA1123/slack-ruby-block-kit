@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/CGA1123/slack_block_kit-ruby/tree/master.svg?style=svg)](https://circleci.com/gh/CGA1123/slack_block_kit-ruby/tree/master)
+[![Gem Version](https://badge.fury.io/rb/slack_block_kit.svg)](https://badge.fury.io/rb/slack_block_kit)
+
 # Slack::BlockKit
 
 A collection of ruby objects that represent Slack's block kit.

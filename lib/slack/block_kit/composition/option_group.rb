@@ -8,6 +8,8 @@ module Slack
       # https://api.slack.com/reference/messaging/composition-objects#option-group
       # https://api.slack.com/reference/messaging/block-elements#select
       class OptionGroup
+        attr_accessor :options
+
         def initialize(label:, emoji: nil)
           @label = PlainText.new(text: label, emoji: emoji)
           @options = []
@@ -22,8 +24,6 @@ module Slack
         end
 
         def as_json(*)
-          raise 'Options Empty' if @options.empty?
-
           {
             label: @label.as_json,
             options: @options.map(&:as_json)

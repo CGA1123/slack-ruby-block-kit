@@ -40,8 +40,6 @@ module Slack
         end
 
         def as_json(*)
-          raise 'Fields Missing' unless @title && @text && @confirm && @deny
-
           {
             title: @title.as_json,
             text: @text.as_json,

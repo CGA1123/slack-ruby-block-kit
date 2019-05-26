@@ -74,7 +74,7 @@ module Slack
           accessorise(element)
         end
 
-        def converstation_select(placeholder:, action_id:, initial: nil, emoji: nil)
+        def conversation_select(placeholder:, action_id:, initial: nil, emoji: nil)
           element = Element::ConversationsSelect.new(
             placeholder: placeholder,
             action_id: action_id,

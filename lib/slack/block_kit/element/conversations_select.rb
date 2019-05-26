@@ -41,7 +41,7 @@ module Slack
             action_id: @action_id,
             initial_conversation: @initial_conversation,
             confirm: @confirm&.as_json
-          }
+          }.compact
         end
       end
     end

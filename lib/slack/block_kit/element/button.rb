@@ -13,10 +13,11 @@ module Slack
 
         attr_accessor :confirm
 
-        def initialize(text:, action_id:, emoji: nil, url: nil, value: nil)
+        def initialize(text:, action_id:, style: nil, emoji: nil, url: nil, value: nil)
           @text = Composition::PlainText.new(text: text, emoji: emoji)
           @action_id = action_id
           @url = url
+          @style = style
           @value = value
 
           yield(self) if block_given?
@@ -37,6 +38,7 @@ module Slack
             action_id: @action_id,
             url: @url,
             value: @value,
+            style: @style,
             confirm: @confirm&.as_json
           }.compact
         end

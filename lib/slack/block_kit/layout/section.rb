@@ -47,7 +47,7 @@ module Slack
           self
         end
 
-        def button(text:, action_id:, style:, emoji: nil, url: nil, value: nil)
+        def button(text:, action_id:, style: nil, emoji: nil, url: nil, value: nil)
           element = Element::Button.new(
             text: text,
             action_id: action_id,

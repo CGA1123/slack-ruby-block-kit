@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack_block_kit (0.3.1)
+    slack_block_kit (0.3.2)
 
 GEM
   remote: https://rubygems.org/

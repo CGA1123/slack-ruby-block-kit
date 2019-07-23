@@ -37,6 +37,53 @@ Finally, require this:
 require 'slack/block_kit'
 ```
 
+## Examples
+
+Here are a few examples that might help you get started!
+
+```ruby
+require 'faraday'
+require 'slack/block_kit'
+require 'json'
+
+a_prebuilt_block = Slack::BlockKit::Layout::Section.new
+text = Slack::BlockKit::Composition::Mrkdwn.new(text: ':wave: *hello*')
+an_image = Slack::BlockKit::Element::Image.new(image_url: 'https://git.io/fjDW8', alt_text: 'a picture')
+a_prebuilt_block.accessorise(an_image)
+a_prebuilt_block.text = text
+
+blocks = Slack::BlockKit.blocks do |b|
+  b.section do |s|
+    s.plain_text(text: 'Some plain text message!')
+    s.button(text: 'A button that is important', style: 'primary', action_id: 'id')
+  end
+
+  b.divider
+
+  b.context do |c|
+    c.mrkdwn(text: '_some italicised text for context_')
+  end
+
+  b.append(a_prebuilt_block)
+end
+
+webhook_url = 'https://hooks.slack.com/services/your/webhook/url'
+body = { blocks: blocks.as_json, text: 'New block message!' }
+
+response = Faraday.post(
+  webhook_url,
+  body.to_json,
+  'Content-Type' => 'application/json'
+)
+```
+
+This will create a message like this:
+
+![example block message](https://git.io/fjDWR)
+
+You can also check out the [`slackerduty`](https://github.com/CGA1123/slackerduty) project for some example,
+[`Slackerduty::Alert`](https://github.com/CGA1123/slackerduty/blob/b33d708124ddf36d1432080ba7e16e66fefa6993/lib/slackerduty/alert.rb#L28-L34) and [`Slackerduty::Blocks`](https://github.com/CGA1123/slackerduty/blob/master/lib/slackerduty/blocks) may be helpful places to start.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CGA1123/slack_block_kit-ruby

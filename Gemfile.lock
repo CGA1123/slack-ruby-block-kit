@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack_block_kit (0.3.3)
+    slack-ruby-block-kit (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -53,7 +53,7 @@ DEPENDENCIES
   rspec_junit_formatter
   rubocop
   rubocop-rspec
-  slack_block_kit!
+  slack-ruby-block-kit!
 
 BUNDLED WITH
    1.17.3

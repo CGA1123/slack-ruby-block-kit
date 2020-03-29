@@ -2,16 +2,15 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack_block_kit'
+require 'slack-ruby-block-kit'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'slack_block_kit'
+  spec.name          = 'slack-ruby-block-kit'
   spec.version       = Slack::BlockKit::VERSION
   spec.authors       = ['Christian Gregg']
   spec.email         = ['c_arlt@hotmail.com']
-  spec.summary       = "DEPRECATED: A ruby wrapper for Slack's Block Kit"
-  spec.description   = "Deprecated in favour of slack-ruby-block-kit"
-  spec.homepage      = 'https://github.com/CGA1123/slack_block_kit-ruby'
+  spec.summary       = "A ruby wrapper for Slack's Block Kit"
+  spec.homepage      = 'https://github.com/CGA1123/slack-ruby-block-kit'
   spec.license       = 'MIT'
 
   if spec.respond_to?(:metadata)

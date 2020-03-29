@@ -9,3 +9,7 @@ Metrics/LineLength:
 
 Style/AsciiComments:
   Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - lib/slack-ruby-block-kit.rb

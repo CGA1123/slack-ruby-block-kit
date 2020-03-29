@@ -6,7 +6,7 @@ module Slack
     module Element; end
     module Layout; end
 
-    VERSION = '0.3.2'
+    VERSION = '0.3.3'
 
     Dir[File.join(__dir__, 'block_kit', 'composition', '*.rb')].each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].each { |file| require file }

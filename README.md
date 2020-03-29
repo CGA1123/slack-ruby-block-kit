@@ -1,5 +1,5 @@
-[![CircleCI](https://circleci.com/gh/CGA1123/slack_block_kit-ruby/tree/master.svg?style=svg)](https://circleci.com/gh/CGA1123/slack_block_kit-ruby/tree/master)
-[![Gem Version](https://badge.fury.io/rb/slack_block_kit.svg)](https://badge.fury.io/rb/slack_block_kit)
+[![CircleCI](https://circleci.com/gh/CGA1123/slack-ruby-block-kit/tree/master.svg?style=svg)](https://circleci.com/gh/CGA1123/slack_block_kit-ruby/tree/master)
+[![Gem Version](https://badge.fury.io/rb/slack-ruby-block-kit.svg)](https://badge.fury.io/rb/slack-ruby-block-kit)
 
 # Slack::BlockKit
 
@@ -18,7 +18,7 @@ The 'blocks' availables are split in line with how Slack documents them, that is
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'slack_block_kit'
+gem 'slack-ruby-block-kit'
 ```
 
 
@@ -29,12 +29,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install slack_block_kit
+    $ gem install slack-ruby-block-kit
 
 Finally, require this:
 
 ```ruby
-require 'slack/block_kit'
+require 'slack-ruby-block-kit'
 ```
 
 ## Examples
@@ -43,7 +43,7 @@ Here are a few examples that might help you get started!
 
 ```ruby
 require 'faraday'
-require 'slack/block_kit'
+require 'slack-ruby-block-kit'
 require 'json'
 
 a_prebuilt_block = Slack::BlockKit::Layout::Section.new

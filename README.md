@@ -88,7 +88,7 @@ You can also check out the [`slackerduty`](https://github.com/CGA1123/slackerdut
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CGA1123/slack_block_kit-ruby
 
-See [issues](https://github.com/CGA1123/slack_block_kit-ruby/issues) if you want any inspiration as to what to help with!
+See [issues](https://github.com/CGA1123/slack-ruby-block-kit/issues) if you want any inspiration as to what to help with!
 
 ## License
 

@@ -17,11 +17,6 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Max: 117
 
-# Offense count: 3
-# Configuration parameters: CountKeywordArgs.
-Metrics/ParameterLists:
-  Max: 6
-
 # Offense count: 5
 # Configuration parameters: Max.
 RSpec/ExampleLength:

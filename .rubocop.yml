@@ -13,3 +13,6 @@ Style/AsciiComments:
 Naming/FileName:
   Exclude:
     - lib/slack-ruby-block-kit.rb
+
+Metrics/ParameterLists:
+  Max: 8

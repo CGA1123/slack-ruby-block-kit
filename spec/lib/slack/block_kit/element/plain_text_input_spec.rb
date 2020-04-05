@@ -33,6 +33,7 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
         initial_value: initial_value,
         min_length: min_length,
         max_length: max_length,
+        multiline: multiline,
         placeholder: Slack::BlockKit::Composition::PlainText.new(text: placeholder, emoji: emoji).as_json
       }
     end

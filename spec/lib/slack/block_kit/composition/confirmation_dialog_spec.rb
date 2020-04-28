@@ -80,5 +80,24 @@ RSpec.describe Slack::BlockKit::Composition::ConfirmationDialog do
         expect(instance.as_json).to eq(expected)
       end
     end
+
+    context 'when style is set' do
+      it 'correctly serializes' do
+        instance.title(text: 'title')
+        instance.confirm(text: 'confirm', style: 'danger')
+        instance.deny(text: 'deny')
+        instance.plain_text(text: 'plain_text')
+
+        expected = {
+          title: Slack::BlockKit::Composition::PlainText.new(text: 'title').as_json,
+          deny: Slack::BlockKit::Composition::PlainText.new(text: 'deny').as_json,
+          confirm: Slack::BlockKit::Composition::PlainText.new(text: 'confirm').as_json,
+          text: Slack::BlockKit::Composition::PlainText.new(text: 'plain_text').as_json,
+          style: 'danger'
+        }
+
+        expect(instance.as_json).to eq(expected)
+      end
+    end
   end
 end

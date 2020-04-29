@@ -33,6 +33,12 @@ module Slack
           self
         end
 
+        def style(value)
+          @style = value
+
+          self
+        end
+
         def mrkdwn(text:, verbatim: nil)
           @text = Mrkdwn.new(text: text, verbatim: verbatim)
 
@@ -44,8 +50,9 @@ module Slack
             title: @title.as_json,
             text: @text.as_json,
             confirm: @confirm.as_json,
-            deny: @deny.as_json
-          }
+            deny: @deny.as_json,
+            style: @style
+          }.compact
         end
       end
     end

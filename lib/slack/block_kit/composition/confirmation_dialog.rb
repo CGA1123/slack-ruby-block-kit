@@ -34,6 +34,12 @@ module Slack
           self
         end
 
+        def style(value)
+          @style = value
+
+          self
+        end
+
         def mrkdwn(text:, verbatim: nil)
           @text = Mrkdwn.new(text: text, verbatim: verbatim)
 

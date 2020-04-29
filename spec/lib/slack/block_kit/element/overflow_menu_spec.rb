@@ -8,7 +8,7 @@ RSpec.describe Slack::BlockKit::Element::OverflowMenu do
   let(:params) { { action_id: action_id } }
 
   describe '#as_json' do
-    subject { instance.as_json }
+    subject(:as_json) { instance.as_json }
 
     let(:expected_json) do
       {
@@ -37,7 +37,7 @@ RSpec.describe Slack::BlockKit::Element::OverflowMenu do
     it 'correctly serializes' do
       instance.option(value: 'value-0', text: 'some text')
       instance.option(value: 'value-1', text: 'more text', url: 'https://example.com')
-      expect(subject).to eq(expected_json)
+      expect(as_json).to eq(expected_json)
     end
   end
 end

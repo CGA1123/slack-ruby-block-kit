@@ -11,12 +11,7 @@ module Slack
         def initialize(value:, text:, emoji: nil, description: nil, url: nil)
           @text = PlainText.new(text: text, emoji: emoji)
           @value = value
-          if description
-            @description = PlainText.new(
-              text: description,
-              emoji: emoji
-            )
-          end
+          @description = PlainText.new(text: description, emoji: emoji) if description
           @url = url
         end
 

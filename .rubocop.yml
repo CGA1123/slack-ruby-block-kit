@@ -16,3 +16,10 @@ Naming/FileName:
 
 Metrics/ParameterLists:
   Max: 8
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '**/*.gemspec'

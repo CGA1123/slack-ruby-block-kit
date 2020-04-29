@@ -15,9 +15,8 @@ module Slack
           self
         end
 
-        def confirm(text:, emoji: nil, style: nil)
+        def confirm(text:, emoji: nil)
           @confirm = PlainText.new(text: text, emoji: emoji)
-          @style = style
 
           self
         end

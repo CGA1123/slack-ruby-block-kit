@@ -6,12 +6,12 @@ RSpec.describe Slack::BlockKit::Element::ExternalSelect do
   let(:instance) { described_class.new(**params) }
   let(:placeholder_text) { 'some text' }
   let(:action_id) { 'my-action' }
-  let(:params) {
+  let(:params) do
     {
       placeholder: placeholder_text,
       action_id: action_id
     }
-  }
+  end
 
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
@@ -23,7 +23,7 @@ RSpec.describe Slack::BlockKit::Element::ExternalSelect do
           'type': 'plain_text',
           'text': placeholder_text
         },
-        action_id: action_id,
+        action_id: action_id
       }
     end
 

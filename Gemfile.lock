@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack-ruby-block-kit (0.6.0)
+    slack-ruby-block-kit (0.6.1)
 
 GEM
   remote: https://rubygems.org/
@@ -56,7 +56,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (< 2.0)
+  bundler
   dotenv
   faraday
   pry
@@ -68,4 +68,4 @@ DEPENDENCIES
   slack-ruby-block-kit!
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

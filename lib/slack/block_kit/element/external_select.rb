@@ -46,7 +46,7 @@ module Slack
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_option: @initial_option&.as_json,
-            min_query_length: min_query_length,
+            min_query_length: @min_query_length,
             confirm: @confirm&.as_json
           }.compact
         end

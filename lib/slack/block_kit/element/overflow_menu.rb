@@ -22,6 +22,7 @@ module Slack
         def initialize(action_id:)
           @action_id = action_id
           @options = []
+          @confirm = nil
 
           yield(self) if block_given?
         end

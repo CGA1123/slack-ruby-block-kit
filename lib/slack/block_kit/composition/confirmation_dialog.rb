@@ -9,6 +9,10 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/composition-objects#confirm
       class ConfirmationDialog
+        def initialize
+          @title, @confirm, @text, @style = nil
+        end
+
         def title(text:, emoji: nil)
           @title = PlainText.new(text: text, emoji: emoji)
 

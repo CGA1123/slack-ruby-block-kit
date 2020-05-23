@@ -28,6 +28,7 @@ module Slack
           @action_id = action_id
           @initial_option = initial
           @min_query_length = min_query_length
+          @confirm = nil
 
           yield(self) if block_given?
         end

@@ -22,7 +22,7 @@ module Slack
           min_length: nil,
           max_length: nil
         )
-          @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji) if placeholder
+          @placeholder = placeholder && Composition::PlainText.new(text: placeholder, emoji: emoji)
           @initial_value = initial_value
           @action_id = action_id
           @multiline = multiline

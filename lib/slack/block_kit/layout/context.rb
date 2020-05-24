@@ -10,6 +10,7 @@ module Slack
         TYPE = 'context'
 
         attr_accessor :elements
+
         def initialize(block_id: nil)
           @block_id = block_id
           @elements = []

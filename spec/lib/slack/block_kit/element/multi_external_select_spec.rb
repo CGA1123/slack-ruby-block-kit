@@ -17,6 +17,16 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
     subject(:as_json) { instance.as_json }
 
     context 'with confirmation dialog' do
+      subject(:as_json) do
+        instance.confirmation_dialog do |confirm|
+          confirm.title(text: '__CONFIRM_TITTLE__')
+          confirm.plain_text(text: '__CONFIRM_TEXT__')
+          confirm.confirm(text: '__CONFIRMED__')
+          confirm.deny(text: '__DENIED__')
+        end
+        instance.as_json
+      end
+
       let(:expected_json) do
         {
           type: 'multi_external_select',
@@ -47,13 +57,6 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
       end
 
       it 'correctly serializes' do
-        instance.confirmation_dialog do |confirm|
-          confirm.title(text: '__CONFIRM_TITTLE__')
-          confirm.plain_text(text: '__CONFIRM_TEXT__')
-          confirm.confirm(text: '__CONFIRMED__')
-          confirm.deny(text: '__DENIED__')
-        end
-
         expect(as_json).to eq(expected_json)
       end
     end

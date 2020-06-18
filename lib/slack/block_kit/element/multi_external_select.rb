@@ -23,7 +23,9 @@ module Slack
 
         attr_accessor :confirm
 
-        def initialize(placeholder:, action_id:, initial: nil, min_query_length: nil, emoji: nil, max_selected_items: nil)
+        def initialize(placeholder:, action_id:,
+                       initial: nil, min_query_length: nil, emoji: nil, max_selected_items: nil)
+
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_option = initial

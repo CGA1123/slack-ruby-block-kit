@@ -13,6 +13,76 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
     }
   end
 
+  let(:expected_option_groups) do
+    [
+      {
+        label: {
+          text: '__GROUP__',
+          type: 'plain_text'
+        },
+        options: [
+          {
+            text: {
+              text: '__TEXT_1__',
+              type: 'plain_text'
+            },
+            value: '__VALUE_1__'
+          },
+          {
+            text: {
+              text: '__TEXT_2__',
+              type: 'plain_text'
+            },
+            value: '__VALUE_2__'
+          },
+          {
+            text: {
+              text: '__TEXT_3__',
+              type: 'plain_text'
+            },
+            value: '__VALUE_3__'
+          }
+        ]
+      }
+    ]
+  end
+
+  let(:expected_initial) do
+    {
+      text: {
+        text: '__TEXT_2__',
+        type: 'plain_text'
+      },
+      value: '__VALUE_2__'
+    }
+  end
+
+  let(:expected_options) do
+    [
+      {
+        text: {
+          text: '__TEXT_1__',
+          type: 'plain_text'
+        },
+        value: '__VALUE_1__'
+      },
+      {
+        text: {
+          text: '__TEXT_2__',
+          type: 'plain_text'
+        },
+        value: '__VALUE_2__'
+      },
+      {
+        text: {
+          text: '__TEXT_3__',
+          type: 'plain_text'
+        },
+        value: '__VALUE_3__'
+      }
+    ]
+  end
+
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
 
@@ -28,6 +98,16 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
     end
 
     context 'with confirmation dialog' do
+      subject(:as_json) do
+        instance.confirmation_dialog do |confirm|
+          confirm.title(text: '__CONFIRM_TITTLE__')
+          confirm.plain_text(text: '__CONFIRM_TEXT__')
+          confirm.confirm(text: '__CONFIRMED__')
+          confirm.deny(text: '__DENIED__')
+        end
+        instance.as_json
+      end
+
       let(:expected_json) do
         {
           type: 'multi_static_select',
@@ -58,13 +138,6 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
       end
 
       it 'correctly serializes' do
-        instance.confirmation_dialog do |confirm|
-          confirm.title(text: '__CONFIRM_TITTLE__')
-          confirm.plain_text(text: '__CONFIRM_TEXT__')
-          confirm.confirm(text: '__CONFIRMED__')
-          confirm.deny(text: '__DENIED__')
-        end
-
         expect(as_json).to eq(expected_json)
       end
     end
@@ -109,130 +182,62 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
     end
 
     context 'with options' do
-      let(:expected_options) do
-        [
-          {
-            text: {
-              text: '__TEXT_1__',
-              type: 'plain_text'
-            },
-            value: '__VALUE_1__'
-          },
-          {
-            text: {
-              text: '__TEXT_2__',
-              type: 'plain_text'
-            },
-            value: '__VALUE_2__'
-          },
-          {
-            text: {
-              text: '__TEXT_3__',
-              type: 'plain_text'
-            },
-            value: '__VALUE_3__'
-          }
-        ]
-      end
-
-      it 'correctly serializes' do
+      subject(:as_json) do
         instance.option(value: '__VALUE_1__', text: '__TEXT_1__')
         instance.option(value: '__VALUE_2__', text: '__TEXT_2__')
         instance.option(value: '__VALUE_3__', text: '__TEXT_3__')
-
-        expect(as_json).to eq(expected_json.merge(options: expected_options))
+        instance.as_json
       end
 
-      context 'with initial option' do
-        let(:expected_initial) do
-          {
-            text: {
-              text: '__TEXT_2__',
-              type: 'plain_text'
-            },
-            value: '__VALUE_2__'
-          }
-        end
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json.merge(options: expected_options))
+      end
+    end
 
-        it 'correctly serializes' do
-          instance.option(value: '__VALUE_1__', text: '__TEXT_1__')
-          instance.option(value: '__VALUE_2__', text: '__TEXT_2__')
-          instance.option(value: '__VALUE_3__', text: '__TEXT_3__')
+    context 'with options and initial option' do
+      subject(:as_json) do
+        instance.option(value: '__VALUE_1__', text: '__TEXT_1__')
+        instance.option(value: '__VALUE_2__', text: '__TEXT_2__')
+        instance.option(value: '__VALUE_3__', text: '__TEXT_3__')
+        instance.initial(value: '__VALUE_2__', text: '__TEXT_2__')
+        instance.as_json
+      end
 
-          instance.initial(value: '__VALUE_2__', text: '__TEXT_2__')
-
-          expect(as_json).to eq(expected_json.merge(options: expected_options, initial_option: expected_initial))
-        end
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json.merge(options: expected_options,
+                                                  initial_option: expected_initial))
       end
     end
 
     context 'with option_groups' do
-      let(:expected_option_groups) do
-        [
-          {
-            label: {
-              text: '__GROUP__',
-              type: 'plain_text'
-            },
-            options: [
-              {
-                text: {
-                  text: '__TEXT_1__',
-                  type: 'plain_text'
-                },
-                value: '__VALUE_1__'
-              },
-              {
-                text: {
-                  text: '__TEXT_2__',
-                  type: 'plain_text'
-                },
-                value: '__VALUE_2__'
-              },
-              {
-                text: {
-                  text: '__TEXT_3__',
-                  type: 'plain_text'
-                },
-                value: '__VALUE_3__'
-              }
-            ]
-          }
-        ]
-      end
-
-      it 'correctly serializes' do
+      subject(:as_json) do
         instance.option_group(label: '__GROUP__') do |group|
           group.option(value: '__VALUE_1__', text: '__TEXT_1__')
           group.option(value: '__VALUE_2__', text: '__TEXT_2__')
           group.option(value: '__VALUE_3__', text: '__TEXT_3__')
         end
-
-        expect(as_json).to eq(expected_json.merge(option_groups: expected_option_groups))
+        instance.as_json
       end
 
-      context 'with initial option' do
-        let(:expected_initial) do
-          {
-            text: {
-              text: '__TEXT_2__',
-              type: 'plain_text'
-            },
-            value: '__VALUE_2__'
-          }
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json.merge(option_groups: expected_option_groups))
+      end
+    end
+
+    context 'with option_groups and initial option' do
+      subject(:as_json) do
+        instance.option_group(label: '__GROUP__') do |group|
+          group.option(value: '__VALUE_1__', text: '__TEXT_1__')
+          group.option(value: '__VALUE_2__', text: '__TEXT_2__')
+          group.option(value: '__VALUE_3__', text: '__TEXT_3__')
         end
+        instance.initial(value: '__VALUE_2__', text: '__TEXT_2__')
+        instance.as_json
+      end
 
-        it 'correctly serializes' do
-          instance.option_group(label: '__GROUP__') do |group|
-            group.option(value: '__VALUE_1__', text: '__TEXT_1__')
-            group.option(value: '__VALUE_2__', text: '__TEXT_2__')
-            group.option(value: '__VALUE_3__', text: '__TEXT_3__')
-          end
-
-          instance.initial(value: '__VALUE_2__', text: '__TEXT_2__')
-
-          expect(as_json).to eq(expected_json.merge(option_groups: expected_option_groups, initial_option: expected_initial))
-        end
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json.merge(option_groups: expected_option_groups,
+                                                  initial_option: expected_initial))
       end
     end
   end

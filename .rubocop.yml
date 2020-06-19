@@ -4,7 +4,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.5.3
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Style/AsciiComments:

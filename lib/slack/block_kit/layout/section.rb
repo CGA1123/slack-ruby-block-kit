@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative './section/multi_select_elements'
+
 module Slack
   module BlockKit
     module Layout
@@ -8,13 +10,19 @@ module Slack
       # with any of the available block elements.
       #
       # https://api.slack.com/reference/messaging/blocks#section
+      # rubocop:disable Metrics/ClassLength
       class Section
+        # rubocop:enable Metrics/ClassLength
+
+        include Section::MultiSelectElements
         TYPE = 'section'
 
         attr_accessor :fields, :text, :accessory
 
         def initialize(block_id: nil)
           @block_id = block_id
+          @fields = nil
+          @accessory = nil
 
           yield(self) if block_given?
         end

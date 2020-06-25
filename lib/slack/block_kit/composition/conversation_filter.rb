@@ -3,7 +3,7 @@
 module Slack
   module BlockKit
     module Composition
-      # Provides a way to filter the list of optionsin a conversations select menu
+      # Provides a way to filter the list of options in a conversations select menu
       # or conversations multi-select menu.
       #
       # @param [Array] conversation_types - "include" field

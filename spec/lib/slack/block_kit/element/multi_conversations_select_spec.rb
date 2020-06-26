@@ -111,4 +111,135 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
       end
     end
   end
+
+  describe '#filter' do
+    context 'when filter by conversation type' do
+      subject(:as_json) do
+        instance.filter(only: ['im'])
+        instance.as_json
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          filter: {
+            include: ['im']
+          }
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'when filter by multiple conversation type' do
+      subject(:as_json) do
+        instance.filter(only: %w[im public])
+        instance.as_json
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          filter: {
+            include: %w[im public]
+          }
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'when filter external_shared_channels' do
+      subject(:as_json) do
+        instance.filter(exclude_external_shared_channels: true)
+        instance.as_json
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          filter: {
+            exclude_external_shared_channels: true
+          }
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'when filter bot_users' do
+      subject(:as_json) do
+        instance.filter(exclude_bot_users: true)
+        instance.as_json
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          filter: {
+            exclude_bot_users: true
+          }
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'when filter all options' do
+      subject(:as_json) do
+        instance.filter(exclude_bot_users: true,
+                        exclude_external_shared_channels: true,
+                        only: ['im'])
+        instance.as_json
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          filter: {
+            include: ['im'],
+            exclude_external_shared_channels: true,
+            exclude_bot_users: true
+          }
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+  end
 end

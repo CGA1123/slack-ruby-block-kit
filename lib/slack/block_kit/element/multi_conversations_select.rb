@@ -24,6 +24,7 @@ module Slack
           @initial_conversation = initial
           @confirm = nil
           @max_selected_items = max_selected_items
+          @filter = nil
 
           yield(self) if block_given?
         end
@@ -36,6 +37,18 @@ module Slack
           self
         end
 
+        def filter(only: nil,
+                   exclude_external_shared_channels: nil,
+                   exclude_bot_users: nil)
+          @filter = Composition::ConversationFilter.new(
+            only: only,
+            exclude_external_shared_channels: exclude_external_shared_channels,
+            exclude_bot_users: exclude_bot_users
+          )
+
+          self
+        end
+
         def as_json(*)
           {
             type: TYPE,
@@ -43,7 +56,8 @@ module Slack
             action_id: @action_id,
             initial_conversation: @initial_conversation,
             confirm: @confirm&.as_json,
-            max_selected_items: @max_selected_items
+            max_selected_items: @max_selected_items,
+            filter: @filter&.as_json
           }.compact
         end
       end

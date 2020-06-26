@@ -22,6 +22,7 @@ module Slack
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_conversation = initial
+          @filter = nil
 
           yield(self) if block_given?
         end
@@ -34,13 +35,26 @@ module Slack
           self
         end
 
+        def filter(only: nil,
+                   exclude_external_shared_channels: nil,
+                   exclude_bot_users: nil)
+          @filter = Composition::ConversationFilter.new(
+            only: only,
+            exclude_external_shared_channels: exclude_external_shared_channels,
+            exclude_bot_users: exclude_bot_users
+          )
+
+          self
+        end
+
         def as_json(*)
           {
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_conversation: @initial_conversation,
-            confirm: @confirm&.as_json
+            confirm: @confirm&.as_json,
+            filter: @filter&.as_json
           }.compact
         end
       end

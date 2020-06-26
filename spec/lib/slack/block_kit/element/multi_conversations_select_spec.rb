@@ -115,7 +115,7 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
   describe '#filter' do
     context 'when filter by conversation type' do
       subject(:as_json) do
-        instance.filter(conversation_types: ['im'])
+        instance.filter(only: ['im'])
         instance.as_json
       end
 
@@ -140,7 +140,7 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
 
     context 'when filter by multiple conversation type' do
       subject(:as_json) do
-        instance.filter(conversation_types: %w[im public])
+        instance.filter(only: %w[im public])
         instance.as_json
       end
 
@@ -217,7 +217,7 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
       subject(:as_json) do
         instance.filter(exclude_bot_users: true,
                         exclude_external_shared_channels: true,
-                        conversation_types: ['im'])
+                        only: ['im'])
         instance.as_json
       end
 

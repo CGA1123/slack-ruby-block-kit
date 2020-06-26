@@ -37,11 +37,11 @@ module Slack
           self
         end
 
-        def filter(conversation_types: nil,
+        def filter(only: nil,
                    exclude_external_shared_channels: nil,
                    exclude_bot_users: nil)
           @filter = Composition::ConversationFilter.new(
-            conversation_types: conversation_types,
+            only: only,
             exclude_external_shared_channels: exclude_external_shared_channels,
             exclude_bot_users: exclude_bot_users
           )

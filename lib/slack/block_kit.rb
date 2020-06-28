@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative './surfaces'
+
 module Slack
   module BlockKit
     module Composition; end
@@ -12,6 +14,8 @@ module Slack
     Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].sort.each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', 'layout', '*.rb')].sort.each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', '*.rb')].sort.each { |file| require file }
+
+    extend Slack::Surfaces::Message
 
     module_function
 

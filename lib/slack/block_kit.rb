@@ -24,16 +24,27 @@ module Slack
       blocks
     end
 
-    def home(blocks: nil)
-      home_surface = Slack::Surfaces::Home.new(blocks: blocks)
+    def home(blocks: nil,
+             private_metadata: nil, callback_id: nil, external_id: nil)
+      home_surface = Slack::Surfaces::Home.new(blocks: blocks,
+                                               private_metadata: private_metadata,
+                                               callback_id: callback_id,
+                                               external_id: external_id)
 
       yield(home_surface) if block_given?
 
       home_surface
     end
 
-    def modal(blocks: nil)
-      modal_surface = Slack::Surfaces::Modal.new(blocks: blocks)
+    def modal(blocks: nil,
+              private_metadata: nil, callback_id: nil, external_id: nil,
+              clear_on_close: nil, notify_on_close: nil)
+      modal_surface = Slack::Surfaces::Modal.new(blocks: blocks,
+                                                 private_metadata: private_metadata,
+                                                 callback_id: callback_id,
+                                                 external_id: external_id,
+                                                 clear_on_close: clear_on_close,
+                                                 notify_on_close: notify_on_close)
 
       yield(modal_surface) if block_given?
 

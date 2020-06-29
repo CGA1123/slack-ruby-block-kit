@@ -7,7 +7,7 @@ module Slack
     #
     # https://api.slack.com/surfaces#modals
     # https://api.slack.com/reference/surfaces/views
-    module Modal
+    class Modal
       TYPE = 'modal'
 
       def initialize(blocks: nil,

@@ -7,7 +7,7 @@ module Slack
     #
     # https://api.slack.com/surfaces#messages
     # https://api.slack.com/messaging/composing#complex_layouts
-    module Message
+    class Message
       TYPE = 'message'
 
       def initialize(blocks: nil,
@@ -25,7 +25,7 @@ module Slack
           channel: @channel,
           thread_ts: @thread_ts,
           as_user: @as_user,
-          blocks: @block.as_json
+          blocks: @blocks.as_json
         }.compact
       end
     end

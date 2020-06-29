@@ -7,7 +7,7 @@ module Slack
     #
     # https://api.slack.com/surfaces#tabs
     # https://api.slack.com/reference/surfaces/views
-    module Home
+    class Home
       TYPE = 'home'
 
       def initialize(blocks: nil,

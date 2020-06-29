@@ -40,8 +40,12 @@ module Slack
       modal_surface
     end
 
-    def message(blocks: nil)
-      message_surface = Slack::Surfaces::Message.new(blocks: blocks)
+    def message(blocks: nil,
+                channel: nil, thread_ts: nil, as_user: nil)
+      message_surface = Slack::Surfaces::Message.new(blocks: blocks,
+                                                     channel: channel,
+                                                     thread_ts: thread_ts,
+                                                     as_user: as_user)
 
       yield(message_surface) if block_given?
 

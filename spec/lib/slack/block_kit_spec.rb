@@ -21,9 +21,5 @@ RSpec.describe Slack::BlockKit do
     end
   end
 
-  describe '.message' do
-    it 'returns message' do
-      expect(described_class.message).to be
-    end
-  end
+  # describe '.message'
 end

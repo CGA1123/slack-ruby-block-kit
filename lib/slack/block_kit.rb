@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative './surfaces'
-
 module Slack
   module BlockKit
     module Composition; end
@@ -14,8 +12,7 @@ module Slack
     Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].sort.each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', 'layout', '*.rb')].sort.each { |file| require file }
     Dir[File.join(__dir__, 'block_kit', '*.rb')].sort.each { |file| require file }
-
-    extend Slack::Surfaces::Message
+    Dir[File.join(__dir__, 'surfaces', '*.rb')].sort.each { |file| require file }
 
     module_function
 
@@ -25,6 +22,30 @@ module Slack
       yield(blocks) if block_given?
 
       blocks
+    end
+
+    def home(blocks: nil)
+      home_surface = Slack::Surfaces::Home.new(blocks: blocks)
+
+      yield(home_surface) if block_given?
+
+      home_surface
+    end
+
+    def modal(blocks: nil)
+      modal_surface = Slack::Surfaces::Modal.new(blocks: blocks)
+
+      yield(modal_surface) if block_given?
+
+      modal_surface
+    end
+
+    def message(blocks: nil)
+      message_surface = Slack::Surfaces::Message.new(blocks: blocks)
+
+      yield(message_surface) if block_given?
+
+      message_surface
     end
   end
 end

@@ -64,7 +64,7 @@ RSpec.describe Slack::BlockKit do
       expect(home.as_json).to eq(expected_json)
     end
 
-    context 'all options' do
+    context 'with all options' do
       let(:expected_json) do
         {
           type: 'home',
@@ -117,7 +117,16 @@ RSpec.describe Slack::BlockKit do
       expect(modal.as_json).to eq(expected_json)
     end
 
-    context 'all options' do
+    context 'with all options' do
+      subject(:modal) do
+        described_class.modal(title: '__TITLE__',
+                              private_metadata: '__META_DATA__',
+                              callback_id: '__CALLBACK_ID__',
+                              external_id: '__EXTERNAL_ID__',
+                              clear_on_close: true,
+                              notify_on_close: true)
+      end
+
       let(:expected_json) do
         {
           type: 'modal',
@@ -141,12 +150,6 @@ RSpec.describe Slack::BlockKit do
       end
 
       it 'correctly serializes' do
-        modal = described_class.modal(title: '__TITLE__',
-                                      private_metadata: '__META_DATA__',
-                                      callback_id: '__CALLBACK_ID__',
-                                      external_id: '__EXTERNAL_ID__',
-                                      clear_on_close: true,
-                                      notify_on_close: true)
         modal.blocks.image(url: 'https://image.com/image.png', alt_text: '__ALT_TEXT__')
 
         expect(modal.as_json).to eq(expected_json)

@@ -25,7 +25,7 @@ RSpec.describe Slack::Surfaces::Modal do
             {
               alt_text: '__ALT_TEXT__',
               image_url: image_url,
-              type: 'image',
+              type: 'image'
             }
           ]
         }
@@ -122,7 +122,7 @@ RSpec.describe Slack::Surfaces::Modal do
             {
               alt_text: '__ALT_TEXT__',
               image_url: image_url,
-              type: 'image',
+              type: 'image'
             }
           ]
         }
@@ -161,9 +161,9 @@ RSpec.describe Slack::Surfaces::Modal do
             {
               alt_text: '__ALT_TEXT__',
               image_url: image_url,
-              type: 'image',
+              type: 'image'
             }
-          ],
+          ]
         }
       end
 
@@ -200,9 +200,9 @@ RSpec.describe Slack::Surfaces::Modal do
             {
               alt_text: '__ALT_TEXT__',
               image_url: image_url,
-              type: 'image',
+              type: 'image'
             }
-          ],
+          ]
         }
       end
 

@@ -27,12 +27,9 @@ module Slack
         @clear_on_close = clear_on_close
         @notify_on_close = notify_on_close
 
-        @title = if title
-          Slack::BlockKit::Composition::PlainText.new(text: title)
-        end
+        @title = Slack::BlockKit::Composition::PlainText.new(text: title) if title
 
-        @close = nil
-        @submit = nil
+        @close, @submit = nil
       end
 
       attr_reader :blocks

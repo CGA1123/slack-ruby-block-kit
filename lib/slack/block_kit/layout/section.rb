@@ -157,7 +157,7 @@ module Slack
         end
 
         def image(url:, alt_text:)
-          accessorize(Element::Image.new(image_url: url, alt_text: alt_text))
+          accessorise(Element::Image.new(image_url: url, alt_text: alt_text))
         end
 
         def accessorise(element)

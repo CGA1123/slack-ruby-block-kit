@@ -7,11 +7,15 @@ module Slack
     #
     # https://api.slack.com/surfaces#modals
     # https://api.slack.com/reference/surfaces/views
+    #
+    # @param title [String] title is required. Must be set as an initial argument
+    #   or using #title for detail setup
+    #
     class Modal
       TYPE = 'modal'
 
-      def initialize(blocks: nil,
-                     title: nil,
+      def initialize(title: nil,
+                     blocks: nil,
                      private_metadata: nil, callback_id: nil, external_id: nil,
                      clear_on_close: nil, notify_on_close: nil)
         @blocks = blocks || Slack::BlockKit::Blocks.new

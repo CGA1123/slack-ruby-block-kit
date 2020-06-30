@@ -11,6 +11,7 @@ module Slack
       TYPE = 'modal'
 
       def initialize(blocks: nil,
+                     title: nil,
                      private_metadata: nil, callback_id: nil, external_id: nil,
                      clear_on_close: nil, notify_on_close: nil)
         @blocks = blocks || Slack::BlockKit::Blocks.new
@@ -22,7 +23,10 @@ module Slack
         @clear_on_close = clear_on_close
         @notify_on_close = notify_on_close
 
-        @title = nil
+        @title = if title
+          Slack::BlockKit::Composition::PlainText.new(text: title)
+        end
+
         @close = nil
         @submit = nil
       end

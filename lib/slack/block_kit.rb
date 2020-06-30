@@ -36,10 +36,12 @@ module Slack
       home_surface
     end
 
-    def modal(blocks: nil,
+    def modal(title: nil,
+              blocks: nil,
               private_metadata: nil, callback_id: nil, external_id: nil,
               clear_on_close: nil, notify_on_close: nil)
-      modal_surface = Slack::Surfaces::Modal.new(blocks: blocks,
+      modal_surface = Slack::Surfaces::Modal.new(title: title,
+                                                 blocks: blocks,
                                                  private_metadata: private_metadata,
                                                  callback_id: callback_id,
                                                  external_id: external_id,

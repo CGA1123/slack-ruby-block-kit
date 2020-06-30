@@ -119,4 +119,20 @@ RSpec.describe Slack::BlockKit::Layout::Section do
       expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
     end
   end
+
+  describe '#image' do
+    let(:expected_accessory_json) do
+      {
+        alt_text: '__ALT_TEXT__',
+        image_url: '__URL__',
+        type: 'image'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.image(url: '__URL__', alt_text: '__ALT_TEXT__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
 end

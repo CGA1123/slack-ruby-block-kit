@@ -14,10 +14,15 @@ module Slack
     class Modal
       TYPE = 'modal'
 
-      def initialize(title: nil,
-                     blocks: nil,
-                     private_metadata: nil, callback_id: nil, external_id: nil,
-                     clear_on_close: nil, notify_on_close: nil)
+      def initialize(
+        title: nil,
+        blocks: nil,
+        private_metadata: nil,
+        callback_id: nil,
+        external_id: nil,
+        clear_on_close: nil,
+        notify_on_close: nil
+      )
         @blocks = blocks || Slack::BlockKit::Blocks.new
 
         @private_metadata = private_metadata
@@ -52,9 +57,7 @@ module Slack
         self
       end
 
-      # rubocop:disable Metrics/MethodLength
-      def as_json(*)
-        # rubocop:enable Metrics/MethodLength
+      def as_json(*) # rubocop:disable Metrics/MethodLength
         {
           type: TYPE,
           blocks: @blocks.as_json,

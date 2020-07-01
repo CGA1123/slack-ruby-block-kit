@@ -13,10 +13,7 @@ module Slack
           @image_url = url
           @alt_text = alt_text
           @block_id = block_id
-
-          return unless title
-
-          @title = Composition::PlainText.new(
+          @title = title && Composition::PlainText.new(
             text: title,
             emoji: emoji
           )

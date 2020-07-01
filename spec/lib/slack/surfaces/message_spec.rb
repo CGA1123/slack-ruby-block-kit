@@ -56,6 +56,7 @@ RSpec.describe Slack::Surfaces::Message do
     context 'with other arguments' do
       subject(:instance) do
         described_class.new(channel: '__CHANNEL__',
+                            text: '__TEXT__',
                             thread_ts: '__THREAD_TS__',
                             as_user: true)
       end
@@ -69,6 +70,7 @@ RSpec.describe Slack::Surfaces::Message do
               type: 'image'
             }
           ],
+          text: '__TEXT__',
           channel: '__CHANNEL__',
           thread_ts: '__THREAD_TS__',
           as_user: true

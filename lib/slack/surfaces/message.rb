@@ -10,12 +10,12 @@ module Slack
     class Message
       TYPE = 'message'
 
-      def initialize(blocks: nil,
-                     channel: nil, thread_ts: nil, as_user: nil)
+      def initialize(blocks: nil, text: nil, channel: nil, thread_ts: nil, as_user: nil)
         @blocks = blocks || Slack::BlockKit::Blocks.new
         @channel = channel
         @thread_ts = thread_ts
         @as_user = as_user
+        @text = text
       end
 
       attr_reader :blocks
@@ -25,6 +25,7 @@ module Slack
           channel: @channel,
           thread_ts: @thread_ts,
           as_user: @as_user,
+          text: @text,
           blocks: @blocks.as_json
         }.compact
       end

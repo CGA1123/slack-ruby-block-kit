@@ -65,3 +65,6 @@ Style/RedundantRegexpCharacterClass:
 
 Style/RedundantRegexpEscape:
   Enabled: true
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

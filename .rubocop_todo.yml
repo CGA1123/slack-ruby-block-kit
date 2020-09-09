@@ -30,6 +30,7 @@ RSpec/ExampleLength:
     - 'spec/lib/slack/block_kit/composition/confirmation_dialog_spec.rb'
     - 'spec/lib/slack/block_kit/composition/option_group_spec.rb'
     - 'spec/lib/slack/block_kit/composition/option_spec.rb'
+    - 'spec/lib/slack/block_kit/element/checkboxes_spec.rb'
 
 # Offense count: 4
 Style/Documentation:

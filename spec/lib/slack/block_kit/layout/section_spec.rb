@@ -120,6 +120,32 @@ RSpec.describe Slack::BlockKit::Layout::Section do
     end
   end
 
+  describe '#checkboxes' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        options: [
+          {
+            value: '__VALUE__',
+            text: {
+              type: 'plain_text',
+              text: '__TEXT__'
+            }
+          }
+        ],
+        type: 'checkboxes'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.checkboxes(action_id: '__ACTION_ID__') do |checkboxes|
+        checkboxes.option(value: '__VALUE__', text: '__TEXT__')
+      end
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
   describe '#image' do
     let(:expected_accessory_json) do
       {

@@ -156,6 +156,16 @@ module Slack
           accessorise(element)
         end
 
+        def checkboxes(action_id:)
+          element = Element::Checkboxes.new(
+            action_id: action_id
+          )
+
+          yield(element) if block_given?
+
+          accessorise(element)
+        end
+
         def image(url:, alt_text:)
           accessorise(Element::Image.new(image_url: url, alt_text: alt_text))
         end

@@ -47,14 +47,16 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
     ]
   end
 
-  let(:expected_initial) do
-    {
-      text: {
-        text: '__TEXT_2__',
-        type: 'plain_text'
-      },
-      value: '__VALUE_2__'
-    }
+  let(:expected_initial_options) do
+    [
+      {
+        text: {
+          text: '__TEXT_2__',
+          type: 'plain_text'
+        },
+        value: '__VALUE_2__'
+      }
+    ]
   end
 
   let(:expected_options) do
@@ -205,7 +207,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
       it 'correctly serializes' do
         expect(as_json).to eq(expected_json.merge(options: expected_options,
-                                                  initial_option: expected_initial))
+                                                  initial_options: expected_initial_options))
       end
     end
 
@@ -237,7 +239,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
       it 'correctly serializes' do
         expect(as_json).to eq(expected_json.merge(option_groups: expected_option_groups,
-                                                  initial_option: expected_initial))
+                                                  initial_options: expected_initial_options))
       end
     end
   end

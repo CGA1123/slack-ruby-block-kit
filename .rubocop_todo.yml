@@ -17,6 +17,12 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Max: 117
 
+# Offense count: 1
+# Configuration parameters: IgnoredMethods.
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'lib/slack/block_kit/element/multi_static_select.rb'
+
 # Offense count: 5
 # Configuration parameters: Max.
 RSpec/ExampleLength:

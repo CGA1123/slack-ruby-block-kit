@@ -20,7 +20,7 @@ module Slack
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
-          @initial_channel = initial
+          @initial_channels = initial
           @confirm = nil
           @max_selected_items = max_selected_items
 
@@ -40,7 +40,7 @@ module Slack
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
-            initial_channel: @initial_channel,
+            initial_channels: @initial_channels,
             confirm: @confirm&.as_json,
             max_selected_items: @max_selected_items
           }.compact

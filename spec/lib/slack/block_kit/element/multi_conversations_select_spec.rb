@@ -61,6 +61,32 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
       end
     end
 
+    context 'with initial_conversations' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          initial: %w[conv1 conv2]
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          initial_conversations: %w[conv1 conv2]
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
     context 'with max_selected_items' do
       let(:params) do
         {

@@ -61,6 +61,43 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
       end
     end
 
+    context 'with initial_options' do
+      let(:initial_option) do
+        Slack::BlockKit::Composition::Option.new(value: 'value-0', text: '*this is plain_text text*')
+      end
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          initial: [initial_option]
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_external_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          initial_options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: '*this is plain_text text*'
+              },
+              value: 'value-0'
+            }
+          ]
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
     context 'with max_selected_items' do
       let(:params) do
         {

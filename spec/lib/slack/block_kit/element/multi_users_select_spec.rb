@@ -61,6 +61,31 @@ RSpec.describe Slack::BlockKit::Element::MultiUsersSelect do
       end
     end
 
+    context 'with initial users' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          initial: %w[user1 user2]
+        }
+      end
+      let(:expected_json) do
+        {
+          type: 'multi_users_select',
+          placeholder: {
+            'type': 'plain_text',
+            'text': placeholder_text
+          },
+          action_id: action_id,
+          initial_users: %w[user1 user2]
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
     context 'with max_selected_items' do
       let(:params) do
         {

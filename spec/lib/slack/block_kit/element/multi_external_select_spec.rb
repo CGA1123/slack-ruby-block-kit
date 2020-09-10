@@ -62,7 +62,9 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
     end
 
     context 'with initial_options' do
-      let(:initial_option) { Slack::BlockKit::Composition::Option.new(value: 'value-0', text: '*this is plain_text text*') }
+      let(:initial_option) do
+        Slack::BlockKit::Composition::Option.new(value: 'value-0', text: '*this is plain_text text*')
+      end
       let(:params) do
         {
           placeholder: placeholder_text,

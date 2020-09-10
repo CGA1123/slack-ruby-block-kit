@@ -66,7 +66,7 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           placeholder: placeholder_text,
           action_id: action_id,
-          initial: ['conv1', 'conv2']
+          initial: %w[conv1 conv2]
         }
       end
 
@@ -78,7 +78,7 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
             'text': placeholder_text
           },
           action_id: action_id,
-          initial_conversations: ['conv1', 'conv2']
+          initial_conversations: %w[conv1 conv2]
         }
       end
 

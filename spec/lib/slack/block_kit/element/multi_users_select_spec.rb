@@ -66,7 +66,7 @@ RSpec.describe Slack::BlockKit::Element::MultiUsersSelect do
         {
           placeholder: placeholder_text,
           action_id: action_id,
-          initial: ['user1', 'user2']
+          initial: %w[user1 user2]
         }
       end
       let(:expected_json) do
@@ -77,7 +77,7 @@ RSpec.describe Slack::BlockKit::Element::MultiUsersSelect do
             'text': placeholder_text
           },
           action_id: action_id,
-          initial_users: ['user1', 'user2']
+          initial_users: %w[user1 user2]
         }
       end
 

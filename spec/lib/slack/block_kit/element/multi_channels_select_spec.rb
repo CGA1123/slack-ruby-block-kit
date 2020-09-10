@@ -66,7 +66,7 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
         {
           placeholder: placeholder_text,
           action_id: action_id,
-          initial: ['channel-1', 'channel-2']
+          initial: %w[channel-1 channel-2]
         }
       end
       let(:expected_json) do
@@ -77,7 +77,7 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
             'text': placeholder_text
           },
           action_id: action_id,
-          initial_channels: ['channel-1', 'channel-2']
+          initial_channels: %w[channel-1 channel-2]
         }
       end
 

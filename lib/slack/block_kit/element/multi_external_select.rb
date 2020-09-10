@@ -28,7 +28,7 @@ module Slack
 
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
-          @initial_option = initial
+          @initial_options = initial
           @min_query_length = min_query_length
           @confirm = nil
           @max_selected_items = max_selected_items
@@ -49,7 +49,7 @@ module Slack
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
-            initial_option: @initial_option&.as_json,
+            initial_options: @initial_options&.map(&:as_json),
             min_query_length: @min_query_length,
             confirm: @confirm&.as_json,
             max_selected_items: @max_selected_items

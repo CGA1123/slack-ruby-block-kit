@@ -14,9 +14,9 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#conversation-select
       class ConversationsSelect
-        TYPE = 'conversations_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'conversations_select'
 
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
@@ -25,14 +25,6 @@ module Slack
           @filter = nil
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def filter(only: nil,
@@ -53,7 +45,7 @@ module Slack
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_conversation: @initial_conversation,
-            confirm: @confirm&.as_json,
+            confirm: confirm&.as_json,
             filter: @filter&.as_json
           }.compact
         end

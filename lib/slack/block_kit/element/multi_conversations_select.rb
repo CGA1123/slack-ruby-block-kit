@@ -14,27 +14,18 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/block-elements#conversation_multi_select
       class MultiConversationsSelect
-        TYPE = 'multi_conversations_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'multi_conversations_select'
 
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_conversations = initial
-          @confirm = nil
           @max_selected_items = max_selected_items
           @filter = nil
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def filter(only: nil,
@@ -55,7 +46,7 @@ module Slack
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_conversations: @initial_conversations,
-            confirm: @confirm&.as_json,
+            confirm: confirm&.as_json,
             max_selected_items: @max_selected_items,
             filter: @filter&.as_json
           }.compact

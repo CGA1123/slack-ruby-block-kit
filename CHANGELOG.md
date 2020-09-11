@@ -10,8 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Changed
-
-- N/A
+- Internal refactoring of `#confirmation_dialog` methods into a shared `Confirmable` module. (#48)
 
 ### Deprecated
 - N/A

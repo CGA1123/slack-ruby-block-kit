@@ -9,6 +9,22 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/composition-objects#confirm
       class ConfirmationDialog
+        # {Confirmable} contains the common behaviour for configuring a
+        # {ConfirmationDialog}
+        module Confirmable
+          def self.included(klass)
+            klass.attr_accessor :confirm
+          end
+
+          def confirmation_dialog
+            self.confirm = Composition::ConfirmationDialog.new
+
+            yield(confirm) if block_given?
+
+            self
+          end
+        end
+
         def initialize
           @title, @confirm, @text, @style = nil
         end

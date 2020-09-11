@@ -15,14 +15,15 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#overflow
       class OverflowMenu
+        include Composition::ConfirmationDialog::Confirmable
+
         TYPE = 'overflow'
 
-        attr_accessor :options, :confirm
+        attr_accessor :options
 
         def initialize(action_id:)
           @action_id = action_id
           @options = []
-          @confirm = nil
 
           yield(self) if block_given?
         end
@@ -38,20 +39,12 @@ module Slack
           self
         end
 
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
-        end
-
         def as_json(*)
           {
             type: TYPE,
             action_id: @action_id,
             options: @options.map(&:as_json),
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

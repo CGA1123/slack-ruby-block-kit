@@ -19,9 +19,9 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/block-elements#external_multi_select
       class MultiExternalSelect
-        TYPE = 'multi_external_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'multi_external_select'
 
         def initialize(placeholder:, action_id:,
                        initial: nil, min_query_length: nil, emoji: nil, max_selected_items: nil)
@@ -30,18 +30,9 @@ module Slack
           @action_id = action_id
           @initial_options = initial
           @min_query_length = min_query_length
-          @confirm = nil
           @max_selected_items = max_selected_items
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def as_json(*)
@@ -51,7 +42,7 @@ module Slack
             action_id: @action_id,
             initial_options: @initial_options&.map(&:as_json),
             min_query_length: @min_query_length,
-            confirm: @confirm&.as_json,
+            confirm: confirm&.as_json,
             max_selected_items: @max_selected_items
           }.compact
         end

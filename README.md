@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/CGA1123/slack-ruby-block-kit/tree/master.svg?style=svg)](https://circleci.com/gh/CGA1123/slack-ruby-block-kit/tree/master)
 [![Gem Version](https://badge.fury.io/rb/slack-ruby-block-kit.svg)](https://badge.fury.io/rb/slack-ruby-block-kit)
 [![codecov](https://codecov.io/gh/CGA1123/slack-ruby-block-kit/branch/master/graph/badge.svg)](https://codecov.io/gh/CGA1123/slack-ruby-block-kit)
 

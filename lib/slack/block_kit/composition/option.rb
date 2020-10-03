@@ -8,11 +8,16 @@ module Slack
       # https://api.slack.com/reference/messaging/composition-objects#option
       # https://api.slack.com/reference/messaging/block-elements#select
       class Option
-        def initialize(value:, text:, emoji: nil, description: nil, url: nil)
+        def initialize(value:, text:, initial: false, emoji: nil, description: nil, url: nil)
           @text = PlainText.new(text: text, emoji: emoji)
           @value = value
           @description = description && PlainText.new(text: description, emoji: emoji)
           @url = url
+          @initial = initial
+        end
+
+        def initial?
+          !!@initial
         end
 
         def as_json(*)

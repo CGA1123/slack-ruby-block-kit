@@ -15,26 +15,16 @@ module Slack
         def initialize(action_id:)
           @action_id = action_id
           @options = []
-          @initial_options = []
 
           yield(self) if block_given?
         end
 
-        def option(value:, text:, description: nil)
+        def option(value:, text:, initial: false, description: nil)
           @options << Composition::Option.new(
             value: value,
             text: text,
-            description: description
-          )
-
-          self
-        end
-
-        def initial(value:, text:, description: nil)
-          @initial_options << Composition::Option.new(
-            value: value,
-            text: text,
-            description: description
+            description: description,
+            initial: initial
           )
 
           self
@@ -45,9 +35,17 @@ module Slack
             type: TYPE,
             action_id: @action_id,
             options: @options.map(&:as_json),
-            initial_options: @initial_options.any? ? @initial_options.map(&:as_json) : nil,
+            initial_options: initial_options&.map(&:as_json),
             confirm: confirm&.as_json
           }.compact
+        end
+
+        private
+
+        def initial_options
+          initial = @options.select(&:initial?)
+
+          initial.empty? ? nil : initial
         end
       end
     end

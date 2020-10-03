@@ -17,7 +17,7 @@ module Slack
 
         TYPE = 'static_select'
 
-        attr_accessor :options, :option_groups, :initial_option
+        attr_accessor :options, :option_groups
 
         def initialize(placeholder:, action_id:, emoji: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
@@ -26,12 +26,13 @@ module Slack
           yield(self) if block_given?
         end
 
-        def option(value:, text:, emoji: nil)
+        def option(value:, text:, initial: false, emoji: nil)
           @options ||= []
           @options << Composition::Option.new(
             value: value,
             text: text,
-            emoji: emoji
+            emoji: emoji,
+            initial: initial
           )
 
           self
@@ -48,26 +49,26 @@ module Slack
           self
         end
 
-        def initial(value:, text:, emoji: nil)
-          @initial_option = Composition::Option.new(
-            value: value,
-            text: text,
-            emoji: emoji
-          )
-
-          self
-        end
-
         def as_json(*)
           {
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
-            options: @options&.map(&:as_json),
-            option_groups: @option_groups&.map(&:as_json),
-            initial_option: @initial_option&.as_json,
+            options: options&.map(&:as_json),
+            option_groups: option_groups&.map(&:as_json),
+            initial_option: initial_option&.as_json,
             confirm: confirm&.as_json
           }.compact
+        end
+
+        private
+
+        def initial_option
+          opts = options || option_groups&.flat_map(&:options)
+
+          return unless opts
+
+          opts.find(&:initial?)
         end
       end
     end

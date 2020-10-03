@@ -41,8 +41,8 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
     end
 
     it 'correctly serializes' do
-      instance.option(option)
-      instance.option(option_description)
+      instance.option(**option)
+      instance.option(**option_description)
 
       expect(as_json).to eq(expected_json)
     end
@@ -103,12 +103,12 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
       end
 
       it 'correctly serializes' do
-        instance.option(option)
-        instance.option(option_description)
-        instance.option(another_option)
+        instance.option(**option)
+        instance.option(**option_description)
+        instance.option(**another_option)
 
-        instance.initial(option)
-        instance.initial(option_description)
+        instance.initial(**option)
+        instance.initial(**option_description)
 
         expect(as_json).to eq(expected_json)
       end
@@ -150,7 +150,7 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
       end
 
       it 'correctly serializes' do
-        instance.option(option)
+        instance.option(**option)
         instance.confirmation_dialog do |confirm|
           confirm.title(text: '__CONFIRM_TITTLE__')
           confirm.plain_text(text: '__CONFIRM_TEXT__')

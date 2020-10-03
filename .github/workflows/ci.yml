@@ -15,10 +15,6 @@ jobs:
       matrix:
         ruby: [ '2.6', '2.7' ]
         experimental: [ false ]
-        include:
-          - ruby: 'head'
-            experimental: true
-
     name: Ruby ${{ matrix.ruby }}
     steps:
       - uses: actions/checkout@v2

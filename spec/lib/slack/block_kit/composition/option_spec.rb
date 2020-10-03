@@ -70,5 +70,27 @@ RSpec.describe Slack::BlockKit::Composition::Option do
         expect(instance.as_json).to eq(expected_hash)
       end
     end
+
+    describe '#initial?' do
+      subject(:initial?) { instance.initial? }
+
+      context 'when default' do
+        let(:instance) { described_class.new(text: 'some text', value: 'a value') }
+
+        it { is_expected.to be false }
+      end
+
+      context 'when initial: true' do
+        let(:instance) do
+          described_class.new(
+            text: 'some text',
+            value: 'a value',
+            initial: true
+          )
+        end
+
+        it { is_expected.to be true }
+      end
+    end
   end
 end

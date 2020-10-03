@@ -11,10 +11,11 @@ module Slack
 
         TYPE = 'radio_buttons'
 
-        attr_accessor :options, :initial_option
+        attr_accessor :options
 
         def initialize(action_id:)
           @action_id = action_id
+          @options = []
 
           yield(self) if block_given?
         end
@@ -22,13 +23,11 @@ module Slack
         def option(value:, text:, initial: false)
           option = Composition::Option.new(
             value: value,
-            text: text
+            text: text,
+            initial: initial
           )
 
-          @options ||= []
           @options << option
-
-          @initial_option = option if initial
 
           self
         end
@@ -37,10 +36,16 @@ module Slack
           {
             type: TYPE,
             action_id: @action_id,
-            options: @options&.map(&:as_json),
-            initial_option: @initial_option&.as_json,
+            options: @options.map(&:as_json),
+            initial_option: initial_option&.as_json,
             confirm: confirm&.as_json
           }.compact
+        end
+
+        private
+
+        def initial_option
+          @options&.find(&:initial?)
         end
       end
     end

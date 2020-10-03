@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
+RSpec.describe Slack::BlockKit::Element::StaticSelect do
   let(:instance) { described_class.new(**params) }
   let(:placeholder_text) { 'some text' }
   let(:action_id) { 'my-action' }
@@ -47,16 +47,14 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
     ]
   end
 
-  let(:expected_initial_options) do
-    [
-      {
-        text: {
-          text: '__TEXT_2__',
-          type: 'plain_text'
-        },
-        value: '__VALUE_2__'
-      }
-    ]
+  let(:expected_initial_option) do
+    {
+      text: {
+        text: '__TEXT_2__',
+        type: 'plain_text'
+      },
+      value: '__VALUE_2__'
+    }
   end
 
   let(:expected_options) do
@@ -90,7 +88,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
     let(:expected_json) do
       {
-        type: 'multi_static_select',
+        type: 'static_select',
         placeholder: {
           'type': 'plain_text',
           'text': placeholder_text
@@ -112,7 +110,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
       let(:expected_json) do
         {
-          type: 'multi_static_select',
+          type: 'static_select',
           placeholder: {
             'type': 'plain_text',
             'text': placeholder_text
@@ -136,45 +134,6 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
               type: 'plain_text'
             }
           }
-        }
-      end
-
-      it 'correctly serializes' do
-        expect(as_json).to eq(expected_json)
-      end
-    end
-
-    context 'with max_selected_items' do
-      let(:params) do
-        {
-          placeholder: placeholder_text,
-          action_id: action_id,
-          max_selected_items: 10
-        }
-      end
-
-      let(:expected_json) do
-        {
-          type: 'multi_static_select',
-          placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
-          },
-          action_id: action_id,
-          max_selected_items: 10
-        }
-      end
-
-      it 'correctly serializes' do
-        expect(as_json).to eq(expected_json)
-      end
-    end
-
-    context 'without max_selected_items' do
-      let(:params) do
-        {
-          placeholder: placeholder_text,
-          action_id: action_id
         }
       end
 
@@ -209,10 +168,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
       it 'correctly serializes' do
         expect(as_json).to eq(
-          expected_json.merge(
-            options: expected_options,
-            initial_options: expected_initial_options
-          )
+          expected_json.merge(options: expected_options, initial_option: expected_initial_option)
         )
       end
     end
@@ -247,10 +203,7 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
 
       it 'correctly serializes' do
         expect(as_json).to eq(
-          expected_json.merge(
-            option_groups: expected_option_groups,
-            initial_options: expected_initial_options
-          )
+          expected_json.merge(option_groups: expected_option_groups, initial_option: expected_initial_option)
         )
       end
     end

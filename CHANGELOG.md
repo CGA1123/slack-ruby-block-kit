@@ -16,13 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Removed
-- N/A
+- `Slack::BlockKit::Element::Checkboxes#initial`, use the `initial:` keyword on `#option`
+- `Slack::BlockKit::Element::MultiStaticSelect#initial`, use the `initial:` keyword on `#option`
+- `Slack::BlockKit::Element::StaticSelect#initial`, use the `initial:` keyword on `#option`
+
 
 ### Fixed
 - N/A
 
 ### Security
 - N/A
+
+
+---
 
 
 ## [0.11.0] - 2020-10-03
@@ -37,6 +43,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ruby2.7 kwarg deprecation warnings
 
 
+---
+
+
 ## [0.10.0] - 2020-09-11
 
 ### Added
@@ -45,6 +54,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
+
+---
 
 See [releases] for previous changes.
 

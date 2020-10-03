@@ -29,6 +29,13 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
         .to change { instance.options.count }.from(0).to(1)
     end
 
+    it 'allows setting options as initial' do
+      instance = described_class.new(label: 'hello')
+      instance.option(text: 'option', value: 'o', initial: true)
+
+      expect(instance.options.first).to be_initial
+    end
+
     it 'appends a Slack::BlockKit::Composition::Option object' do
       instance = described_class.new(label: 'hello')
       expected = Slack::BlockKit::Composition::Option.new(text: 'option', value: 'o')

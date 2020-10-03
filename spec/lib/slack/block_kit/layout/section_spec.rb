@@ -146,6 +146,32 @@ RSpec.describe Slack::BlockKit::Layout::Section do
     end
   end
 
+  describe '#radio_buttons' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        options: [
+          {
+            value: '__VALUE__',
+            text: {
+              type: 'plain_text',
+              text: '__TEXT__'
+            }
+          }
+        ],
+        type: 'radio_buttons'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.radio_buttons(action_id: '__ACTION_ID__') do |radio_buttons|
+        radio_buttons.option(value: '__VALUE__', text: '__TEXT__')
+      end
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
   describe '#image' do
     let(:expected_accessory_json) do
       {

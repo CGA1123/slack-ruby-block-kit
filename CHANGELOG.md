@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- `Slack::BlockKit::Layout::Header` (#57)
 
 ### Changed
 - N/A

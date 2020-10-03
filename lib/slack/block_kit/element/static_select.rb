@@ -13,23 +13,17 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#static-select
       class StaticSelect
+        include Composition::ConfirmationDialog::Confirmable
+
         TYPE = 'static_select'
 
-        attr_accessor :confirm, :options, :option_groups, :initial_option
+        attr_accessor :options, :option_groups, :initial_option
 
         def initialize(placeholder:, action_id:, emoji: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def option(value:, text:, emoji: nil)
@@ -72,7 +66,7 @@ module Slack
             options: @options&.map(&:as_json),
             option_groups: @option_groups&.map(&:as_json),
             initial_option: @initial_option&.as_json,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

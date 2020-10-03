@@ -9,9 +9,9 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#button
       class Button
-        TYPE = 'button'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'button'
 
         def initialize(text:, action_id:, style: nil, emoji: nil, url: nil, value: nil)
           @text = Composition::PlainText.new(text: text, emoji: emoji)
@@ -23,14 +23,6 @@ module Slack
           yield(self) if block_given?
         end
 
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          @confirm
-        end
-
         def as_json(*)
           {
             type: TYPE,
@@ -39,7 +31,7 @@ module Slack
             url: @url,
             value: @value,
             style: @style,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

@@ -10,6 +10,8 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#datepicker
       class DatePicker
+        include Composition::ConfirmationDialog::Confirmable
+
         TYPE = 'datepicker'
 
         def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
@@ -25,21 +27,13 @@ module Slack
           yield(self) if block_given?
         end
 
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
-        end
-
         def as_json(*)
           {
             type: TYPE,
             action_id: @action_id,
             placeholder: @placeholder&.as_json,
             initial_date: @initial_date,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

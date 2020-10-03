@@ -13,9 +13,9 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#channel-select
       class ChannelsSelect
-        TYPE = 'channels_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'channels_select'
 
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
@@ -25,21 +25,13 @@ module Slack
           yield(self) if block_given?
         end
 
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
-        end
-
         def as_json(*)
           {
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_channel: @initial_channel,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

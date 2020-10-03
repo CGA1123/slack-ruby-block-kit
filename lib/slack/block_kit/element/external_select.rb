@@ -19,26 +19,17 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#external-select
       class ExternalSelect
-        TYPE = 'external_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'external_select'
 
         def initialize(placeholder:, action_id:, initial: nil, min_query_length: nil, emoji: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_option = initial
           @min_query_length = min_query_length
-          @confirm = nil
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def as_json(*)
@@ -48,7 +39,7 @@ module Slack
             action_id: @action_id,
             initial_option: @initial_option&.as_json,
             min_query_length: @min_query_length,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

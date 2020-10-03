@@ -8,15 +8,14 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#checkboxes
       class Checkboxes
-        TYPE = 'checkboxes'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'checkboxes'
 
         def initialize(action_id:)
           @action_id = action_id
           @options = []
           @initial_options = []
-          @confirm = nil
 
           yield(self) if block_given?
         end
@@ -41,21 +40,13 @@ module Slack
           self
         end
 
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          @confirm
-        end
-
         def as_json(*)
           {
             type: TYPE,
             action_id: @action_id,
             options: @options.map(&:as_json),
             initial_options: @initial_options.any? ? @initial_options.map(&:as_json) : nil,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

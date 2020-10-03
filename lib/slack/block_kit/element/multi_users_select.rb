@@ -13,26 +13,17 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/block-elements#users_multi_select
       class MultiUsersSelect
-        TYPE = 'multi_users_select'
+        include Composition::ConfirmationDialog::Confirmable
 
-        attr_accessor :confirm
+        TYPE = 'multi_users_select'
 
         def initialize(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_users = initial
-          @confirm = nil
           @max_selected_items = max_selected_items
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def as_json(*)
@@ -41,7 +32,7 @@ module Slack
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_users: @initial_users,
-            confirm: @confirm&.as_json,
+            confirm: confirm&.as_json,
             max_selected_items: @max_selected_items
           }.compact
         end

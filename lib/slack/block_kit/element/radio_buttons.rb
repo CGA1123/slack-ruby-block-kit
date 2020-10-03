@@ -7,22 +7,16 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/block-elements#radio
       class RadioButtons
+        include Composition::ConfirmationDialog::Confirmable
+
         TYPE = 'radio_buttons'
 
-        attr_accessor :options, :initial_option, :confirm
+        attr_accessor :options, :initial_option
 
         def initialize(action_id:)
           @action_id = action_id
 
           yield(self) if block_given?
-        end
-
-        def confirmation_dialog
-          @confirm = Composition::ConfirmationDialog.new
-
-          yield(@confirm) if block_given?
-
-          self
         end
 
         def option(value:, text:, initial: false)
@@ -45,7 +39,7 @@ module Slack
             action_id: @action_id,
             options: @options&.map(&:as_json),
             initial_option: @initial_option&.as_json,
-            confirm: @confirm&.as_json
+            confirm: confirm&.as_json
           }.compact
         end
       end

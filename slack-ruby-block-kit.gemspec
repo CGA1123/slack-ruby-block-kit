@@ -2,7 +2,7 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack-ruby-block-kit'
+require 'slack/block_kit/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'slack-ruby-block-kit'

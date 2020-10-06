@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `Slack::BlockKit::Layout::Header` (#57)
+- N/A
 
 ### Changed
 - N/A
@@ -16,16 +16,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Removed
-- `Slack::BlockKit::Element::Checkboxes#initial`, use the `initial:` keyword on `#option`
-- `Slack::BlockKit::Element::MultiStaticSelect#initial`, use the `initial:` keyword on `#option`
-- `Slack::BlockKit::Element::StaticSelect#initial`, use the `initial:` keyword on `#option`
-
+- N/A
 
 ### Fixed
 - N/A
 
 ### Security
 - N/A
+
+
+---
+
+
+## [0.12.0] - 2020-10-06
+
+### Added
+- `Slack::BlockKit::Layout::Header` (#57)
+
+### Removed
+- `Slack::BlockKit::Element::Checkboxes#initial`, use the `initial:` keyword on `#option`
+- `Slack::BlockKit::Element::MultiStaticSelect#initial`, use the `initial:` keyword on `#option`
+- `Slack::BlockKit::Element::StaticSelect#initial`, use the `initial:` keyword on `#option`
 
 
 ---
@@ -60,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 See [releases] for previous changes.
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.12.0...HEAD
+[0.11.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.9.0...v0.10.0
 

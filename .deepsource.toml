@@ -1,0 +1,15 @@
+version = 1
+
+test_patterns = ["spec/**/*_spec.rb"]
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+[[analyzers]]
+name = "ruby"
+enabled = true
+
+[[transformers]]
+name = "rubocop"
+enabled = true

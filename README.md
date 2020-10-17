@@ -1,5 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/slack-ruby-block-kit.svg)](https://badge.fury.io/rb/slack-ruby-block-kit)
 [![codecov](https://codecov.io/gh/CGA1123/slack-ruby-block-kit/branch/master/graph/badge.svg)](https://codecov.io/gh/CGA1123/slack-ruby-block-kit)
+[![DeepSource](https://deepsource.io/gh/CGA1123/slack-ruby-block-kit.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/CGA1123/slack-ruby-block-kit/?ref=repository-badge)
+[![DeepSource](https://deepsource.io/gh/CGA1123/slack-ruby-block-kit.svg/?label=resolved+issues&show_trend=true)](https://deepsource.io/gh/CGA1123/slack-ruby-block-kit/?ref=repository-badge)
 
 # Slack::BlockKit
 

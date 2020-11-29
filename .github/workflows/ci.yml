@@ -29,6 +29,6 @@ jobs:
       - run: bundle install
       - run: bundle exec rubocop --auto-correct --fail-level A
       - uses: bissy-io/autolint@v0.0.3
-        if: github.event_name == 'pull_request'
+        if: ${{ github.event_name == 'pull_request' && always() }}
       - run: bundle exec rspec --format progress
       - run: ./bin/deepsource report --analyzer test-coverage --key ruby --value-file ./coverage/.resultset.json

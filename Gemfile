@@ -4,5 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'codecov', require: false
-gem 'simplecov', require: false
+if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3')
+  gem 'codecov', require: false
+  gem 'simplecov', require: false
+end

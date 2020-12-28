@@ -3,7 +3,9 @@
 module Slack
   module BlockKit
     module Composition; end
+
     module Element; end
+
     module Layout; end
 
     Dir[File.join(__dir__, 'block_kit', 'composition', '*.rb')].sort.each { |file| require file }

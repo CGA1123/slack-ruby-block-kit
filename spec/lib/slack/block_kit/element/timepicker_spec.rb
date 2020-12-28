@@ -38,7 +38,7 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
   end
 
   describe '#as_json' do
-    context 'by default' do
+    context 'when minimal use case' do
       it 'encodes type and action_id' do
         expect(instance.as_json).to eq(
           type: type,
@@ -48,41 +48,52 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
     end
 
     context 'with a placeholder' do
+      let(:expected_json) do
+        {
+          type: type,
+          action_id: action_id,
+          placeholder: placeholder_json
+        }
+      end
 
       it 'encodes the placeholder object' do
         instance.placeholder(text: placeholder)
 
-        expect(instance.as_json).to eq(
-          type: type,
-          action_id: action_id,
-          placeholder: placeholder_json
-        )
+        expect(instance.as_json).to eq(expected_json)
       end
     end
 
     context 'with initial_time' do
-      it 'encodes the initial_time' do
-        instance.initial_time(initial_time)
-
-        expect(instance.as_json).to eq(
+      let(:expected_json) do
+        {
           type: type,
           action_id: action_id,
           initial_time: initial_time
-        )
+        }
+      end
+
+      it 'encodes the initial_time' do
+        instance.initial_time(initial_time)
+
+        expect(instance.as_json).to eq(expected_json)
       end
     end
 
     context 'with placeholder and initial_time' do
-      it 'encodes the placeholder & initial_time' do
-        instance.placeholder(text: placeholder)
-        instance.initial_time(initial_time)
-
-        expect(instance.as_json).to eq(
+      let(:expected_json) do
+        {
           type: type,
           action_id: action_id,
           initial_time: initial_time,
           placeholder: placeholder_json
-        )
+        }
+      end
+
+      it 'encodes the placeholder & initial_time' do
+        instance.placeholder(text: placeholder)
+        instance.initial_time(initial_time)
+
+        expect(instance.as_json).to eq(expected_json)
       end
     end
   end

@@ -34,7 +34,6 @@ module Slack
           self
         end
 
-
         def as_json(*)
           {
             type: TYPE,

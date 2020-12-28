@@ -7,10 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- Ruby3 Support
 
 ### Changed
-- N/A
+- Development dependencies now managed by bundler via Gemfile, rather than in gemspec
 
 ### Deprecated
 - N/A

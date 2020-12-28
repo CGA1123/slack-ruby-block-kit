@@ -5,7 +5,7 @@ NOT_RUBY_THREE = Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3')
 require 'simplecov'
 require 'codecov' if NOT_RUBY_THREE
 
-if Gem::Version.new(Codecov::VERSION) > Gem::Version.new('0.2.15')
+if NOT_RUBY_THREE && Gem::Version.new(Codecov::VERSION) > Gem::Version.new('0.2.15')
   raise 'A new version of Codecov has been released, does it support Ruby3?'
 end
 

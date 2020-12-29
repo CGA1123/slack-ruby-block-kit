@@ -204,7 +204,7 @@ module Slack
             emoji: emoji
           )
 
-          yield(self) if block_given?
+          yield(@element) if block_given?
 
           self
         end

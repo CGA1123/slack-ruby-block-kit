@@ -218,7 +218,7 @@ module Slack
             max_selected_items: max_selected_items
           )
 
-          yield(self) if block_given?
+          yield(@element) if block_given?
 
           self
         end

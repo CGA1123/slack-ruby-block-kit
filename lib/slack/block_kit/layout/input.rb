@@ -191,7 +191,7 @@ module Slack
         def radio_buttons(action_id:)
           @element = Element::RadioButtons.new(action_id: action_id)
 
-          yield(self) if block_given?
+          yield(@element) if block_given?
 
           self
         end

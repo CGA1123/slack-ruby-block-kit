@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Ruby3 Support
 - `Slack::BlockKit::Element::Timepicker` (#72)
+- Add `input` to `Slack::BlockKit::Blocks` and elements to `Slack::BlockKit::Layout::Input` (#73)
 
 ### Changed
 - Development dependencies now managed by bundler via Gemfile, rather than in gemspec

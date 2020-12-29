@@ -57,11 +57,11 @@ module Slack
         append(block)
       end
 
-      def input(label:,hint: nil, block_id: nil)
+      def input(label:, hint: nil, block_id: nil)
         block = Layout::Input.new(
           label: label,
           hint: hint,
-          block_id: block_id,
+          block_id: block_id
         )
 
         yield(block) if block_given?

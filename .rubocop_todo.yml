@@ -13,11 +13,6 @@ Metrics/BlockLength:
   Max: 63
 
 # Offense count: 1
-# Configuration parameters: CountComments.
-Metrics/ClassLength:
-  Max: 117
-
-# Offense count: 1
 # Configuration parameters: IgnoredMethods.
 Metrics/CyclomaticComplexity:
   Exclude:
@@ -34,10 +29,3 @@ RSpec/ExampleLength:
     - 'spec/lib/slack/block_kit/element/radio_buttons_spec.rb'
     - 'spec/lib/slack/block_kit/composition/option_spec.rb'
     - 'spec/lib/slack/block_kit/element/multi_static_select_spec.rb'
-
-# Offense count: 4
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/slack/block_kit.rb'

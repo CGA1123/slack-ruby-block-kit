@@ -10,10 +10,7 @@ module Slack
       # with any of the available block elements.
       #
       # https://api.slack.com/reference/messaging/blocks#section
-      # rubocop:disable Metrics/ClassLength
       class Section
-        # rubocop:enable Metrics/ClassLength
-
         include Section::MultiSelectElements
         TYPE = 'section'
 

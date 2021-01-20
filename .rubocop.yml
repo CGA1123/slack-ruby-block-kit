@@ -75,3 +75,9 @@ RSpec/MultipleMemoizedHelpers:
 
 RSpec/NestedGroups:
   Max: 4
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 200

@@ -54,20 +54,19 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
   end
 
   describe '#as_json' do
-    it 'correctly serializes' do
-      instance = described_class.new(label: 'label', emoji: true) do |i|
-        i.option(text: 'text', value: 'value')
-      end
-
-      expected = {
+    let(:expected) do
+      {
         label: Slack::BlockKit::Composition::PlainText.new(text: 'label', emoji: true).as_json,
         options: [
-          Slack::BlockKit::Composition::Option.new(
-            text: 'text',
-            value: 'value'
-          )
+          Slack::BlockKit::Composition::Option.new(text: 'text', value: 'value')
         ].map(&:as_json)
       }
+    end
+
+    it 'correctly serializes' do
+      instance = described_class.new(label: 'label', emoji: true) do |option_group|
+        option_group.option(text: 'text', value: 'value')
+      end
 
       expect(instance.as_json).to eq(expected)
     end

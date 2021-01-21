@@ -54,56 +54,62 @@ RSpec.describe Slack::BlockKit::Composition::ConfirmationDialog do
 
   describe '#as_json' do
     context 'with plain_text' do
-      it 'correctly serializes' do
-        instance.title(text: 'title')
-        instance.confirm(text: 'confirm')
-        instance.deny(text: 'deny')
-        instance.plain_text(text: 'plain_text')
-
-        expected = {
+      let(:expected) do
+        {
           title: Slack::BlockKit::Composition::PlainText.new(text: 'title').as_json,
           deny: Slack::BlockKit::Composition::PlainText.new(text: 'deny').as_json,
           confirm: Slack::BlockKit::Composition::PlainText.new(text: 'confirm').as_json,
           text: Slack::BlockKit::Composition::PlainText.new(text: 'plain_text').as_json
         }
+      end
+
+      it 'correctly serializes' do
+        instance.title(text: 'title')
+        instance.confirm(text: 'confirm')
+        instance.deny(text: 'deny')
+        instance.plain_text(text: 'plain_text')
 
         expect(instance.as_json).to eq(expected)
       end
     end
 
     context 'with mrkdwn' do
+      let(:expected) do
+        {
+          title: Slack::BlockKit::Composition::PlainText.new(text: 'title').as_json,
+          deny: Slack::BlockKit::Composition::PlainText.new(text: 'deny').as_json,
+          confirm: Slack::BlockKit::Composition::PlainText.new(text: 'confirm').as_json,
+          text: Slack::BlockKit::Composition::Mrkdwn.new(text: 'mrkdwn').as_json
+        }
+      end
+
       it 'correctly serializes' do
         instance.title(text: 'title')
         instance.confirm(text: 'confirm')
         instance.deny(text: 'deny')
         instance.mrkdwn(text: 'mrkdwn')
 
-        expected = {
-          title: Slack::BlockKit::Composition::PlainText.new(text: 'title').as_json,
-          deny: Slack::BlockKit::Composition::PlainText.new(text: 'deny').as_json,
-          confirm: Slack::BlockKit::Composition::PlainText.new(text: 'confirm').as_json,
-          text: Slack::BlockKit::Composition::Mrkdwn.new(text: 'mrkdwn').as_json
-        }
-
         expect(instance.as_json).to eq(expected)
       end
     end
 
     context 'when style is set' do
-      it 'correctly serializes' do
-        instance.title(text: 'title')
-        instance.confirm(text: 'confirm')
-        instance.deny(text: 'deny')
-        instance.plain_text(text: 'plain_text')
-        instance.style('danger')
-
-        expected = {
+      let(:expected) do
+        {
           title: Slack::BlockKit::Composition::PlainText.new(text: 'title').as_json,
           deny: Slack::BlockKit::Composition::PlainText.new(text: 'deny').as_json,
           confirm: Slack::BlockKit::Composition::PlainText.new(text: 'confirm').as_json,
           text: Slack::BlockKit::Composition::PlainText.new(text: 'plain_text').as_json,
           style: 'danger'
         }
+      end
+
+      it 'correctly serializes' do
+        instance.title(text: 'title')
+        instance.confirm(text: 'confirm')
+        instance.deny(text: 'deny')
+        instance.plain_text(text: 'plain_text')
+        instance.style('danger')
 
         expect(instance.as_json).to eq(expected)
       end

@@ -7,16 +7,23 @@ RSpec.describe Slack::BlockKit::Composition::Option do
     context 'when emoji is not set' do
       it 'does not include it in the payload' do
         instance = described_class.new(text: 'some text', value: 'a value')
-        expected_hash = {
+        expected = {
           value: 'a value',
           text: { type: 'plain_text', text: 'some text' }
         }
 
-        expect(instance.as_json).to eq(expected_hash)
+        expect(instance.as_json).to eq(expected)
       end
     end
 
     context 'when emoji is set' do
+      let(:expected) do
+        {
+          value: 'a value',
+          text: { type: 'plain_text', text: 'some text', emoji: true }
+        }
+      end
+
       it 'includes it in the payload' do
         instance = described_class.new(
           text: 'some text',
@@ -24,50 +31,53 @@ RSpec.describe Slack::BlockKit::Composition::Option do
           emoji: true
         )
 
-        expected_hash = {
-          value: 'a value',
-          text: { type: 'plain_text', text: 'some text', emoji: true }
-        }
-
-        expect(instance.as_json).to eq(expected_hash)
+        expect(instance.as_json).to eq(expected)
       end
     end
 
     context 'when description is set' do
-      it 'includes description as a plain_text object in the payload' do
-        instance = described_class.new(
+      let(:expected) do
+        {
+          value: 'a value',
+          text: { type: 'plain_text', text: 'some text', emoji: true },
+          description: { type: 'plain_text', text: 'descriptive text', emoji: true }
+        }
+      end
+
+      let(:instance) do
+        described_class.new(
           text: 'some text',
           value: 'a value',
           emoji: true,
           description: 'descriptive text'
         )
+      end
 
-        expected_hash = {
-          value: 'a value',
-          text: { type: 'plain_text', text: 'some text', emoji: true },
-          description: { type: 'plain_text', text: 'descriptive text', emoji: true }
-        }
-
-        expect(instance.as_json).to eq(expected_hash)
+      it 'includes description as a plain_text object in the payload' do
+        expect(instance.as_json).to eq(expected)
       end
     end
 
     context 'when url is set' do
-      it 'includes url in the payload' do
-        instance = described_class.new(
+      let(:expected) do
+        {
+          value: 'a value',
+          text: { type: 'plain_text', text: 'some text', emoji: true },
+          url: 'https://example.com'
+        }
+      end
+
+      let(:instance) do
+        described_class.new(
           text: 'some text',
           value: 'a value',
           emoji: true,
           url: 'https://example.com'
         )
+      end
 
-        expected_hash = {
-          value: 'a value',
-          text: { type: 'plain_text', text: 'some text', emoji: true },
-          url: 'https://example.com'
-        }
-
-        expect(instance.as_json).to eq(expected_hash)
+      it 'includes url in the payload' do
+        expect(instance.as_json).to eq(expected)
       end
     end
 

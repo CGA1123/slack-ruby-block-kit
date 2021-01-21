@@ -81,7 +81,7 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
         }
       end
 
-      it 'correctly serializes' do
+      before do
         instance.option(value: 'option-1', text: 'Option 1')
         instance.confirmation_dialog do |confirm|
           confirm.title(text: '__CONFIRM_TITTLE__')
@@ -89,7 +89,9 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
           confirm.confirm(text: '__CONFIRMED__')
           confirm.deny(text: '__DENIED__')
         end
+      end
 
+      it 'correctly serializes' do
         expect(as_json).to eq(expected_json)
       end
     end

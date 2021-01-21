@@ -146,7 +146,7 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
         }
       end
 
-      it 'correctly serializes' do
+      before do
         instance.option(**option)
         instance.confirmation_dialog do |confirm|
           confirm.title(text: '__CONFIRM_TITTLE__')
@@ -154,7 +154,9 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
           confirm.confirm(text: '__CONFIRMED__')
           confirm.deny(text: '__DENIED__')
         end
+      end
 
+      it 'correctly serializes' do
         expect(as_json).to eq(expected_json)
       end
     end

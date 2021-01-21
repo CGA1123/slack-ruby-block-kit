@@ -14,6 +14,5 @@ gem 'rspec_junit_formatter', '~> 0.4'
 gem 'rubocop', '~> 1', require: false
 gem 'rubocop-rake', '~> 0.5', require: false
 gem 'rubocop-rspec', '~> 2', require: false
-
-gem 'codecov', '~> 0.2', require: false
-gem 'simplecov', '~> 0.20', require: false if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3')
+gem 'codecov', '~> 0.3', require: false
+gem 'simplecov', '~> 0.21', require: false

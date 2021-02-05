@@ -37,6 +37,12 @@ module Slack
         append(block)
       end
 
+      def header(text:, block_id: nil, emoji: nil)
+        block = Layout::Header.new(text: text, block_id: block_id, emoji: emoji)
+
+        append(block)
+      end
+
       def image(url:, alt_text:, title: nil, block_id: nil, emoji: nil)
         block = Layout::Image.new(
           url: url,

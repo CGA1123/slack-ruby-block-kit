@@ -31,8 +31,8 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
         {
           type: 'multi_external_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           confirm: {
@@ -77,8 +77,8 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
         {
           type: 'multi_external_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           initial_options: [
@@ -111,8 +111,8 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
         {
           type: 'multi_external_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           max_selected_items: 10
@@ -136,8 +136,8 @@ RSpec.describe Slack::BlockKit::Element::MultiExternalSelect do
         {
           type: 'multi_external_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id
         }

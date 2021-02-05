@@ -31,8 +31,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           confirm: {
@@ -74,8 +74,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           initial_conversations: %w[conv1 conv2]
@@ -100,8 +100,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           max_selected_items: 10
@@ -125,8 +125,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id
         }
@@ -149,8 +149,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           filter: {
@@ -174,8 +174,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           filter: {
@@ -199,8 +199,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           filter: {
@@ -224,8 +224,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           filter: {
@@ -251,8 +251,8 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         {
           type: 'multi_conversations_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           filter: {

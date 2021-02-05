@@ -27,19 +27,19 @@ RSpec.describe Slack::BlockKit::Element::OverflowMenu do
         action_id: action_id,
         options: [
           {
-            'text': {
-              'type': 'plain_text',
-              'text': 'some text'
+            text: {
+              type: 'plain_text',
+              text: 'some text'
             },
-            'value': 'value-0'
+            value: 'value-0'
           },
           {
-            'text': {
-              'type': 'plain_text',
-              'text': 'more text'
+            text: {
+              type: 'plain_text',
+              text: 'more text'
             },
-            'value': 'value-1',
-            'url': 'https://example.com'
+            value: 'value-1',
+            url: 'https://example.com'
           }
         ],
         confirm: {

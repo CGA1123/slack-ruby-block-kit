@@ -20,8 +20,8 @@ RSpec.describe Slack::BlockKit::Element::ExternalSelect do
       {
         type: 'external_select',
         placeholder: {
-          'type': 'plain_text',
-          'text': placeholder_text
+          type: 'plain_text',
+          text: placeholder_text
         },
         action_id: action_id
       }

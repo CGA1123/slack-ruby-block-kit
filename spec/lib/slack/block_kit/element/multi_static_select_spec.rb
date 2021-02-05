@@ -92,8 +92,8 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
       {
         type: 'multi_static_select',
         placeholder: {
-          'type': 'plain_text',
-          'text': placeholder_text
+          type: 'plain_text',
+          text: placeholder_text
         },
         action_id: action_id
       }
@@ -114,8 +114,8 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
         {
           type: 'multi_static_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           confirm: {
@@ -157,8 +157,8 @@ RSpec.describe Slack::BlockKit::Element::MultiStaticSelect do
         {
           type: 'multi_static_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           max_selected_items: 10

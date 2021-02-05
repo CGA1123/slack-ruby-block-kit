@@ -90,8 +90,8 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
       {
         type: 'static_select',
         placeholder: {
-          'type': 'plain_text',
-          'text': placeholder_text
+          type: 'plain_text',
+          text: placeholder_text
         },
         action_id: action_id
       }
@@ -112,8 +112,8 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
         {
           type: 'static_select',
           placeholder: {
-            'type': 'plain_text',
-            'text': placeholder_text
+            type: 'plain_text',
+            text: placeholder_text
           },
           action_id: action_id,
           confirm: {

@@ -27,6 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.14.0] - 2021-02-06
+
+### Added
+- `Slack::BlockKit::Blocks#header` (#74 by @rspeicher)
+
 ## [0.13.0] - 2020-12-29
 
 ### Added

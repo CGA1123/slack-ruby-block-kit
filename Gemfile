@@ -6,7 +6,7 @@ gemspec
 
 gem 'dotenv', '~> 2'
 gem 'faraday', '~> 1'
-gem 'pry', '~> 0.13'
+gem 'pry', '~> 0.14'
 gem 'rake', '~> 13'
 gem 'rspec', '~> 3'
 gem 'rspec_junit_formatter', '~> 0.4'

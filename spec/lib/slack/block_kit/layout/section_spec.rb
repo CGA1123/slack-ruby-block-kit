@@ -223,10 +223,7 @@ RSpec.describe Slack::BlockKit::Layout::Section do
   end
 
   context 'with fields but no text' do
-    let(:instance) do
-      block = described_class.new(block_id: '__BLOCK__')
-      block
-    end
+    let(:instance) { described_class.new(block_id: '__BLOCK__') }
     let(:expected_json) do
       {
         block_id: '__BLOCK__',

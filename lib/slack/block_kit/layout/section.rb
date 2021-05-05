@@ -186,7 +186,7 @@ module Slack
         def as_json(*)
           {
             type: TYPE,
-            text: @text.as_json,
+            text: @text&.as_json,
             block_id: @block_id,
             fields: @fields&.map(&:as_json),
             accessory: @accessory&.as_json

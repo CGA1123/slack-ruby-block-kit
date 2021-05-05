@@ -24,6 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - N/A
 
+---
+
+## [0.14.1] - 2021-05-05
+
+### Fixed
+- Allow Layout::Section to render without `text` (#87 by @pbendersky)
+
 
 ---
 
@@ -89,7 +96,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 See [releases] for previous changes.
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.1...HEAD
+[0.14.1]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.0...v0.14.1
 [0.14.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.11.0...v0.12.0

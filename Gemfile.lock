@@ -66,7 +66,7 @@ GEM
       parser (>= 3.0.1.1)
     rubocop-rake (0.5.1)
       rubocop
-    rubocop-rspec (2.3.0)
+    rubocop-rspec (2.4.0)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)

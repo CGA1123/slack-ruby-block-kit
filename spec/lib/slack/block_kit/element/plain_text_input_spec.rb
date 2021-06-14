@@ -49,9 +49,7 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
 
     context 'when passing a block' do
       it 'generates the correct output' do
-        instance.dispatch_action_config do |config|
-          config.trigger_on_enter_pressed
-        end
+        instance.dispatch_action_config(&:trigger_on_enter_pressed)
 
         expect(instance.as_json).to eq(expected_json)
       end

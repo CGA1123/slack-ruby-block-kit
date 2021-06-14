@@ -38,7 +38,7 @@ RSpec.describe Slack::BlockKit::Composition::DispatchActionConfiguration do
         instance = described_class.new
         instance.trigger_on_enter_pressed
         instance.trigger_on_character_entered
-        expected_hash = { trigger_actions_on: [:on_enter_pressed, :on_character_entered] }
+        expected_hash = { trigger_actions_on: %i[on_enter_pressed on_character_entered] }
 
         expect(instance.as_json).to eq(expected_hash)
       end

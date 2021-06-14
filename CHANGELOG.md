@@ -19,12 +19,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Fixed
-- Support `dispatch_action` configuration on `Layout::Input`
+- N/A
 
 ### Security
 - N/A
 
+
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.15.0...HEAD
+
+
 ---
+
+
+## [0.15.0] - 2021-06-14
+
+### Added
+- Support `dispatch_action` and `dispatch_action_config` (#94 by @deecewan)
+
+
+[0.15.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.1...v0.15.0
+
+
+---
+
 
 ## [0.14.1] - 2021-05-05
 
@@ -32,12 +49,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Allow Layout::Section to render without `text` (#87 by @pbendersky)
 
 
+[0.14.1]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.0...v0.14.1
+
+
 ---
+
 
 ## [0.14.0] - 2021-02-06
 
 ### Added
 - `Slack::BlockKit::Blocks#header` (#74 by @rspeicher)
+
+
+[0.14.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.13.0...v0.14.0
+
+
+---
+
 
 ## [0.13.0] - 2020-12-29
 
@@ -48,6 +76,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Development dependencies now managed by bundler via Gemfile, rather than in gemspec
+
+
+[0.13.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.12.0...v0.13.0
 
 
 ---
@@ -62,6 +93,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Slack::BlockKit::Element::Checkboxes#initial`, use the `initial:` keyword on `#option`
 - `Slack::BlockKit::Element::MultiStaticSelect#initial`, use the `initial:` keyword on `#option`
 - `Slack::BlockKit::Element::StaticSelect#initial`, use the `initial:` keyword on `#option`
+
+
+[0.12.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.11.0...v0.12.0
 
 
 ---
@@ -79,6 +113,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ruby2.7 kwarg deprecation warnings
 
 
+[0.11.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.10.0...v0.11.0
+
+
 ---
 
 
@@ -91,17 +128,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
+[0.10.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.9.0...v0.10.0
+
+
 ---
 
 See [releases] for previous changes.
 
-
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.1...HEAD
-[0.14.1]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.0...v0.14.1
-[0.14.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.13.0...v0.14.0
-[0.13.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.12.0...v0.13.0
-[0.12.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.11.0...v0.12.0
-[0.11.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.10.0...v0.11.0
-[0.10.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.9.0...v0.10.0
 
 [releases]: https://github.com/CGA1123/slack-ruby-block-kit/releases

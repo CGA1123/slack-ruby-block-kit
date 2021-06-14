@@ -23,6 +23,41 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
     }
   end
 
+  describe '#dispatch_action_config' do
+    let(:expected_json) do
+      {
+        type: 'plain_text_input',
+        action_id: action_id,
+        initial_value: initial_value,
+        min_length: min_length,
+        max_length: max_length,
+        multiline: multiline,
+        placeholder: Slack::BlockKit::Composition::PlainText.new(text: placeholder, emoji: emoji).as_json,
+        dispatch_action_config: Slack::BlockKit::Composition::DispatchActionConfiguration.new(
+          triggers: [:on_enter_pressed]
+        ).as_json
+      }
+    end
+
+    context 'when passing in triggers directly' do
+      it 'generates the correct output' do
+        instance.dispatch_action_config(triggers: [:on_enter_pressed])
+
+        expect(instance.as_json).to eq(expected_json)
+      end
+    end
+
+    context 'when passing a block' do
+      it 'generates the correct output' do
+        instance.dispatch_action_config do |config|
+          config.trigger_on_enter_pressed
+        end
+
+        expect(instance.as_json).to eq(expected_json)
+      end
+    end
+  end
+
   describe '#as_json' do
     subject { instance.as_json }
 

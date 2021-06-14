@@ -30,6 +30,14 @@ module Slack
           @max_length = max_length
         end
 
+        def dispatch_action_config(triggers: nil)
+          @dispatch_action_config = Composition::DispatchActionConfiguration.new(triggers: triggers)
+
+          yield(@dispatch_action_config) if block_given?
+
+          self
+        end
+
         def as_json(*)
           {
             type: TYPE,
@@ -38,7 +46,8 @@ module Slack
             multiline: @multiline,
             min_length: @min_length,
             max_length: @max_length,
-            initial_value: @initial_value
+            initial_value: @initial_value,
+            dispatch_action_config: @dispatch_action_config&.as_json
           }.compact
         end
       end

@@ -254,5 +254,33 @@ RSpec.describe Slack::BlockKit::Layout::Input do
     end
 
     it { is_expected.to eq(expected_json) }
+
+    context 'when dispatch_action is set' do
+      let(:params) do
+        {
+          optional: optional,
+          element: element,
+          hint: hint,
+          label: label,
+          block_id: block_id,
+          emoji: emoji,
+          dispatch_action: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'input',
+          optional: optional,
+          block_id: block_id,
+          element: element_json,
+          hint: Slack::BlockKit::Composition::PlainText.new(text: hint, emoji: emoji).as_json,
+          label: Slack::BlockKit::Composition::PlainText.new(text: label, emoji: emoji).as_json,
+          dispatch_action: true
+        }
+      end
+
+      it { is_expected.to eq(expected_json) }
+    end
   end
 end

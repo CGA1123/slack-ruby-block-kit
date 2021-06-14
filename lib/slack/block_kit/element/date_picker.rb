@@ -17,12 +17,7 @@ module Slack
         def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
           @action_id = action_id
           @initial_date = initial
-          if placeholder
-            @placeholder = Composition::PlainText.new(
-              text: placeholder,
-              emoji: emoji
-            )
-          end
+          @placeholder = placeholder_text(placeholder, emoji)
 
           yield(self) if block_given?
         end
@@ -35,6 +30,14 @@ module Slack
             initial_date: @initial_date,
             confirm: confirm&.as_json
           }.compact
+        end
+
+        private
+
+        def placeholder_text(text, emoji)
+          return unless text
+
+          Composition::PlainText.new(text: text, emoji: emoji)
         end
       end
     end

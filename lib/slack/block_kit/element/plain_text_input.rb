@@ -28,6 +28,7 @@ module Slack
           @multiline = multiline
           @min_length = min_length
           @max_length = max_length
+          @dispatch_action_config = nil
         end
 
         def dispatch_action_config(triggers: nil)

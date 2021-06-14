@@ -20,6 +20,7 @@ module Slack
           @block_id = block_id
           @fields = nil
           @accessory = nil
+          @text = nil
 
           yield(self) if block_given?
         end

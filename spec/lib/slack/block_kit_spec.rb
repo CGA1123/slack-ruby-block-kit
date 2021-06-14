@@ -3,6 +3,12 @@
 require 'spec_helper'
 
 RSpec.describe Slack::BlockKit do
+  describe 'VERSION' do
+    it 'is set' do
+      expect(described_class::VERSION).to be_a(String)
+    end
+  end
+
   describe '.blocks' do
     it 'returns an instance of Slack::BlockKit::Blocks' do
       expect(described_class.blocks).to be_a(Slack::BlockKit::Blocks)

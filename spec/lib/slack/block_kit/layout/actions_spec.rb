@@ -73,7 +73,7 @@ RSpec.describe Slack::BlockKit::Layout::Actions do
     end
 
     it 'correctly serializes' do
-      instance.converstation_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+      instance.conversation_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
 
       expected_json[:elements] << expected_element_json
       expect(actions_json).to eq(expected_json)

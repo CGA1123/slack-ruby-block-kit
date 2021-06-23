@@ -142,11 +142,6 @@ module Slack
             block_id: @block_id
           }.compact
         end
-
-        # Maintain backwards compatibility with previously misspelled name
-        extend Gem::Deprecate
-        alias converstation_select conversation_select
-        deprecate :converstation_select, :conversation_select, 2021, 7
       end
     end
   end

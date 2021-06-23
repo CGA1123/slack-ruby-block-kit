@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added new `Layout::Actions#checkboxes` method (#96 by @ryanwilsonperkin)
+- N/A
 
 ### Changed
 - N/A
@@ -35,6 +35,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.16.0] - 2021-06-23
 
 This release contains a breaking change on the `Layout::Actions` interface.
+
+### Added
+- Added new `Layout::Actions#checkboxes` method (#96 by @ryanwilsonperkin)
 
 ### Removed
 - `Layout::Actions#converstation_select` (use `#conversation_select` instead) (#97 by @ryanwilsonperkin)

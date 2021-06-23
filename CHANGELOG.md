@@ -13,10 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Deprecated
-- `Layout::Actions#converstation_select` (use `#conversation_select` instead)
+- N/A
 
 ### Removed
-- N/A
+- `Layout::Actions#converstation_select` (use `#conversation_select` instead)
 
 ### Fixed
 - Fixed name of method in `Layout::Actions` to be `conversation_select`

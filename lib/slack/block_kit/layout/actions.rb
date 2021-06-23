@@ -119,6 +119,16 @@ module Slack
           append(element)
         end
 
+        def checkboxes(action_id:)
+          element = Element::Checkboxes.new(
+            action_id: action_id
+          )
+
+          yield(element) if block_given?
+
+          append(element)
+        end
+
         def append(element)
           @elements << element
 

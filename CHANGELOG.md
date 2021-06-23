@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- Added new `Layout::Actions#checkboxes` method (#96 by @ryanwilsonperkin)
 
 ### Changed
 - N/A

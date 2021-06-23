@@ -1,4 +1,5 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -16,16 +17,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Removed
-- `Layout::Actions#converstation_select` (use `#conversation_select` instead)
+- N/A
 
 ### Fixed
-- Fixed name of method in `Layout::Actions` to be `conversation_select`
+- N/A
 
 ### Security
 - N/A
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.16.0...HEAD
+
+
+---
+
+
+## [0.16.0] - 2021-06-23
+
+This release contains a breaking change on the `Layout::Actions` interface.
+
+### Removed
+- `Layout::Actions#converstation_select` (use `#conversation_select` instead) (#97 by @ryanwilsonperkin)
+
+### Fixed
+- Fixed name of method in `Layout::Actions` to be `conversation_select` (#97 by @ryanwilsonperkin)
+
+
+[0.16.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.15.0...v0.16.0
 
 
 ---

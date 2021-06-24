@@ -10,6 +10,7 @@ RSpec.describe Slack::BlockKit::Layout::Section do
     block.plain_text(text: '__BLOCK_TEXT__')
     block
   end
+
   let(:expected_json) do
     {
       block_id: '__BLOCK__',
@@ -23,6 +24,178 @@ RSpec.describe Slack::BlockKit::Layout::Section do
 
   it 'correctly serializes' do
     expect(section_json).to eq(expected_json)
+  end
+
+  describe '#mrkdwn' do
+    let(:expected_json) do
+      {
+        block_id: '__BLOCK__',
+        text: {
+          text: 'hello',
+          type: 'mrkdwn'
+        },
+        type: 'section'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.mrkdwn(text: 'hello')
+
+      expect(section_json).to eq(expected_json)
+    end
+  end
+
+  describe '#button' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        text: {
+          text: 'Ok!',
+          type: 'plain_text'
+        },
+        type: 'button'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.button(text: 'Ok!', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#channel_select' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'channels_select'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.channel_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#conversation_select' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'conversations_select'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.conversation_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#date_picker' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'datepicker'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.date_picker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#external_select' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'external_select'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.external_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#overflow_menu' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        type: 'overflow',
+        options: [
+          { text: { text: 'option', type: 'plain_text' }, value: 1 }
+        ]
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.overflow_menu(action_id: '__ACTION_ID__') do |menu|
+        menu.option(value: 1, text: 'option')
+      end
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#static_select' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'static_select'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.static_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#users_select' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'users_select'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.users_select(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
   end
 
   describe '#multi_channels_select' do

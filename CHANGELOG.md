@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- `Slack::BlockKit::Formatting` with utility functions for Slack text formatting (#98 by @CGA1123)
 
 ### Changed
 - N/A

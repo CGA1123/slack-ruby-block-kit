@@ -6,47 +6,36 @@ RSpec.describe Slack::BlockKit::Composition::ConfirmationDialog do
   let(:instance) { described_class.new }
 
   describe '#title' do
-    it 'sets @title as PlainText'
     it 'returns self' do
       expect(instance.title(text: 'hello')).to be(instance)
     end
   end
 
   describe '#confirm' do
-    it 'sets @confirm as PlainText'
-
     it 'returns self' do
       expect(instance.confirm(text: 'hello')).to be(instance)
     end
   end
 
   describe '#deny' do
-    it 'sets @deny as PlainText'
-
     it 'returns self' do
       expect(instance.deny(text: 'hello')).to be(instance)
     end
   end
 
   describe '#style' do
-    it 'sets @style as PlainText'
-
     it 'returns self' do
       expect(instance.style('danger')).to be(instance)
     end
   end
 
   describe '#plain_text' do
-    it 'sets @text as PlainText'
-
     it 'returns self' do
       expect(instance.plain_text(text: 'hello')).to be(instance)
     end
   end
 
   describe '#mrkdwn' do
-    it 'sets @text as Mrkdwn'
-
     it 'returns self' do
       expect(instance.mrkdwn(text: 'hello')).to be(instance)
     end

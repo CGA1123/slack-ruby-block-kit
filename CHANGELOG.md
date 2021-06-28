@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `Slack::BlockKit::Formatting` with utility functions for Slack text formatting (#98 by @CGA1123)
+- N/A
 
 ### Changed
 - N/A
@@ -26,7 +26,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.17.0...HEAD
+
+
+---
+
+
+## [0.17.0] - 2021-06-28
+
+### Added
+- `Slack::BlockKit::Formatting` with utility functions for Slack text formatting (#98 by @CGA1123)
+
+
+[0.17.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.16.0...v0.17.0
 
 
 ---

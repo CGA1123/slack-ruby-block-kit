@@ -1,0 +1,11 @@
+{
+	"name": "Ruby",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"settings": {},
+	"extensions": [
+		"rebornix.Ruby"
+	],
+	"remoteUser": "vscode"
+}

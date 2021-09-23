@@ -13,7 +13,7 @@ GEM
     diff-lcs (1.4.4)
     docile (1.4.0)
     dotenv (2.7.6)
-    faraday (1.7.2)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)

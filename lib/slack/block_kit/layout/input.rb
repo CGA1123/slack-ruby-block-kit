@@ -91,7 +91,7 @@ module Slack
           self
         end
 
-        def datepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
+        def timepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
           @element = Element::Timepicker.new(action_id: action_id)
           @element.placeholder(placeholder: placeholder, emoji: emoji)
           @element.initial_time(initial)

@@ -91,6 +91,16 @@ module Slack
           self
         end
 
+        def timepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
+          @element = Element::Timepicker.new(action_id: action_id)
+          @element.placeholder(text: placeholder, emoji: emoji)
+          @element.initial_time(initial)
+
+          yield(@element) if block_given?
+
+          self
+        end
+
         def multi_channels_select(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
           @element = Element::MultiChannelsSelect.new(
             placeholder: placeholder,

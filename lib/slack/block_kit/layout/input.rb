@@ -79,7 +79,7 @@ module Slack
         end
 
         def datepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
-          @element = Element::DatePicker.new(
+          @element = Element::Datepicker.new(
             action_id: action_id,
             placeholder: placeholder,
             initial: initial,
@@ -92,9 +92,12 @@ module Slack
         end
 
         def timepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
-          @element = Element::Timepicker.new(action_id: action_id)
-          @element.placeholder(text: placeholder, emoji: emoji)
-          @element.initial_time(initial)
+          @element = Element::Timepicker.new(
+            action_id: action_id,
+            placeholder: placeholder,
+            emoji: emoji,
+            initial: initial
+          )
 
           yield(@element) if block_given?
 

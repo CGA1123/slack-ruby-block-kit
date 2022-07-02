@@ -102,7 +102,7 @@ RSpec.describe Slack::BlockKit::Layout::Section do
     end
   end
 
-  describe '#date_picker' do
+  describe '#datepicker' do
     let(:expected_accessory_json) do
       {
         action_id: '__ACTION_ID__',
@@ -115,7 +115,26 @@ RSpec.describe Slack::BlockKit::Layout::Section do
     end
 
     it 'correctly serializes' do
-      instance.date_picker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+      instance.datepicker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+
+      expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
+    end
+  end
+
+  describe '#timepicker' do
+    let(:expected_accessory_json) do
+      {
+        action_id: '__ACTION_ID__',
+        placeholder: {
+          text: '__PLACEHOLDER__',
+          type: 'plain_text'
+        },
+        type: 'timepicker'
+      }
+    end
+
+    it 'correctly serializes' do
+      instance.timepicker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
 
       expect(section_json).to eq(expected_json.merge(accessory: expected_accessory_json))
     end

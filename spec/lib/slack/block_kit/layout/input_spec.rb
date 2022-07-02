@@ -94,13 +94,27 @@ RSpec.describe Slack::BlockKit::Layout::Input do
 
   describe '#datepicker' do
     let(:element_json) do
-      Slack::BlockKit::Element::DatePicker.new(
+      Slack::BlockKit::Element::Datepicker.new(
         action_id: '__ACTION_ID__'
       ).as_json
     end
 
     it 'correctly serializes' do
       instance.datepicker(action_id: '__ACTION_ID__')
+
+      expect(input_json).to eq(expected_json)
+    end
+  end
+
+  describe '#timepicker' do
+    let(:element_json) do
+      Slack::BlockKit::Element::Timepicker.new(
+        action_id: '__ACTION_ID__'
+      ).as_json
+    end
+
+    it 'correctly serializes' do
+      instance.timepicker(action_id: '__ACTION_ID__')
 
       expect(input_json).to eq(expected_json)
     end

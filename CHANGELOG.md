@@ -8,16 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- `Slack::BlockKit::Layout::Input#Timepicker`
+- `Slack::BlockKit::Layout::Actions#timepicker`
+- `Slack::BlockKit::Layout::Section#timepicker`
 
 ### Changed
-- N/A
+- `Slack::BlockKit::Element::Timepicker.initialize` now accepts `initial:`, `emoji:`, `placeholder:`
+- Rename `Slack::BlockKit::Element::DatePicker` to `Datepicker`
+- Rename `Slack::BlockKit::Layout::Actions#date_picker` to `#datepicker`
+- Rename `Slack::BlockKit::Layout::Section#date_picker` to `#datepicker`
+- 
 
 ### Deprecated
 - N/A
 
 ### Removed
-- N/A
+- `Slack::BlockKit::Element::Timepicker#placeholder`
+- `Slack::BlockKit::Element::Timepicker#initial_time`
 
 ### Fixed
 - N/A

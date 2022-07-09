@@ -8,12 +8,6 @@ module Slack
 
     module Layout; end
 
-    Dir[File.join(__dir__, 'block_kit', 'composition', '*.rb')].sort.each { |file| require file }
-    Dir[File.join(__dir__, 'block_kit', 'element', '*.rb')].sort.each { |file| require file }
-    Dir[File.join(__dir__, 'block_kit', 'layout', '*.rb')].sort.each { |file| require file }
-    Dir[File.join(__dir__, 'block_kit', '*.rb')].sort.each { |file| require file }
-    Dir[File.join(__dir__, 'surfaces', '*.rb')].sort.each { |file| require file }
-
     module_function
 
     def blocks

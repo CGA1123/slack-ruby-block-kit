@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack/block_kit/version'
+require_relative 'lib/slack/block_kit/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'slack-ruby-block-kit'
@@ -23,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     'rubygems_mfa_required' => 'true'
   }
+  spec.add_dependency "zeitwerk", "~> 2.6"
 end

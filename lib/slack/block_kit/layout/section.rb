@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative './section/multi_select_elements'
-
 module Slack
   module BlockKit
     module Layout

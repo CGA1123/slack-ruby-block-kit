@@ -10,9 +10,8 @@ SimpleCov.start do
   formatter SimpleCov::Formatter::Codecov if ENV['CI']
 end
 
-load 'slack/block_kit/version.rb'
 
-require 'slack/block_kit'
+require 'slack-ruby-block-kit'
 require 'pry'
 
 RSpec.configure do |config|

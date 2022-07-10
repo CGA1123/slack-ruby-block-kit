@@ -10,7 +10,6 @@ SimpleCov.start do
   formatter SimpleCov::Formatter::Codecov if ENV['CI']
 end
 
-
 require 'slack-ruby-block-kit'
 require 'pry'
 

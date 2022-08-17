@@ -111,7 +111,7 @@ RSpec.describe Slack::BlockKit::Blocks do
 
   describe '#input' do
     subject(:input) do
-      instance.input(label: 'input', hint: 'hint', block_id: '1123') do |i|
+      instance.input(label: 'input', hint: 'hint', block_id: '1123', optional: true) do |i|
         i.plain_text_input(action_id: 'action')
       end
     end
@@ -122,7 +122,8 @@ RSpec.describe Slack::BlockKit::Blocks do
           hint: { text: 'hint', type: 'plain_text' },
           label: { text: 'input', type: 'plain_text' },
           element: { action_id: 'action', type: 'plain_text_input' },
-          block_id: '1123' }
+          block_id: '1123',
+          optional: true }
       ]
     end
 

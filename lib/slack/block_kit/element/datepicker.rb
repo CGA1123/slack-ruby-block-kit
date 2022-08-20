@@ -9,7 +9,7 @@ module Slack
       # Date picker elements can be used inside of section and actions blocks.
       #
       # https://api.slack.com/reference/messaging/block-elements#datepicker
-      class DatePicker
+      class Datepicker
         include Composition::ConfirmationDialog::Confirmable
 
         TYPE = 'datepicker'

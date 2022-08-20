@@ -15,23 +15,12 @@ module Slack
 
         TYPE = 'timepicker'
 
-        def initialize(action_id:)
-          @placeholder, @initial_time = nil
+        def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
+          @placeholder = placeholder_text(placeholder, emoji) if placeholder
+          @initial_time = initial
           @action_id = action_id
 
           yield(self) if block_given?
-        end
-
-        def placeholder(text:, emoji: nil)
-          @placeholder = Composition::PlainText.new(text: text, emoji: emoji)
-
-          self
-        end
-
-        def initial_time(time_str)
-          @initial_time = time_str
-
-          self
         end
 
         def as_json(*)
@@ -42,6 +31,14 @@ module Slack
             initial_time: @initial_time,
             confirm: confirm&.as_json
           }.compact
+        end
+
+        private
+
+        def placeholder_text(text, emoji)
+          return unless text
+
+          Composition::PlainText.new(text: text, emoji: emoji)
         end
       end
     end

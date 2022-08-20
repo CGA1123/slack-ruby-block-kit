@@ -92,8 +92,21 @@ module Slack
           accessorise(element)
         end
 
-        def date_picker(action_id:, placeholder: nil, initial: nil, emoji: nil)
-          element = Element::DatePicker.new(
+        def datepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
+          element = Element::Datepicker.new(
+            placeholder: placeholder,
+            action_id: action_id,
+            initial: initial,
+            emoji: emoji
+          )
+
+          yield(element) if block_given?
+
+          accessorise(element)
+        end
+
+        def timepicker(action_id:, placeholder: nil, initial: nil, emoji: nil)
+          element = Element::Timepicker.new(
             placeholder: placeholder,
             action_id: action_id,
             initial: initial,

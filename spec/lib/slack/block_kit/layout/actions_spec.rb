@@ -80,7 +80,7 @@ RSpec.describe Slack::BlockKit::Layout::Actions do
     end
   end
 
-  describe '#date_picker' do
+  describe '#datepicker' do
     let(:expected_element_json) do
       {
         action_id: '__ACTION_ID__',
@@ -93,7 +93,7 @@ RSpec.describe Slack::BlockKit::Layout::Actions do
     end
 
     it 'correctly serializes' do
-      instance.date_picker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
+      instance.datepicker(placeholder: '__PLACEHOLDER__', action_id: '__ACTION_ID__')
 
       expected_json[:elements] << expected_element_json
       expect(actions_json).to eq(expected_json)

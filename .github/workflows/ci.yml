@@ -31,4 +31,4 @@ jobs:
       - run: bundle exec rspec --format progress
       - run: ./bin/deepsource report --analyzer test-coverage --key ruby --value-file ./coverage/.resultset.json
         # don't run on forks which don't have access to DEEPSOURCE_DSN
-        if: (secrets.DEEPSOURCE_DSN != '') && (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == github.repository) 
+        if: (env.DEEPSOURCE_DSN != '') && (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == github.repository) 

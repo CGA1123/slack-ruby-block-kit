@@ -10,4 +10,4 @@ require 'slack-ruby-block-kit'
 require 'faraday'
 require 'pry'
 
-Pry.start
+binding.pry

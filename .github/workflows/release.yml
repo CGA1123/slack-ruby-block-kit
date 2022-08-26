@@ -16,6 +16,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+      - run: |
+          otp=${{github.events.inputs.otp}}
+          echo "::add-mask::$otp"
       - run: gem update --system
       - run: git config --global user.email github-action@users.noreply.github.com
       - run: git config --global user.name GitHub Actions
@@ -24,4 +27,4 @@ jobs:
       - run: bundle exec rake release
         env:
           GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-          GEM_HOST_OTP_CODE: ${{ secrets[github.event.inputs.otp] }}
+          GEM_HOST_OTP_CODE: ${{ github.event.inputs.otp }}

@@ -95,3 +95,13 @@ See [issues](https://github.com/CGA1123/slack-ruby-block-kit/issues) if you want
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Releasing
+
+Releasing is automated via the `.github/workflows/release.yml` which allows for
+an OTP code to be passed in to authorize the release with MFA. If GitHub
+Actions is running slow it might take another attempt to make sure the OTP code
+is still valid when the workflow tries to push.
+
+Just need to update the `lib/slack/block_kit/version.rb` file and the workflow
+will take take of pushing the appropriate tag and releasing to `rubygems`.

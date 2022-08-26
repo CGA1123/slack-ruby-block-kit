@@ -55,6 +55,19 @@ module Slack
         append(block)
       end
 
+      def video(alt_text:, thumbnail_url:, video_url:, title:, description:, **optional_args)
+        block = Layout::Video.new(
+          alt_text:,
+          thumbnail_url:,
+          video_url:,
+          title:,
+          description:,
+          **optional_args
+        )
+
+        append(block)
+      end
+
       def section(block_id: nil)
         block = Layout::Section.new(block_id: block_id)
 

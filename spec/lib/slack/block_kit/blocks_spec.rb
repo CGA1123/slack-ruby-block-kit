@@ -111,11 +111,12 @@ RSpec.describe Slack::BlockKit::Blocks do
 
   describe '#input' do
     subject(:input) do
-      instance.input(label: 'input', hint: 'hint', block_id: '1123', optional: true) do |i|
+      instance.input(label: 'input', hint: 'hint', block_id: '1123', optional: optional) do |i|
         i.plain_text_input(action_id: 'action')
       end
     end
 
+    let(:optional) { false }
     let(:expected_json) do
       [
         { type: 'input',
@@ -123,7 +124,7 @@ RSpec.describe Slack::BlockKit::Blocks do
           label: { text: 'input', type: 'plain_text' },
           element: { action_id: 'action', type: 'plain_text_input' },
           block_id: '1123',
-          optional: true }
+          optional: optional }
       ]
     end
 
@@ -132,9 +133,13 @@ RSpec.describe Slack::BlockKit::Blocks do
     end
 
     it 'serialises a input block' do
-      input
+      expect(input.as_json).to eq expected_json
+    end
 
-      expect(instance.as_json).to eq expected_json
+    context 'when input is marked as optional' do
+      let(:optional) { true }
+
+      it { expect(input.as_json).to eq(expected_json) }
     end
   end
 

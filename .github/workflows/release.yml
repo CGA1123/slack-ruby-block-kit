@@ -16,8 +16,10 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - run: echo "::add-mask::${{github.event.inputs.otp}}"
-        name: masking
+      - name: Mask OTP
+        run: |
+          OTP=$(jq -r '.inputs.otp' $GITHUB_EVENT_PATH)
+          echo "::add-mask::$OTP"
       - run: gem update --system
       - run: git config --global user.email github-action@users.noreply.github.com
       - run: git config --global user.name GitHub Actions

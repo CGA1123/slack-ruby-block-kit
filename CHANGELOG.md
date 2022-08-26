@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rename `Slack::BlockKit::Element::DatePicker` to `Datepicker`
 - Rename `Slack::BlockKit::Layout::Actions#date_picker` to `#datepicker`
 - Rename `Slack::BlockKit::Layout::Section#date_picker` to `#datepicker`
-- 
+- `Slack::BlockKit::Blocks#input` now supports passing through the `optional:` parameter (@sophieklm)
 
 ### Deprecated
 - N/A

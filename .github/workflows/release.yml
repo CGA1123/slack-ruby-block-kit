@@ -17,7 +17,7 @@ jobs:
         with:
           ruby-version: 2.7
       - run: |
-          otp=${{github.events.inputs.otp}}
+          otp=${{github.event.inputs.otp}}
           echo "::add-mask::$otp"
       - run: gem update --system
       - run: git config --global user.email github-action@users.noreply.github.com

@@ -10,4 +10,4 @@ require 'slack-ruby-block-kit'
 require 'faraday'
 require 'pry'
 
-binding.pry
+binding.pry # rubocop:disable Lint/Debugger

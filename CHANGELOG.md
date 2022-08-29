@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- Added `Slack::BlockKit::Layout::Video` (#152 by @jcat4)
+
+This adds support for Slack's new Video Block.
+
+See: https://api.slack.com/reference/block-kit/blocks#video
 
 ### Changed
 - N/A

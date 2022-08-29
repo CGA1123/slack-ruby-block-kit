@@ -57,7 +57,7 @@ module Slack
         self
       end
 
-      def as_json(*) # rubocop:disable Metrics/MethodLength
+      def as_json(*)
         {
           type: TYPE,
           blocks: @blocks.as_json,

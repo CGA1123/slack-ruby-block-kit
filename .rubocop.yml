@@ -83,5 +83,8 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 8
 
+Metrics/MethodLength:
+  Max: 25
+
 RSpec/ExampleLength:
-  Max: 6
+  Max: 25

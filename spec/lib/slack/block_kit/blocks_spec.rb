@@ -205,7 +205,7 @@ RSpec.describe Slack::BlockKit::Blocks do
         thumbnail_url: 'https://git.io/JfvWK',
         video_url: 'https://git.io/JfvWK',
         title: 'title',
-        description: 'description',
+        description: 'description'
       )
     end
 
@@ -218,11 +218,11 @@ RSpec.describe Slack::BlockKit::Blocks do
           video_url: 'https://git.io/JfvWK',
           title: {
             type: 'plain_text',
-            text: 'title',
+            text: 'title'
           },
           description: {
             type: 'plain_text',
-            text: 'description',
+            text: 'description'
           }
         }
       ]

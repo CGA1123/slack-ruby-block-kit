@@ -42,7 +42,7 @@ module Slack
             provider_name: @provider_name,
             title_url: @title_url,
             description: @description.as_json,
-            title: @title.as_json,
+            title: @title.as_json
           }.compact
         end
       end

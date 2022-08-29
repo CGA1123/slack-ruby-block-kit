@@ -3,10 +3,10 @@
 require 'spec_helper'
 
 RSpec.describe Slack::BlockKit::Layout::Video do
-  describe ".as_json" do
+  describe '.as_json' do
     subject(:video_json) { instance.as_json }
 
-    context "when only required arguments are provided" do
+    context 'when only required arguments are provided' do
       let(:instance) do
         described_class.new(
           alt_text: '__ALT_TEXT__',
@@ -17,25 +17,25 @@ RSpec.describe Slack::BlockKit::Layout::Video do
         )
       end
 
-      it "correctly serializes arguments" do
+      it 'correctly serializes arguments' do
         expect(video_json).to eq({
           type: 'video',
           alt_text: '__ALT_TEXT__',
           thumbnail_url: '__THUMBNAIL_URL__',
           video_url: '__VIDEO_URL__',
           title: {
-            type: "plain_text",
+            type: 'plain_text',
             text: '__TITLE__',
           },
           description: {
-            type: "plain_text",
+            type: 'plain_text',
             text: '__DESCRIPTION__',
           }
         })
       end
     end
 
-    context "when all arguments are provided" do
+    context 'when all arguments are provided' do
       let(:instance) do
         described_class.new(
           alt_text: '__ALT_TEXT__',
@@ -52,19 +52,19 @@ RSpec.describe Slack::BlockKit::Layout::Video do
         )
       end
 
-      it "correctly serializes arguments" do
+      it 'correctly serializes arguments' do
         expect(video_json).to eq({
           type: 'video',
           alt_text: '__ALT_TEXT__',
           thumbnail_url: '__THUMBNAIL_URL__',
           video_url: '__VIDEO_URL__',
           title: {
-            type: "plain_text",
+            type: 'plain_text',
             text: '__TITLE__',
             emoji: false,
           },
           description: {
-            type: "plain_text",
+            type: 'plain_text',
             text: '__DESCRIPTION__',
             emoji: false,
           },

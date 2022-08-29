@@ -197,4 +197,45 @@ RSpec.describe Slack::BlockKit::Blocks do
       expect(instance.as_json).to eq expected_json
     end
   end
+
+  describe '#video' do
+    subject(:video) do
+      instance.video(
+        alt_text: 'video_alt_text',
+        thumbnail_url: 'https://git.io/JfvWK',
+        video_url: 'https://git.io/JfvWK',
+        title: 'title',
+        description: 'description',
+      )
+    end
+
+    let(:expected_json) do
+      [
+        {
+          type: 'video',
+          alt_text: 'video_alt_text',
+          thumbnail_url: 'https://git.io/JfvWK',
+          video_url: 'https://git.io/JfvWK',
+          title: {
+            type: 'plain_text',
+            text: 'title',
+          },
+          description: {
+            type: 'plain_text',
+            text: 'description',
+          }
+        }
+      ]
+    end
+
+    it 'returns self' do
+      expect(video).to be(instance)
+    end
+
+    it 'serialises a video block' do
+      video
+
+      expect(instance.as_json).to eq(expected_json)
+    end
+  end
 end

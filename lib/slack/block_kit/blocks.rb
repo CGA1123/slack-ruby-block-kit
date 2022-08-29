@@ -57,11 +57,11 @@ module Slack
 
       def video(alt_text:, thumbnail_url:, video_url:, title:, description:, **optional_args)
         block = Layout::Video.new(
-          alt_text:,
-          thumbnail_url:,
-          video_url:,
-          title:,
-          description:,
+          alt_text: alt_text,
+          thumbnail_url: thumbnail_url,
+          video_url: video_url,
+          title: title,
+          description: description,
           **optional_args
         )
 

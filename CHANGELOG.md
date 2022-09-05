@@ -8,11 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added `Slack::BlockKit::Layout::Video` (#152 by @jcat4)
-
-This adds support for Slack's new Video Block.
-
-See: https://api.slack.com/reference/block-kit/blocks#video
+- N/A
 
 ### Changed
 - N/A
@@ -28,6 +24,16 @@ See: https://api.slack.com/reference/block-kit/blocks#video
 
 ### Security
 - N/A
+
+## [0.19.0] - 2022-09-05
+
+### Added
+- Added `Slack::BlockKit::Layout::Video` (#152 by @jcat4)
+
+This adds support for Slack's new Video Block.
+
+See: https://api.slack.com/reference/block-kit/blocks#video
+
 
 ## [0.18.0] - 2022-08-26
 
@@ -129,8 +135,9 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.18.0...HEAD
-[0.17.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.17.0...v0.18.0
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.19.0...HEAD
+[0.19.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.18.0...v0.19.0
+[0.18.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.14.1...v0.15.0

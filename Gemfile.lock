@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack-ruby-block-kit (0.18.0)
+    slack-ruby-block-kit (0.19.0)
       zeitwerk (~> 2.6)
 
 GEM

@@ -19,7 +19,8 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
       initial_value: initial_value,
       multiline: multiline,
       min_length: min_length,
-      max_length: max_length
+      max_length: max_length,
+      focus_on_load: true
     }
   end
 
@@ -32,6 +33,7 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
         min_length: min_length,
         max_length: max_length,
         multiline: multiline,
+        focus_on_load: true,
         placeholder: Slack::BlockKit::Composition::PlainText.new(text: placeholder, emoji: emoji).as_json,
         dispatch_action_config: Slack::BlockKit::Composition::DispatchActionConfiguration.new(
           triggers: [:on_enter_pressed]
@@ -67,6 +69,7 @@ RSpec.describe Slack::BlockKit::Element::PlainTextInput do
         min_length: min_length,
         max_length: max_length,
         multiline: multiline,
+        focus_on_load: true,
         placeholder: Slack::BlockKit::Composition::PlainText.new(text: placeholder, emoji: emoji).as_json
       }
     end

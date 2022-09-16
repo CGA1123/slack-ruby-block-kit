@@ -2,14 +2,14 @@
 
 require 'spec_helper'
 
-RSpec.describe Slack::BlockKit::Element::Timepicker do
+RSpec.describe Slack::BlockKit::Element::Datepicker do
   subject(:instance) { described_class.new(**params) }
 
   describe '.initialize' do
     it 'yields self' do
       yielded = nil
-      new_instance = described_class.new(action_id: '1123') do |timepicker|
-        yielded = timepicker
+      new_instance = described_class.new(action_id: '1123') do |datepicker|
+        yielded = datepicker
       end
 
       expect(new_instance).to be(yielded)
@@ -21,7 +21,7 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
       let(:params) { { action_id: '1123' } }
       let(:expected_json) do
         {
-          type: 'timepicker',
+          type: 'datepicker',
           action_id: '1123'
         }
       end
@@ -41,7 +41,7 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
 
       let(:expected_json) do
         {
-          type: 'timepicker',
+          type: 'datepicker',
           action_id: '1123',
           placeholder: Slack::BlockKit::Composition::PlainText.new(text: 'pick a time').as_json
         }
@@ -52,42 +52,42 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
       end
     end
 
-    context 'with initial_time' do
+    context 'with initial_date' do
       let(:params) do
         {
           action_id: '1123',
-          initial: '11:23'
+          initial: '2022-09-16'
         }
       end
 
       let(:expected_json) do
         {
-          type: 'timepicker',
+          type: 'datepicker',
           action_id: '1123',
-          initial_time: '11:23'
+          initial_date: '2022-09-16'
         }
       end
 
-      it 'encodes the initial_time' do
+      it 'encodes the initial_date' do
         expect(instance.as_json).to eq(expected_json)
       end
     end
 
-    context 'with placeholder and initial_time' do
+    context 'with placeholder and initial_date' do
       let(:params) do
         {
           action_id: '1123',
-          initial: '11:23',
-          placeholder: 'pick a time'
+          initial: '2022-09-16',
+          placeholder: 'pick a date'
         }
       end
 
       let(:expected_json) do
         {
-          type: 'timepicker',
+          type: 'datepicker',
           action_id: '1123',
-          initial_time: '11:23',
-          placeholder: Slack::BlockKit::Composition::PlainText.new(text: 'pick a time').as_json
+          initial_date: '2022-09-16',
+          placeholder: Slack::BlockKit::Composition::PlainText.new(text: 'pick a date').as_json
         }
       end
 
@@ -106,7 +106,7 @@ RSpec.describe Slack::BlockKit::Element::Timepicker do
 
       let(:expected_json) do
         {
-          type: 'timepicker',
+          type: 'datepicker',
           action_id: '1123',
           focus_on_load: true
         }

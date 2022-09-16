@@ -14,9 +14,10 @@ module Slack
 
         TYPE = 'datepicker'
 
-        def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil)
+        def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil, focus_on_load: nil)
           @action_id = action_id
           @initial_date = initial
+          @focus_on_load = focus_on_load
           @placeholder = placeholder_text(placeholder, emoji)
 
           yield(self) if block_given?
@@ -28,6 +29,7 @@ module Slack
             action_id: @action_id,
             placeholder: @placeholder&.as_json,
             initial_date: @initial_date,
+            focus_on_load: @focus_on_load,
             confirm: confirm&.as_json
           }.compact
         end

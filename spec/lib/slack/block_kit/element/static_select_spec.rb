@@ -83,6 +83,17 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
     ]
   end
 
+  describe '.initialize' do
+    it 'yields self' do
+      yielded = nil
+      new_instance = described_class.new(**params) do |static_select|
+        yielded = static_select
+      end
+
+      expect(new_instance).to be(yielded)
+    end
+  end
+
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
 
@@ -205,6 +216,20 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
         expect(as_json).to eq(
           expected_json.merge(option_groups: expected_option_groups, initial_option: expected_initial_option)
         )
+      end
+    end
+
+    context 'with focus_on_load' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json.merge(focus_on_load: true))
       end
     end
   end

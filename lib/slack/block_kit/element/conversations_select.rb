@@ -18,10 +18,17 @@ module Slack
 
         TYPE = 'conversations_select'
 
-        def initialize(placeholder:, action_id:, initial: nil, emoji: nil)
+        def initialize(
+          placeholder:,
+          action_id:,
+          initial: nil,
+          emoji: nil,
+          focus_on_load: nil
+        )
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_conversation = initial
+          @focus_on_load = focus_on_load
           @filter = nil
 
           yield(self) if block_given?
@@ -44,6 +51,7 @@ module Slack
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
+            focus_on_load: @focus_on_load,
             initial_conversation: @initial_conversation,
             confirm: confirm&.as_json,
             filter: @filter&.as_json

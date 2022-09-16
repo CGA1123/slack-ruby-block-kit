@@ -13,8 +13,9 @@ module Slack
 
         attr_accessor :options
 
-        def initialize(action_id:)
+        def initialize(action_id:, focus_on_load: nil)
           @action_id = action_id
+          @focus_on_load = focus_on_load
           @options = []
 
           yield(self) if block_given?
@@ -36,6 +37,7 @@ module Slack
           {
             type: TYPE,
             action_id: @action_id,
+            focus_on_load: @focus_on_load,
             options: @options.map(&:as_json),
             initial_option: initial_option&.as_json,
             confirm: confirm&.as_json

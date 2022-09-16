@@ -136,6 +136,32 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         expect(as_json).to eq(expected_json)
       end
     end
+
+    context 'with focus_on_load' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder_text
+          },
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
   end
 
   describe '#filter' do

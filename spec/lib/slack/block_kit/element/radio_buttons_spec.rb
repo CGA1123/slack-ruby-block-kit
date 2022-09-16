@@ -7,6 +7,17 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
   let(:action_id) { 'my-action' }
   let(:params) { { action_id: action_id } }
 
+  describe '.initialize' do
+    it 'yields self' do
+      yielded = nil
+      new_instance = described_class.new(action_id: action_id) do |radio|
+        yielded = radio
+      end
+
+      expect(new_instance).to be(yielded)
+    end
+  end
+
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
 
@@ -44,6 +55,28 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
       instance.option(value: 'option-1', text: 'Option 1')
       instance.option(value: 'option-2', text: 'Option 2', initial: true)
       expect(as_json).to eq(expected_json)
+    end
+
+    context 'with focus_on_load' do
+      let(:params) do
+        {
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'radio_buttons',
+          action_id: action_id,
+          focus_on_load: true,
+          options: []
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
     end
 
     context 'with confirmation dialog' do

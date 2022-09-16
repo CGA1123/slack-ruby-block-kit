@@ -23,11 +23,19 @@ module Slack
 
         TYPE = 'external_select'
 
-        def initialize(placeholder:, action_id:, initial: nil, min_query_length: nil, emoji: nil)
+        def initialize(
+          placeholder:,
+          action_id:,
+          initial: nil,
+          min_query_length: nil,
+          emoji: nil,
+          focus_on_load: nil
+        )
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_option = initial
           @min_query_length = min_query_length
+          @focus_on_load = focus_on_load
 
           yield(self) if block_given?
         end
@@ -37,6 +45,7 @@ module Slack
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
+            focus_on_load: @focus_on_load,
             initial_option: @initial_option&.as_json,
             min_query_length: @min_query_length,
             confirm: confirm&.as_json

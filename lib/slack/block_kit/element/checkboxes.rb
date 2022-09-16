@@ -12,8 +12,9 @@ module Slack
 
         TYPE = 'checkboxes'
 
-        def initialize(action_id:)
+        def initialize(action_id:, focus_on_load: nil)
           @action_id = action_id
+          @focus_on_load = focus_on_load
           @options = []
 
           yield(self) if block_given?
@@ -36,6 +37,7 @@ module Slack
             action_id: @action_id,
             options: @options.map(&:as_json),
             initial_options: initial_options&.map(&:as_json),
+            focus_on_load: @focus_on_load,
             confirm: confirm&.as_json
           }.compact
         end

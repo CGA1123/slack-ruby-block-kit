@@ -19,9 +19,10 @@ module Slack
 
         attr_accessor :options, :option_groups
 
-        def initialize(placeholder:, action_id:, emoji: nil)
+        def initialize(placeholder:, action_id:, emoji: nil, focus_on_load: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
+          @focus_on_load = focus_on_load
 
           yield(self) if block_given?
         end
@@ -54,6 +55,7 @@ module Slack
             type: TYPE,
             placeholder: @placeholder.as_json,
             action_id: @action_id,
+            focus_on_load: @focus_on_load,
             options: options&.map(&:as_json),
             option_groups: option_groups&.map(&:as_json),
             initial_option: initial_option&.as_json,

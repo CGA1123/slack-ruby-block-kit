@@ -8,7 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- Added `focus_on_load` parameter to following elements:
+  - `Slack::BlockKit::Element::ChannelsSelect`
+  - `Slack::BlockKit::Element::Checkboxes`
+  - `Slack::BlockKit::Element::ConversationsSelect`
+  - `Slack::BlockKit::Element::Datepicker`
+  - `Slack::BlockKit::Element::ExternalSelect`
+  - `Slack::BlockKit::Element::MultiChannelsSelect`
+  - `Slack::BlockKit::Element::MultiConversationsSelect`
+  - `Slack::BlockKit::Element::MultiExternalSelect`
+  - `Slack::BlockKit::Element::MultiStaticSelect`
+  - `Slack::BlockKit::Element::MultiUsersSelect`
+  - `Slack::BlockKit::Element::PlainTextInput`
+  - `Slack::BlockKit::Element::RadioButtons`
+  - `Slack::BlockKit::Element::StaticSelect`
+  - `Slack::BlockKit::Element::Timepicker`
+  - `Slack::BlockKit::Element::UsersSelect`
+  (#153 by @aka-nez)
 
 ### Changed
 - N/A

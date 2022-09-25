@@ -17,6 +17,17 @@ RSpec.describe Slack::BlockKit::Element::ConversationsSelect do
     }
   end
 
+  describe '.initialize' do
+    it 'yields self' do
+      yielded = nil
+      new_instance = described_class.new(**params) do |conservation_select|
+        yielded = conservation_select
+      end
+
+      expect(new_instance).to be(yielded)
+    end
+  end
+
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
 
@@ -77,6 +88,32 @@ RSpec.describe Slack::BlockKit::Element::ConversationsSelect do
           },
           action_id: action_id,
           initial_conversation: 'conv1'
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'with focus_on_load' do
+      let(:params) do
+        {
+          placeholder: placeholder,
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'conversations_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder
+          },
+          action_id: action_id,
+          focus_on_load: true
         }
       end
 

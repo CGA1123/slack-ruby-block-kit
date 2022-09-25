@@ -12,6 +12,17 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
   let(:option_description) { { value: 'option-2', text: 'Option 2', description: 'description' } }
   let(:another_option) { { value: 'option-3', text: 'Option 3' } }
 
+  describe '.initialize' do
+    it 'yields self' do
+      yielded = nil
+      new_instance = described_class.new(action_id: '1123') do |checkbox|
+        yielded = checkbox
+      end
+
+      expect(new_instance).to be(yielded)
+    end
+  end
+
   describe '#as_json' do
     let(:expected_json) do
       {
@@ -45,6 +56,28 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
       instance.option(**option_description)
 
       expect(as_json).to eq(expected_json)
+    end
+
+    context 'with focus on load' do
+      let(:params) do
+        {
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'checkboxes',
+          action_id: action_id,
+          focus_on_load: true,
+          options: []
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
     end
 
     context 'with initial options' do

@@ -13,22 +13,61 @@ RSpec.describe Slack::BlockKit::Element::ExternalSelect do
     }
   end
 
+  describe '.initialize' do
+    it 'yields self' do
+      yielded = nil
+      new_instance = described_class.new(**params) do |external_select|
+        yielded = external_select
+      end
+
+      expect(new_instance).to be(yielded)
+    end
+  end
+
   describe '#as_json' do
     subject(:as_json) { instance.as_json }
 
-    let(:expected_json) do
-      {
-        type: 'external_select',
-        placeholder: {
-          type: 'plain_text',
-          text: placeholder_text
-        },
-        action_id: action_id
-      }
+    context 'when minimal use case' do
+      let(:expected_json) do
+        {
+          type: 'external_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder_text
+          },
+          action_id: action_id
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
     end
 
-    it 'correctly serializes' do
-      expect(as_json).to eq(expected_json)
+    context 'with focus_on_load' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'external_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder_text
+          },
+          action_id: action_id,
+          focus_on_load: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
     end
   end
 end

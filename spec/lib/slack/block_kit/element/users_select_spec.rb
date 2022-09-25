@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
+RSpec.describe Slack::BlockKit::Element::UsersSelect do
   let(:instance) { described_class.new(**params) }
   let(:placeholder_text) { 'some text' }
   let(:action_id) { 'my-action' }
@@ -16,8 +16,8 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
   describe '.initialize' do
     it 'yields self' do
       yielded = nil
-      new_instance = described_class.new(**params) do |channel|
-        yielded = channel
+      new_instance = described_class.new(**params) do |users_select|
+        yielded = users_select
       end
 
       expect(new_instance).to be(yielded)
@@ -40,7 +40,7 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
 
       let(:expected_json) do
         {
-          type: 'multi_channels_select',
+          type: 'users_select',
           placeholder: {
             type: 'plain_text',
             text: placeholder_text
@@ -72,73 +72,23 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
       end
     end
 
-    context 'with initial_channels' do
+    context 'with initial user' do
       let(:params) do
         {
           placeholder: placeholder_text,
           action_id: action_id,
-          initial: %w[channel-1 channel-2]
+          initial: 'user1'
         }
       end
       let(:expected_json) do
         {
-          type: 'multi_channels_select',
+          type: 'users_select',
           placeholder: {
             type: 'plain_text',
             text: placeholder_text
           },
           action_id: action_id,
-          initial_channels: %w[channel-1 channel-2]
-        }
-      end
-
-      it 'correctly serializes' do
-        expect(as_json).to eq(expected_json)
-      end
-    end
-
-    context 'with max_selected_items' do
-      let(:params) do
-        {
-          placeholder: placeholder_text,
-          action_id: action_id,
-          max_selected_items: 10
-        }
-      end
-
-      let(:expected_json) do
-        {
-          type: 'multi_channels_select',
-          placeholder: {
-            type: 'plain_text',
-            text: placeholder_text
-          },
-          action_id: action_id,
-          max_selected_items: 10
-        }
-      end
-
-      it 'correctly serializes' do
-        expect(as_json).to eq(expected_json)
-      end
-    end
-
-    context 'without max_selected_items' do
-      let(:params) do
-        {
-          placeholder: placeholder_text,
-          action_id: action_id
-        }
-      end
-
-      let(:expected_json) do
-        {
-          type: 'multi_channels_select',
-          placeholder: {
-            type: 'plain_text',
-            text: placeholder_text
-          },
-          action_id: action_id
+          initial_user: 'user1'
         }
       end
 
@@ -158,7 +108,7 @@ RSpec.describe Slack::BlockKit::Element::MultiChannelsSelect do
 
       let(:expected_json) do
         {
-          type: 'multi_channels_select',
+          type: 'users_select',
           placeholder: {
             type: 'plain_text',
             text: placeholder_text

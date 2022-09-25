@@ -17,11 +17,19 @@ module Slack
 
         TYPE = 'multi_users_select'
 
-        def initialize(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
+        def initialize(
+          placeholder:,
+          action_id:,
+          initial: nil,
+          emoji: nil,
+          max_selected_items: nil,
+          focus_on_load: nil
+        )
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_users = initial
           @max_selected_items = max_selected_items
+          @focus_on_load = focus_on_load
 
           yield(self) if block_given?
         end
@@ -32,6 +40,7 @@ module Slack
             placeholder: @placeholder.as_json,
             action_id: @action_id,
             initial_users: @initial_users,
+            focus_on_load: @focus_on_load,
             confirm: confirm&.as_json,
             max_selected_items: @max_selected_items
           }.compact

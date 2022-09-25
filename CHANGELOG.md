@@ -8,23 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added `focus_on_load` parameter to following elements:
-  - `Slack::BlockKit::Element::ChannelsSelect`
-  - `Slack::BlockKit::Element::Checkboxes`
-  - `Slack::BlockKit::Element::ConversationsSelect`
-  - `Slack::BlockKit::Element::Datepicker`
-  - `Slack::BlockKit::Element::ExternalSelect`
-  - `Slack::BlockKit::Element::MultiChannelsSelect`
-  - `Slack::BlockKit::Element::MultiConversationsSelect`
-  - `Slack::BlockKit::Element::MultiExternalSelect`
-  - `Slack::BlockKit::Element::MultiStaticSelect`
-  - `Slack::BlockKit::Element::MultiUsersSelect`
-  - `Slack::BlockKit::Element::PlainTextInput`
-  - `Slack::BlockKit::Element::RadioButtons`
-  - `Slack::BlockKit::Element::StaticSelect`
-  - `Slack::BlockKit::Element::Timepicker`
-  - `Slack::BlockKit::Element::UsersSelect`
-  (#153 by @aka-nez)
+- N/A
 
 ### Changed
 - N/A
@@ -40,6 +24,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - N/A
+
+## [0.20.0] - 2022-09-25
+
+### Added
+- Added `focus_on_load` parameter to following elements (#153 by @aka-nez):
+  - `Slack::BlockKit::Element::ChannelsSelect`
+  - `Slack::BlockKit::Element::Checkboxes`
+  - `Slack::BlockKit::Element::ConversationsSelect`
+  - `Slack::BlockKit::Element::Datepicker`
+  - `Slack::BlockKit::Element::ExternalSelect`
+  - `Slack::BlockKit::Element::MultiChannelsSelect`
+  - `Slack::BlockKit::Element::MultiConversationsSelect`
+  - `Slack::BlockKit::Element::MultiExternalSelect`
+  - `Slack::BlockKit::Element::MultiStaticSelect`
+  - `Slack::BlockKit::Element::MultiUsersSelect`
+  - `Slack::BlockKit::Element::PlainTextInput`
+  - `Slack::BlockKit::Element::RadioButtons`
+  - `Slack::BlockKit::Element::StaticSelect`
+  - `Slack::BlockKit::Element::Timepicker`
+  - `Slack::BlockKit::Element::UsersSelect`
 
 ## [0.19.0] - 2022-09-05
 
@@ -151,7 +155,8 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.19.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...HEAD
+[0.20.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.17.0...v0.18.0
 [0.17.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.16.0...v0.17.0

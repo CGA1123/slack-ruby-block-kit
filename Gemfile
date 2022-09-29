@@ -9,7 +9,7 @@ gem 'faraday', '~> 1'
 gem 'pry', '~> 0.14'
 gem 'rake', '~> 13'
 gem 'rspec', '~> 3'
-gem 'rspec_junit_formatter', '~> 0.5'
+gem 'rspec_junit_formatter', '~> 0.6'
 
 gem 'codecov', '~> 0.6', require: false
 gem 'rubocop', '~> 1', require: false

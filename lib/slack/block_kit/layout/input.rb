@@ -8,7 +8,7 @@ module Slack
       # a select menu element, a multi-select menu element, or a datepicker.
       #
       # https://api.slack.com/reference/block-kit/blocks#input
-      class Input
+      class Input # rubocop:disable Metrics/ClassLength
         TYPE = 'input'
 
         attr_accessor :label, :element, :block_id, :hint, :optional, :emoji

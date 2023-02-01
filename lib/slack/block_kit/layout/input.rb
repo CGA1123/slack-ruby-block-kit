@@ -8,7 +8,7 @@ module Slack
       # a select menu element, a multi-select menu element, or a datepicker.
       #
       # https://api.slack.com/reference/block-kit/blocks#input
-      class Input
+      class Input # rubocop:disable Metrics/ClassLength
         TYPE = 'input'
 
         attr_accessor :label, :element, :block_id, :hint, :optional, :emoji
@@ -199,6 +199,20 @@ module Slack
           )
 
           self
+        end
+
+        def url_text_input(
+          action_id:,
+          placeholder: nil,
+          initial_value: nil,
+          focus_on_load: nil
+        )
+          @element = Element::UrlTextInput.new(
+            action_id: action_id,
+            placeholder: placeholder,
+            initial_value: initial_value,
+            focus_on_load: focus_on_load
+          )
         end
 
         def radio_buttons(action_id:)

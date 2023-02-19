@@ -104,6 +104,17 @@ module Slack
           self
         end
 
+        def datetimepicker(action_id:, initial: nil)
+          @element = Element::Datetimepicker.new(
+            action_id: action_id,
+            initial: initial
+          )
+
+          yield(@element) if block_given?
+
+          self
+        end
+
         def multi_channels_select(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
           @element = Element::MultiChannelsSelect.new(
             placeholder: placeholder,

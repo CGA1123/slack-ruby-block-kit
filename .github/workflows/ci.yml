@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,11 +21,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: curl https://deepsource.io/cli | sh
       - run: gem install bundler:2.1.4
       - run: bundle install
       - run: bundle exec rubocop
       - run: bundle exec rspec --format progress
-      - run: ./bin/deepsource report --analyzer test-coverage --key ruby --value-file ./coverage/.resultset.json
-        # don't run on forks which don't have access to DEEPSOURCE_DSN
-        if: (env.DEEPSOURCE_DSN != '') && (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == github.repository) 

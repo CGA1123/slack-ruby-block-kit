@@ -120,6 +120,20 @@ RSpec.describe Slack::BlockKit::Layout::Input do
     end
   end
 
+  describe '#datetimepicker' do
+    let(:element_json) do
+      Slack::BlockKit::Element::Datetimepicker.new(
+        action_id: '__ACTION_ID__'
+      ).as_json
+    end
+
+    it 'correctly serializes' do
+      instance.datetimepicker(action_id: '__ACTION_ID__')
+
+      expect(input_json).to eq(expected_json)
+    end
+  end
+
   describe '#multi_channels_select' do
     let(:element_json) do
       Slack::BlockKit::Element::MultiChannelsSelect.new(

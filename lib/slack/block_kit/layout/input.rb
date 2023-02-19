@@ -215,6 +215,20 @@ module Slack
           )
         end
 
+        def email_text_input(
+          action_id:,
+          placeholder: nil,
+          initial_value: nil,
+          focus_on_load: nil
+        )
+          @element = Element::EmailTextInput.new(
+            action_id: action_id,
+            placeholder: placeholder,
+            initial_value: initial_value,
+            focus_on_load: focus_on_load
+          )
+        end
+
         def radio_buttons(action_id:)
           @element = Element::RadioButtons.new(action_id: action_id)
 

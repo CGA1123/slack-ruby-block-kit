@@ -223,6 +223,20 @@ RSpec.describe Slack::BlockKit::Layout::Input do
     end
   end
 
+  describe '#email_text_input' do
+    let(:element_json) do
+      Slack::BlockKit::Element::EmailTextInput.new(
+        action_id: '__ACTION_ID__'
+      ).as_json
+    end
+
+    it 'correctly serializes' do
+      instance.email_text_input(action_id: '__ACTION_ID__')
+
+      expect(input_json).to eq(expected_json)
+    end
+  end
+
   describe '#radio_buttons' do
     let(:element_json) do
       Slack::BlockKit::Element::RadioButtons.new(

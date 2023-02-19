@@ -25,6 +25,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - N/A
 
+## [0.21.0] - 2023-02-19
+
+### Added
+- `Slack::BlockKit::Element::UrlTextInput` (#164 by @dimerman)
+- `Slack::BlockKit::Element::EmailTextInput` (#166 by @CGA1123)
+- `Slack::BlockKit::Element::Datetimepicker` (#167 by @CGA1123)
+
 ## [0.20.0] - 2022-09-25
 
 ### Added
@@ -155,7 +162,8 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.21.0...HEAD
+[0.21.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.17.0...v0.18.0

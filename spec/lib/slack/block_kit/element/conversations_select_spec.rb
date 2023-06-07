@@ -8,12 +8,16 @@ RSpec.describe Slack::BlockKit::Element::ConversationsSelect do
   let(:action_id) { 'my-action' }
   let(:emoji) { nil }
   let(:initial) { nil }
+  let(:default_to_current_conversation) { nil }
+  let(:response_url_enabled) { nil }
   let(:params) do
     {
       placeholder: placeholder,
       action_id: action_id,
       initial: initial,
-      emoji: emoji
+      emoji: emoji,
+      default_to_current_conversation: default_to_current_conversation,
+      response_url_enabled: response_url_enabled
     }
   end
 
@@ -114,6 +118,46 @@ RSpec.describe Slack::BlockKit::Element::ConversationsSelect do
           },
           action_id: action_id,
           focus_on_load: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'with default_to_current_conversation' do
+      let(:default_to_current_conversation) { true }
+
+      let(:expected_json) do
+        {
+          type: 'conversations_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder
+          },
+          action_id: action_id,
+          default_to_current_conversation: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
+
+    context 'with response_url_enabled' do
+      let(:response_url_enabled) { true }
+
+      let(:expected_json) do
+        {
+          type: 'conversations_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder
+          },
+          action_id: action_id,
+          response_url_enabled: true
         }
       end
 

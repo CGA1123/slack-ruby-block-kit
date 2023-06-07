@@ -22,13 +22,15 @@ module Slack
           end
 
           def multi_conversations_select(placeholder:, action_id:,
-                                         initial: nil, emoji: nil, max_selected_items: nil)
+                                         initial: nil, emoji: nil, max_selected_items: nil,
+                                         default_to_current_conversation: nil)
             element = Element::MultiConversationsSelect.new(
               placeholder: placeholder,
               action_id: action_id,
               initial: initial,
               emoji: emoji,
-              max_selected_items: max_selected_items
+              max_selected_items: max_selected_items,
+              default_to_current_conversation: default_to_current_conversation
             )
 
             yield(element) if block_given?

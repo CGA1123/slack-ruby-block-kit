@@ -162,6 +162,32 @@ RSpec.describe Slack::BlockKit::Element::MultiConversationsSelect do
         expect(as_json).to eq(expected_json)
       end
     end
+
+    context 'with default_to_current_conversation' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          default_to_current_conversation: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'multi_conversations_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder_text
+          },
+          action_id: action_id,
+          default_to_current_conversation: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
   end
 
   describe '#filter' do

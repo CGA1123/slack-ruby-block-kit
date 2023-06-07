@@ -24,7 +24,8 @@ module Slack
           initial: nil,
           emoji: nil,
           max_selected_items: nil,
-          focus_on_load: nil
+          focus_on_load: nil,
+          default_to_current_conversation: nil
         )
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
@@ -32,6 +33,7 @@ module Slack
           @max_selected_items = max_selected_items
           @focus_on_load = focus_on_load
           @filter = nil
+          @default_to_current_conversation = default_to_current_conversation
 
           yield(self) if block_given?
         end
@@ -57,7 +59,8 @@ module Slack
             focus_on_load: @focus_on_load,
             confirm: confirm&.as_json,
             max_selected_items: @max_selected_items,
-            filter: @filter&.as_json
+            filter: @filter&.as_json,
+            default_to_current_conversation: @default_to_current_conversation
           }.compact
         end
       end

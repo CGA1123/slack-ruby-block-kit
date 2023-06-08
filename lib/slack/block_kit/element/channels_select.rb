@@ -17,11 +17,12 @@ module Slack
 
         TYPE = 'channels_select'
 
-        def initialize(placeholder:, action_id:, initial: nil, emoji: nil, focus_on_load: nil)
+        def initialize(placeholder:, action_id:, initial: nil, emoji: nil, focus_on_load: nil, response_url_enabled: nil)
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_channel = initial
           @focus_on_load = focus_on_load
+          @response_url_enabled = response_url_enabled
 
           yield(self) if block_given?
         end
@@ -33,7 +34,8 @@ module Slack
             action_id: @action_id,
             focus_on_load: @focus_on_load,
             initial_channel: @initial_channel,
-            confirm: confirm&.as_json
+            confirm: confirm&.as_json,
+            response_url_enabled: @response_url_enabled
           }.compact
         end
       end

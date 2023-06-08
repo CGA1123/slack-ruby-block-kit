@@ -123,5 +123,31 @@ RSpec.describe Slack::BlockKit::Element::ChannelsSelect do
         expect(as_json).to eq(expected_json)
       end
     end
+
+    context 'with response_url_enabled' do
+      let(:params) do
+        {
+          placeholder: placeholder_text,
+          action_id: action_id,
+          response_url_enabled: true
+        }
+      end
+
+      let(:expected_json) do
+        {
+          type: 'channels_select',
+          placeholder: {
+            type: 'plain_text',
+            text: placeholder_text
+          },
+          action_id: action_id,
+          response_url_enabled: true
+        }
+      end
+
+      it 'correctly serializes' do
+        expect(as_json).to eq(expected_json)
+      end
+    end
   end
 end

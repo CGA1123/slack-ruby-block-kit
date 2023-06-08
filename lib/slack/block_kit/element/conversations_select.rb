@@ -23,13 +23,17 @@ module Slack
           action_id:,
           initial: nil,
           emoji: nil,
-          focus_on_load: nil
+          focus_on_load: nil,
+          default_to_current_conversation: nil,
+          response_url_enabled: nil
         )
           @placeholder = Composition::PlainText.new(text: placeholder, emoji: emoji)
           @action_id = action_id
           @initial_conversation = initial
           @focus_on_load = focus_on_load
           @filter = nil
+          @default_to_current_conversation = default_to_current_conversation
+          @response_url_enabled = response_url_enabled
 
           yield(self) if block_given?
         end
@@ -54,7 +58,9 @@ module Slack
             focus_on_load: @focus_on_load,
             initial_conversation: @initial_conversation,
             confirm: confirm&.as_json,
-            filter: @filter&.as_json
+            filter: @filter&.as_json,
+            default_to_current_conversation: @default_to_current_conversation,
+            response_url_enabled: @response_url_enabled
           }.compact
         end
       end

@@ -30,12 +30,14 @@ module Slack
           @dispatch_action = dispatch_action
         end
 
-        def conversation_select(placeholder:, action_id:, initial: nil, emoji: nil)
+        def conversation_select(placeholder:, action_id:, initial: nil, emoji: nil, default_to_current_conversation: nil, response_url_enabled: nil)
           @element = Element::ConversationsSelect.new(
             placeholder: placeholder,
             action_id: action_id,
             initial: initial,
-            emoji: emoji
+            emoji: emoji,
+            default_to_current_conversation: default_to_current_conversation,
+            response_url_enabled: response_url_enabled
           )
 
           yield(@element) if block_given?
@@ -43,13 +45,14 @@ module Slack
           self
         end
 
-        def multi_conversations_select(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil)
+        def multi_conversations_select(placeholder:, action_id:, initial: nil, emoji: nil, max_selected_items: nil, default_to_current_conversation: nil)
           @element = Element::MultiConversationsSelect.new(
             placeholder: placeholder,
             action_id: action_id,
             initial: initial,
             emoji: emoji,
-            max_selected_items: max_selected_items
+            max_selected_items: max_selected_items,
+            default_to_current_conversation: default_to_current_conversation
           )
 
           yield(@element) if block_given?
@@ -57,12 +60,13 @@ module Slack
           self
         end
 
-        def channels_select(placeholder:, action_id:, initial: nil, emoji: nil)
+        def channels_select(placeholder:, action_id:, initial: nil, emoji: nil, response_url_enabled: nil)
           @element = Element::ChannelsSelect.new(
             placeholder: placeholder,
             action_id: action_id,
             initial: initial,
-            emoji: emoji
+            emoji: emoji,
+            response_url_enabled: response_url_enabled
           )
 
           yield(@element) if block_given?

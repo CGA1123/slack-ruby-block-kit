@@ -7,7 +7,7 @@ AllCops:
   NewCops: enable
 
 Layout/LineLength:
-  Max: 120
+  Enabled: false
 
 Style/AsciiComments:
   Enabled: false

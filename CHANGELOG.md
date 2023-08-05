@@ -8,13 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added `Slack::BlockKit::Element::NumberInput` (#169 by @CGA1123)
-- Added `response_url_enabled` parameter to following elements (#171 by @rinasergeeva):
-  - `Slack::BlockKit::Element::ChannelsSelect`
-  - `Slack::BlockKit::Element::ConversationsSelect`
-- Added `default_to_current_conversation` parameter to following elements (#171 by @rinasergeeva):
-  - `Slack::BlockKit::Element::ConversationsSelect`
-  - `Slack::BlockKit::Element::MultiConversationsSelect`
+- N/A
 
 ### Changed
 - N/A
@@ -30,6 +24,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 - N/A
+
+## [0.22.0] - 2023-08-5
+
+### Added
+- Added `Slack::BlockKit::Element::NumberInput` (#169 by @CGA1123)
+- Added `response_url_enabled` parameter to following elements (#171 by @rinasergeeva):
+  - `Slack::BlockKit::Element::ChannelsSelect`
+  - `Slack::BlockKit::Element::ConversationsSelect`
+- Added `default_to_current_conversation` parameter to following elements (#171 by @rinasergeeva):
+  - `Slack::BlockKit::Element::ConversationsSelect`
+  - `Slack::BlockKit::Element::MultiConversationsSelect`
 
 ## [0.21.0] - 2023-02-19
 
@@ -168,7 +173,8 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.22.0...HEAD
+[0.22.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.18.0...v0.19.0

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added `Slack::BlockKit::Element::NumberInput` (#169 by @CGA1123)
 - Added `response_url_enabled` parameter to following elements (#171 by @rinasergeeva):
   - `Slack::BlockKit::Element::ChannelsSelect`
   - `Slack::BlockKit::Element::ConversationsSelect`

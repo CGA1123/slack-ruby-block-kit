@@ -39,6 +39,14 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
               type: 'plain_text',
               text: 'Option 2'
             }
+          },
+          {
+            value: 'option-3',
+            text: {
+              type: 'plain_text',
+              text: 'Option 3',
+              emoji: true
+            }
           }
         ],
         initial_option: {
@@ -54,6 +62,7 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
     it 'correctly serializes' do
       instance.option(value: 'option-1', text: 'Option 1')
       instance.option(value: 'option-2', text: 'Option 2', initial: true)
+      instance.option(value: 'option-3', text: 'Option 3', initial: true, emoji: true)
       expect(as_json).to eq(expected_json)
     end
 

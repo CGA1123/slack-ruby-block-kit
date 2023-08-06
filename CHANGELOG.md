@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- N/A
+- Added ability to set `emoji` property via `Slack::BlockKit::Blocks#input` (#175 by @bmorton)
+- Added ability to set `emoji` property via `Slack::BlockKit::Element::RadioButtons#option` (#175 by @bmorton)
 
 ### Changed
 - N/A

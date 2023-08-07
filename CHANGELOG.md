@@ -8,8 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Added ability to set `emoji` property via `Slack::BlockKit::Blocks#input` (#175 by @bmorton)
-- Added ability to set `emoji` property via `Slack::BlockKit::Element::RadioButtons#option` (#175 by @bmorton)
+- N/A
 
 ### Changed
 - N/A
@@ -26,7 +25,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - N/A
 
-## [0.22.0] - 2023-08-5
+
+## [0.23.0] - 2023-08-07
+
+### Added
+
+- Added ability to set `emoji` property via `Slack::BlockKit::Blocks#input` (#175 by @bmorton)
+- Added ability to set `emoji` property via `Slack::BlockKit::Element::RadioButtons#option` (#175 by @bmorton)
+
+## [0.22.0] - 2023-08-05
 
 ### Added
 - Added `Slack::BlockKit::Element::NumberInput` (#169 by @CGA1123)

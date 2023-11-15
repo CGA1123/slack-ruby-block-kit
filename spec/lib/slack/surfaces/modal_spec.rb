@@ -34,6 +34,20 @@ RSpec.describe Slack::Surfaces::Modal do
       it 'correctly serializes' do
         expect(instance.as_json).to eq(expected_json)
       end
+
+      context 'with too many blocks' do
+        let(:blocks) do
+          Slack::BlockKit.blocks do |block|
+            (Slack::BlockKit::Limits::MAX_NUMBER_OF_MODAL_BLOCKS + 1).times do |i|
+              block.image(url: image_url, alt_text: "__ALT_TEXT_#{i}__")
+            end
+          end
+        end
+
+        it 'raises an error' do
+          expect { instance.as_json }.to raise_error(Slack::BlockKit::Limits::Errors::LimitExceededError)
+        end
+      end
     end
 
     context 'without blocks argument' do

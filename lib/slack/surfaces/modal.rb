@@ -12,6 +12,8 @@ module Slack
     #   or using #title for detail setup
     #
     class Modal
+      prepend ::Slack::BlockKit::Limits::Limitable
+
       TYPE = 'modal'
 
       def initialize(

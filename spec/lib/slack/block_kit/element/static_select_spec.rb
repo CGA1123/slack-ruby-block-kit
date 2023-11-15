@@ -166,6 +166,19 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
           expected_json.merge(options: expected_options)
         )
       end
+
+      context 'when there are too many options' do
+        subject(:as_json) do
+          (::Slack::BlockKit::Limits::MAX_STATIC_SELECT_OPTIONS + 1).times do |i|
+            instance.option(value: "__VALUE_#{i}__", text: "__TEXT_#{i}__")
+          end
+          instance.as_json
+        end
+
+        it 'raises an error when too many options are added' do
+          expect { as_json }.to raise_error(::Slack::BlockKit::Limits::Errors::LimitExceededError)
+        end
+      end
     end
 
     context 'with options and initial option' do

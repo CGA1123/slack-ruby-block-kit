@@ -35,6 +35,30 @@ RSpec.describe Slack::BlockKit::Composition::Option do
       end
     end
 
+    context 'when label is very long' do
+      it 'truncates the label' do
+        option_with_long_label = described_class.new(
+          text: 'a' * (::Slack::BlockKit::Limits::MAX_OPTION_TEXT_LENGTH + 1),
+          value: 'a value',
+          emoji: true
+        )
+
+        expect(option_with_long_label.as_json.dig(:text, :text)).to eq("#{'a' * (::Slack::BlockKit::Limits::MAX_OPTION_TEXT_LENGTH - '…'.length)}…")
+      end
+    end
+
+    context 'when value is very long' do
+      it 'raises an error' do
+        options = described_class.new(
+          text: 'some text',
+          value: 'a' * (::Slack::BlockKit::Limits::MAX_OPTION_VALUE_LENGTH + 1),
+          emoji: true
+        )
+
+        expect { options.as_json }.to raise_error(::Slack::BlockKit::Limits::Errors::LimitExceededError)
+      end
+    end
+
     context 'when description is set' do
       let(:expected) do
         {
@@ -55,6 +79,17 @@ RSpec.describe Slack::BlockKit::Composition::Option do
 
       it 'includes description as a plain_text object in the payload' do
         expect(instance.as_json).to eq(expected)
+      end
+
+      it 'truncates long descriptions' do
+        option_with_long_description = described_class.new(
+          text: 'some text',
+          value: 'a value',
+          emoji: true,
+          description: 'a' * (::Slack::BlockKit::Limits::MAX_OPTION_DESCRIPTION_LENGTH + 1)
+        )
+
+        expect(option_with_long_description.as_json.dig(:description, :text)).to eq("#{'a' * (::Slack::BlockKit::Limits::MAX_OPTION_DESCRIPTION_LENGTH - '…'.length)}…")
       end
     end
 

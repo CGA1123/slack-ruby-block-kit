@@ -55,6 +55,14 @@ module Slack
         append(block)
       end
 
+      def rich_text(block_id: nil)
+        block = Layout::RichText.new(block_id: block_id)
+
+        yield(block) if block_given?
+
+        append(block)
+      end
+
       def video(alt_text:, thumbnail_url:, video_url:, title:, description:, **optional_args)
         block = Layout::Video.new(
           alt_text: alt_text,

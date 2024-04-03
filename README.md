@@ -67,8 +67,8 @@ blocks = Slack::BlockKit.blocks do |b|
   b.append(a_prebuilt_block)
 end
 
+body = { blocks: blocks.as_json }
 webhook_url = 'https://hooks.slack.com/services/your/webhook/url'
-body = { blocks: blocks.as_json, text: 'New block message!' }
 
 response = Faraday.post(
   webhook_url,
@@ -81,8 +81,10 @@ This will create a message like this:
 
 ![example block message](https://git.io/fjDWR)
 
-You can also check out the [`slackerduty`](https://github.com/CGA1123/slackerduty) project for some example,
-[`Slackerduty::Alert`](https://github.com/CGA1123/slackerduty/blob/b33d708124ddf36d1432080ba7e16e66fefa6993/lib/slackerduty/alert.rb#L28-L34) and [`Slackerduty::Blocks`](https://github.com/CGA1123/slackerduty/blob/master/lib/slackerduty/blocks) may be helpful places to start.
+See [`./examples`](./examples/), and [`./examples/README.md`](./examples/README.md), for more worked examples and guidance.
+
+You can also check out the [`slackerduty`](https://github.com/CGA1123/slackerduty) project for some more examples,
+[`Slackerduty::Alert`](https://github.com/CGA1123/slackerduty/blob/b33d708124ddf36d1432080ba7e16e66fefa6993/lib/slackerduty/alert.rb#L28-L34) and [`Slackerduty::Blocks`](https://github.com/CGA1123/slackerduty/blob/¦master/lib/slackerduty/blocks) may be helpful places to start.
 
 ## Contributing
 

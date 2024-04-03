@@ -26,6 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 
+## [0.23.0] - 2024-04-07
+
+### Added
+
+- Added support for Rich Text Block via `Slack::BlockKit::Layout::RichText` (#185 by @GetOutOfMyBakery)
+
 ## [0.23.0] - 2023-08-07
 
 ### Added

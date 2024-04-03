@@ -13,6 +13,8 @@ gem 'rspec', '~> 3'
 gem 'rspec_junit_formatter', '~> 0.6'
 
 gem 'codecov', '~> 0.6', require: false
+gem 'debug', '~> 1.9', require: false
+gem 'retest', '~> 1.13', require: false
 gem 'rubocop', '~> 1', require: false
 gem 'rubocop-rake', '~> 0.6', require: false
 gem 'rubocop-rspec', '~> 2', require: false

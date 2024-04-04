@@ -46,7 +46,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     rainbow (3.1.1)
-    rake (13.1.0)
+    rake (13.2.0)
     regexp_parser (2.3.1)
     rexml (3.2.5)
     rspec (3.12.0)

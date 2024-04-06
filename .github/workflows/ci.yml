@@ -21,7 +21,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - run: gem install bundler:2.1.4
       - run: bundle install
       - run: bundle exec rspec --format progress
       - run: bundle exec rubocop

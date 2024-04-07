@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'codecov'
+require 'simplecov-cobertura'
 
 SimpleCov.start do
   enable_coverage :branch
   add_filter '/spec/'
   track_files 'lib/slack/**/*.rb'
-  formatter SimpleCov::Formatter::Codecov if ENV['CI']
+  formatter SimpleCov::Formatter::CoberturaFormatter if ENV['CI']
 end
 
 require 'slack-ruby-block-kit'

@@ -2,13 +2,12 @@ name: Release
 
 on:
   workflow_dispatch:
-    inputs:
-      otp:
-        name: 'RubyGems OTP Code'
-        required: true
-
 jobs:
   release:
+    permissions:
+      contents: write
+      id-token: write
+
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -16,16 +15,4 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - name: Mask OTP
-        run: |
-          OTP=$(jq -r '.inputs.otp' $GITHUB_EVENT_PATH)
-          echo "::add-mask::$OTP"
-      - run: gem update --system
-      - run: git config --global user.email github-action@users.noreply.github.com
-      - run: git config --global user.name GitHub Actions
-      - run: git config --global user.password ${{ github.token }}
-      - run: bundle install
-      - run: bundle exec rake release
-        env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-          GEM_HOST_OTP_CODE: ${{ github.event.inputs.otp }}
+      - uses: rubygems/release-gem@v1

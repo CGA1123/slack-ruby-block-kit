@@ -25,9 +25,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
       - uses: codecov/codecov-action@v4
         with:
           use_oidc: true
-      - run: bundle install
       - run: bundle exec rspec --format progress
       - run: bundle exec rubocop

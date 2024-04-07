@@ -98,12 +98,13 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Releasing
 
-Releasing is automated via the `.github/workflows/release.yml` which allows for
-an OTP code to be passed in to authorize the release with MFA. If GitHub
-Actions is running slow it might take another attempt to make sure the OTP code
-is still valid when the workflow tries to push.
+Releasing is automated via the `.github/workflows/release.yml` which runs via
+[Trusted Publishing] authenticating with RubyGems via GitHub Action's OIDC
+integration.
 
 - Update `CHANGELOG` for the latest version (remember to update the comparison links + add in an `Unreleased` section again)
 - Update `lib/slack/block_kit/version.rb` and run `bundle` to update the `Gemfile.lock`
 - Push that!
 - Run the `Release` workflow
+
+[Trusted Publishing]: https://guides.rubygems.org/trusted-publishing/

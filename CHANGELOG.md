@@ -193,7 +193,7 @@ This release contains a breaking change on the `Layout::Actions` interface.
 
 
 [Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.24.0...HEAD
-[0.23.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.23.0...v0.24.0
+[0.24.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.22.0...v0.23.0
 [0.22.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...v0.21.0

@@ -4,7 +4,7 @@ require 'faraday'
 
 module ExampleHelper
   def self.print_output(line)
-    $stderr.puts line unless ENV.fetch('SUPPRESS_WEBHOOK_MESSAGE', nil) == 'true'
+    warn line unless ENV.fetch('SUPPRESS_WEBHOOK_MESSAGE', nil) == 'true'
   end
 
   def self.post_to_slack(body)

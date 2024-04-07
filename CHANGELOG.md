@@ -26,11 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 
-## [0.23.0] - 2024-04-07
+## [0.24.0] - 2024-04-07
 
 ### Added
 
 - Added support for Rich Text Block via `Slack::BlockKit::Layout::RichText` (#185 by @GetOutOfMyBakery)
+
+
+### Changed
+- Codecov reporting via GitHub Actions OIDC (#188 by @CGA1123)
+- Rubygems releasing via GitHub Actions OIDC (#188 by @CGA1123)
 
 ## [0.23.0] - 2023-08-07
 
@@ -187,7 +192,8 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.23.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.24.0...HEAD
+[0.23.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.22.0...v0.23.0
 [0.22.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.20.0...v0.21.0

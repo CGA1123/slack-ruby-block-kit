@@ -8,6 +8,10 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
+      id-token: write
+
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -21,6 +25,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+      - uses: codecov/codecov-action@v4
+        with:
+          use_oidc: true
       - run: bundle install
       - run: bundle exec rspec --format progress
       - run: bundle exec rubocop

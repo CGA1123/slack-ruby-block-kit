@@ -36,11 +36,25 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
       expect(instance.options.first).to be_initial
     end
 
+    it 'supports option descriptions' do
+      instance = described_class.new(label: 'hello')
+      instance.option(text: 'option', value: 'o', description: 'description text')
+
+      option_json = instance.options.first.as_json
+      expect(option_json[:description]).to eq(
+        { type: 'plain_text', text: 'description text' }
+      )
+    end
+
     it 'appends a Slack::BlockKit::Composition::Option object' do
       instance = described_class.new(label: 'hello')
-      expected = Slack::BlockKit::Composition::Option.new(text: 'option', value: 'o')
+      expected = Slack::BlockKit::Composition::Option.new(
+        text: 'option',
+        value: 'o',
+        description: 'description'
+      )
 
-      instance.option(text: 'option', value: 'o')
+      instance.option(text: 'option', value: 'o', description: 'description')
 
       expect(instance.options.last.as_json).to eq(expected.as_json)
     end
@@ -58,7 +72,15 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
       {
         label: Slack::BlockKit::Composition::PlainText.new(text: 'label', emoji: true).as_json,
         options: [
-          Slack::BlockKit::Composition::Option.new(text: 'text', value: 'value')
+          Slack::BlockKit::Composition::Option.new(
+            text: 'text',
+            value: 'value'
+          ),
+          Slack::BlockKit::Composition::Option.new(
+            text: 'text with description',
+            value: 'value2',
+            description: 'some description'
+          )
         ].map(&:as_json)
       }
     end
@@ -66,6 +88,11 @@ RSpec.describe Slack::BlockKit::Composition::OptionGroup do
     it 'correctly serializes' do
       instance = described_class.new(label: 'label', emoji: true) do |option_group|
         option_group.option(text: 'text', value: 'value')
+        option_group.option(
+          text: 'text with description',
+          value: 'value2',
+          description: 'some description'
+        )
       end
 
       expect(instance.as_json).to eq(expected)

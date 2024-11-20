@@ -33,6 +33,10 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
               text: '__TEXT_2__',
               type: 'plain_text'
             },
+            description: {
+              type: 'plain_text',
+              text: '__DESCRIPTION_2__'
+            },
             value: '__VALUE_2__'
           },
           {
@@ -53,7 +57,11 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
         text: '__TEXT_2__',
         type: 'plain_text'
       },
-      value: '__VALUE_2__'
+      value: '__VALUE_2__',
+      description: {
+        type: 'plain_text',
+        text: '__DESCRIPTION_2__'
+      }
     }
   end
 
@@ -70,6 +78,10 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
         text: {
           text: '__TEXT_2__',
           type: 'plain_text'
+        },
+        description: {
+          type: 'plain_text',
+          text: '__DESCRIPTION_2__'
         },
         value: '__VALUE_2__'
       },
@@ -156,7 +168,7 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
     context 'with options' do
       subject(:as_json) do
         instance.option(value: '__VALUE_1__', text: '__TEXT_1__')
-        instance.option(value: '__VALUE_2__', text: '__TEXT_2__')
+        instance.option(value: '__VALUE_2__', text: '__TEXT_2__', description: '__DESCRIPTION_2__')
         instance.option(value: '__VALUE_3__', text: '__TEXT_3__')
         instance.as_json
       end
@@ -171,7 +183,7 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
     context 'with options and initial option' do
       subject(:as_json) do
         instance.option(value: '__VALUE_1__', text: '__TEXT_1__')
-        instance.option(value: '__VALUE_2__', text: '__TEXT_2__', initial: true)
+        instance.option(value: '__VALUE_2__', text: '__TEXT_2__', description: '__DESCRIPTION_2__', initial: true)
         instance.option(value: '__VALUE_3__', text: '__TEXT_3__')
 
         instance.as_json
@@ -188,7 +200,7 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
       subject(:as_json) do
         instance.option_group(label: '__GROUP__') do |group|
           group.option(value: '__VALUE_1__', text: '__TEXT_1__')
-          group.option(value: '__VALUE_2__', text: '__TEXT_2__')
+          group.option(value: '__VALUE_2__', text: '__TEXT_2__', description: '__DESCRIPTION_2__')
           group.option(value: '__VALUE_3__', text: '__TEXT_3__')
         end
         instance.as_json
@@ -205,7 +217,7 @@ RSpec.describe Slack::BlockKit::Element::StaticSelect do
       subject(:as_json) do
         instance.option_group(label: '__GROUP__') do |group|
           group.option(value: '__VALUE_1__', text: '__TEXT_1__')
-          group.option(value: '__VALUE_2__', text: '__TEXT_2__', initial: true)
+          group.option(value: '__VALUE_2__', text: '__TEXT_2__', description: '__DESCRIPTION_2__', initial: true)
           group.option(value: '__VALUE_3__', text: '__TEXT_3__')
         end
 

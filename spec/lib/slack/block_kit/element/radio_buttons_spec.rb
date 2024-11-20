@@ -31,6 +31,10 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
             text: {
               type: 'plain_text',
               text: 'Option 1'
+            },
+            description: {
+              type: 'plain_text',
+              text: 'Description 1'
             }
           },
           {
@@ -38,6 +42,10 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
             text: {
               type: 'plain_text',
               text: 'Option 2'
+            },
+            description: {
+              type: 'plain_text',
+              text: 'Description 2'
             }
           },
           {
@@ -45,6 +53,11 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
             text: {
               type: 'plain_text',
               text: 'Option 3',
+              emoji: true
+            },
+            description: {
+              type: 'plain_text',
+              text: 'Description 3',
               emoji: true
             }
           }
@@ -54,15 +67,19 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
           text: {
             type: 'plain_text',
             text: 'Option 2'
+          },
+          description: {
+            type: 'plain_text',
+            text: 'Description 2'
           }
         }
       }
     end
 
     it 'correctly serializes' do
-      instance.option(value: 'option-1', text: 'Option 1')
-      instance.option(value: 'option-2', text: 'Option 2', initial: true)
-      instance.option(value: 'option-3', text: 'Option 3', initial: true, emoji: true)
+      instance.option(value: 'option-1', text: 'Option 1', description: 'Description 1')
+      instance.option(value: 'option-2', text: 'Option 2', description: 'Description 2', initial: true)
+      instance.option(value: 'option-3', text: 'Option 3', description: 'Description 3', initial: true, emoji: true)
       expect(as_json).to eq(expected_json)
     end
 
@@ -99,6 +116,10 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
               text: {
                 type: 'plain_text',
                 text: 'Option 1'
+              },
+              description: {
+                type: 'plain_text',
+                text: 'Description 1'
               }
             }
           ],
@@ -124,7 +145,7 @@ RSpec.describe Slack::BlockKit::Element::RadioButtons do
       end
 
       before do
-        instance.option(value: 'option-1', text: 'Option 1')
+        instance.option(value: 'option-1', text: 'Option 1', description: 'Description 1')
         instance.confirmation_dialog do |confirm|
           confirm.title(text: '__CONFIRM_TITTLE__')
           confirm.plain_text(text: '__CONFIRM_TEXT__')

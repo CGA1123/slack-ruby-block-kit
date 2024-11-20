@@ -37,11 +37,12 @@ module Slack
           yield(self) if block_given?
         end
 
-        def option(value:, text:, initial: false, emoji: nil)
+        def option(value:, text:, description: nil, initial: false, emoji: nil)
           @options ||= []
           @options << Composition::Option.new(
             value: value,
             text: text,
+            description: description,
             emoji: emoji,
             initial: initial
           )

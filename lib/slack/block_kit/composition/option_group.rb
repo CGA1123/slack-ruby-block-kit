@@ -17,8 +17,8 @@ module Slack
           yield(self) if block_given?
         end
 
-        def option(text:, value:, emoji: nil, initial: false)
-          @options << Option.new(text: text, value: value, emoji: emoji, initial: initial)
+        def option(text:, value:, description: nil, emoji: nil, initial: false)
+          @options << Option.new(text: text, value: value, description: description,  emoji: emoji, initial: initial)
 
           self
         end

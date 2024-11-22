@@ -16,7 +16,7 @@ module Slack
         TYPE = 'timepicker'
 
         def initialize(action_id:, placeholder: nil, initial: nil, emoji: nil, focus_on_load: nil)
-          @placeholder = placeholder_text(placeholder, emoji) if placeholder
+          @placeholder = placeholder_text(placeholder, emoji)
           @initial_time = initial
           @action_id = action_id
           @focus_on_load = focus_on_load

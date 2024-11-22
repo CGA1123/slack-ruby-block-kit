@@ -18,7 +18,7 @@ module Slack
         end
 
         def option(text:, value:, description: nil, emoji: nil, initial: false)
-          @options << Option.new(text: text, value: value, description: description,  emoji: emoji, initial: initial)
+          @options << Option.new(text: text, value: value, description: description, emoji: emoji, initial: initial)
 
           self
         end

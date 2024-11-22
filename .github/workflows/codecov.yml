@@ -1,21 +1,18 @@
-name: Test & Lint
+name: Codecov
 
 on:
   push:
     branches: [ master ]
-  pull_request:
+  pull_request_target:
     branches: [ master ]
 
 jobs:
-  build:
+  codecov:
+    permissions:
+      id-token: write
+      contents: write
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
-    strategy:
-      fail-fast: false
-      matrix:
-        ruby: [ '3.1', '3.2', '3.3' ]
-        experimental: [ false ]
-    name: Ruby ${{ matrix.ruby }}
+    name: Codecov
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
@@ -25,5 +22,4 @@ jobs:
       - uses: codecov/codecov-action@v4
         with:
           use_oidc: true
-      - run: bundle exec rspec --format progress
-      - run: bundle exec rubocop
+

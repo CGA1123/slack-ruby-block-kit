@@ -14,6 +14,7 @@ module Slack
       # https://api.slack.com/reference/messaging/block-elements#static-select
       class StaticSelect
         include Composition::ConfirmationDialog::Confirmable
+        prepend Limits::Limitable
 
         TYPE = 'static_select'
 

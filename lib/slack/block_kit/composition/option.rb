@@ -8,6 +8,8 @@ module Slack
       # https://api.slack.com/reference/messaging/composition-objects#option
       # https://api.slack.com/reference/messaging/block-elements#select
       class Option
+        prepend Limits::Limitable
+
         def initialize(value:, text:, initial: false, emoji: nil, description: nil, url: nil)
           @text = PlainText.new(text: text, emoji: emoji)
           @value = value

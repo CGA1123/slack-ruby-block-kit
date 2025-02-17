@@ -226,7 +226,7 @@ module Slack
           min_value: nil,
           max_value: nil
         )
-          @element = Element::PlainTextInput.new(
+          @element = Element::NumberInput.new(
             action_id: action_id,
             placeholder: placeholder,
             initial_value: initial_value,

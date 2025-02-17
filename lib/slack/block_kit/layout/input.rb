@@ -231,7 +231,7 @@ module Slack
             placeholder: placeholder,
             initial_value: initial_value,
             min_value: min_value,
-            max_value: max_value
+            max_value: max_value,
             focus_on_load: focus_on_load
           )
 

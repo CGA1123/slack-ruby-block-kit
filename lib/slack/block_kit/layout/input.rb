@@ -223,7 +223,7 @@ module Slack
           initial_value: nil,
           min_value: nil,
           max_value: nil,
-          focus_on_load: nil,
+          focus_on_load: nil
         )
           @element = Element::NumberInput.new(
             action_id: action_id,

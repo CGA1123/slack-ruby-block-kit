@@ -7,23 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- N/A
-
-### Changed
-- N/A
-
-### Deprecated
-- N/A
-
-### Removed
-- N/A
-
 ### Fixed
-- N/A
-
-### Security
-- N/A
+- Fixed the issue when accessing Slack::BlockKit::Layout.Input (#197 by @070bex424pankaj)
 
 ## [0.25.0] - 2024-11-22
 

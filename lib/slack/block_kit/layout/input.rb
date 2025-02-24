@@ -216,6 +216,28 @@ module Slack
           self
         end
 
+        def number_input(
+          action_id:,
+          is_decimal_allowed: nil,
+          placeholder: nil,
+          initial_value: nil,
+          min_value: nil,
+          max_value: nil,
+          focus_on_load: nil
+        )
+          @element = Element::NumberInput.new(
+            action_id: action_id,
+            is_decimal_allowed: is_decimal_allowed,
+            placeholder: placeholder,
+            initial_value: initial_value,
+            min_value: min_value,
+            max_value: max_value,
+            focus_on_load: focus_on_load
+          )
+
+          self
+        end
+
         def url_text_input(
           action_id:,
           placeholder: nil,

@@ -7,8 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- N/A
+
+### Changed
+- N/A
+
+### Deprecated
+- N/A
+
+### Removed
+- N/A
+
 ### Fixed
-- Fixed the issue when accessing Slack::BlockKit::Layout.Input (#197 by @070bex424pankaj)
+- N/A
+
+### Security
+- N/A
+
+## [0.26.0] - 2025-02-24
+
+### Added
+
+- Add Slack::BlockKit::Layout::Input#number_input (#197 by @070bex424pankaj)
 
 ## [0.25.0] - 2024-11-22
 
@@ -182,7 +203,8 @@ This release contains a breaking change on the `Layout::Actions` interface.
 - Fixed initial options in multi select blocks (#46 by @caalberts)
 
 
-[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.25.0...HEAD
+[Unreleased]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.26.0...HEAD
+[0.26.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.25.0...v0.26.0
 [0.25.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.24.0...v0.25.0
 [0.24.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/CGA1123/slack-ruby-block-kit/compare/v0.22.0...v0.23.0

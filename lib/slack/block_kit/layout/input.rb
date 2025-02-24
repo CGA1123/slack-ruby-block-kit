@@ -218,7 +218,7 @@ module Slack
 
         def number_input(
           action_id:,
-          is_decimal_allowed: nil,
+          is_decimal_allowed:,
           placeholder: nil,
           initial_value: nil,
           min_value: nil,

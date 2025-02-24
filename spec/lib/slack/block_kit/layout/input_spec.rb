@@ -295,6 +295,21 @@ RSpec.describe Slack::BlockKit::Layout::Input do
     end
   end
 
+  describe '#number_input' do
+    let(:element_json) do
+      Slack::BlockKit::Element::NumberInput.new(
+        action_id: '__ACTION_ID__',
+        is_decimal_allowed: false
+      ).as_json
+    end
+
+    it 'correctly serializes' do
+      instance.number_input(action_id: '__ACTION_ID__', is_decimal_allowed: false)
+
+      expect(input_json).to eq(expected_json)
+    end
+  end
+
   describe '#as_json' do
     let(:element) { Slack::BlockKit::Element::PlainTextInput.new(action_id: 'action') }
     let(:element_json) { element.as_json }

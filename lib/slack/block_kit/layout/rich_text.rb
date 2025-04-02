@@ -11,6 +11,7 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/blocks#rich_text
       class RichText
+        prepend Limiters::BlockId
         TYPE = 'rich_text'
 
         attr_accessor :elements

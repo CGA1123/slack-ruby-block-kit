@@ -9,6 +9,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#context
       class Video
+        prepend Limiters::BlockId
         TYPE = 'video'
 
         def initialize(alt_text:, thumbnail_url:, video_url:, title:, description:, **optional_args)

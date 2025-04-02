@@ -9,6 +9,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#section
       class Section
+        prepend Limiters::BlockId
         include Section::MultiSelectElements
         TYPE = 'section'
 

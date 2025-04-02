@@ -8,6 +8,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#divider
       class Divider
+        prepend Limiters::BlockId
         TYPE = 'divider'
 
         def initialize(block_id: nil)

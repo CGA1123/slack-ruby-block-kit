@@ -7,6 +7,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#context
       class Image
+        prepend Limiters::BlockId
         TYPE = 'image'
 
         def initialize(url:, alt_text:, title: nil, block_id: nil, emoji: nil)

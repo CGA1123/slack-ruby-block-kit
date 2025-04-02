@@ -10,6 +10,17 @@ module Slack
 
     module_function
 
+    def configuration
+      @configuration ||= Configuration.new
+
+      yield(@configuration) if block_given?
+
+      @configuration
+    end
+    class << self
+      alias config configuration
+    end
+
     def blocks
       blocks = Blocks.new
 

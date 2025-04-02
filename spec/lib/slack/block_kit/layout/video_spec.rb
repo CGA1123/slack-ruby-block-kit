@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../limiters/block_id_helpers'
 
 RSpec.describe Slack::BlockKit::Layout::Video do
+  it_behaves_like 'a block that handles block_id length limits', alt_text: 'test', thumbnail_url: 'test', video_url: 'test', title: 'test', description: 'test'
+
   describe '.as_json' do
     subject(:video_json) { instance.as_json }
 

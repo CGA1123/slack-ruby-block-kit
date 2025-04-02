@@ -7,6 +7,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#actions
       class Actions
+        prepend Limiters::BlockId
         TYPE = 'actions'
 
         attr_accessor :elements

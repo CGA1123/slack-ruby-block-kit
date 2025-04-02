@@ -9,6 +9,7 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/blocks#header
       class Header
+        prepend Limiters::BlockId
         TYPE = 'header'
 
         def initialize(text:, block_id: nil, emoji: nil)

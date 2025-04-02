@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../limiters/block_id_helpers'
 
 RSpec.describe Slack::BlockKit::Layout::Section do
   subject(:section_json) { instance.as_json }
@@ -25,6 +26,8 @@ RSpec.describe Slack::BlockKit::Layout::Section do
   it 'correctly serializes' do
     expect(section_json).to eq(expected_json)
   end
+
+  it_behaves_like 'a block that handles block_id length limits'
 
   describe '#mrkdwn' do
     let(:expected_json) do

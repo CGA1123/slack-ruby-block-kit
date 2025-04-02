@@ -9,6 +9,7 @@ module Slack
       #
       # https://api.slack.com/reference/block-kit/blocks#input
       class Input # rubocop:disable Metrics/ClassLength
+        prepend Limiters::BlockId
         TYPE = 'input'
 
         attr_accessor :label, :element, :block_id, :hint, :optional, :emoji

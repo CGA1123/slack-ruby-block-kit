@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../limiters/block_id_helpers'
 
 RSpec.describe Slack::BlockKit::Layout::Header do
   let(:instance) { described_class.new(**params) }
+
+  it_behaves_like 'a block that handles block_id length limits', text: '__TEXT__'
 
   describe '#as_json' do
     subject { instance.as_json }

@@ -7,6 +7,7 @@ module Slack
       #
       # https://api.slack.com/reference/messaging/blocks#context
       class Context
+        prepend Limiters::BlockId
         TYPE = 'context'
 
         attr_accessor :elements

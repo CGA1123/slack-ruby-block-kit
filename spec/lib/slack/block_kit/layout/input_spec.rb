@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require_relative '../limiters/block_id_helpers'
 
 RSpec.describe Slack::BlockKit::Layout::Input do
   subject(:input_json) { instance.as_json }
+
+  it_behaves_like 'a block that handles block_id length limits', label: 'Name', element: Slack::BlockKit::Element::PlainTextInput.new(action_id: '__ACTION_ID__')
 
   let(:instance) { described_class.new(**params) }
   let(:optional) { false }

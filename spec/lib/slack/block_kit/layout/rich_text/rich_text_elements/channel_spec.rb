@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative './style_helper'
+require_relative 'style_helper'
 
 RSpec.describe Slack::BlockKit::Layout::RichText::RichTextElements::Channel do
   let(:channel_json) { instance.as_json }

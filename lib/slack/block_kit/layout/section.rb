@@ -10,6 +10,7 @@ module Slack
       # https://api.slack.com/reference/messaging/blocks#section
       class Section
         include Section::MultiSelectElements
+
         TYPE = 'section'
 
         attr_accessor :fields, :text, :accessory

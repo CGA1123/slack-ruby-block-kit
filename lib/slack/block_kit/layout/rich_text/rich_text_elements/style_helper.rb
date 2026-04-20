@@ -15,7 +15,7 @@ module Slack
             def styles_as_json(styles)
               return if styles.empty?
 
-              styles.each_with_object({}) { |style, block| block[style] = true }
+              styles.to_h { |style| [style, true] }
             end
           end
         end

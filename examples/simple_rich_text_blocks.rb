@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 require_relative '../lib/slack-ruby-block-kit'
-require_relative './config'
-require_relative './example_helper'
+require_relative 'config'
+require_relative 'example_helper'
 require 'json'
 
 a_prebuilt_block = Slack::BlockKit::Layout::RichText.new

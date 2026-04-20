@@ -8,6 +8,7 @@ module Slack
           # https://api.slack.com/reference/block-kit/blocks#element-types
           class Text
             include RichTextElements::StyleHelper
+
             TYPE = 'text'
             VALID_STYLES = %w[bold italic strike code].freeze
 

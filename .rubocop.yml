@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5.3
+  TargetRubyVersion: 3.3
   NewCops: enable
 
 Layout/LineLength:

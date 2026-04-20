@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/vscode/devcontainers/ruby:0-2.7
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:4.0

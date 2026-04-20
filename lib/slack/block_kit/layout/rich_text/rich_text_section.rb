@@ -7,6 +7,7 @@ module Slack
         # https://api.slack.com/reference/block-kit/blocks#rich_text_section
         class RichTextSection
           include RichTextElements
+
           TYPE = 'rich_text_section'
 
           attr_accessor :elements

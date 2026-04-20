@@ -136,8 +136,8 @@ RSpec.describe Slack::BlockKit::Element::Checkboxes do
       end
 
       it 'correctly serializes' do
-        instance.option(**option.merge(initial: true))
-        instance.option(**option_description.merge(initial: true))
+        instance.option(**option, initial: true)
+        instance.option(**option_description, initial: true)
         instance.option(**another_option)
 
         expect(as_json).to eq(expected_json)

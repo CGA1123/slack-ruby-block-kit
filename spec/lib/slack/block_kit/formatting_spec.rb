@@ -114,10 +114,10 @@ RSpec.describe Slack::BlockKit::Formatting do
   end
 
   describe 'when extendind a class' do
-    include_examples 'formatting helpers', Class.new.extend(described_class)
+    it_behaves_like 'formatting helpers', Class.new.extend(described_class)
   end
 
   describe 'when calling directly' do
-    include_examples 'formatting helpers', described_class
+    it_behaves_like 'formatting helpers', described_class
   end
 end

@@ -7,6 +7,7 @@ module Slack
         # https://api.slack.com/reference/block-kit/blocks#rich_text_preformatted
         class RichTextPreformatted
           include RichTextElements
+
           TYPE = 'rich_text_preformatted'
 
           attr_accessor :elements, :border

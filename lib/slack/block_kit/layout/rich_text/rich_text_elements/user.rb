@@ -8,6 +8,7 @@ module Slack
           # https://api.slack.com/reference/block-kit/blocks#element-types
           class User
             include RichTextElements::StyleHelper
+
             TYPE = 'user'
             VALID_STYLES = %w[bold italic strike highlight client_highlight unlink].freeze
 

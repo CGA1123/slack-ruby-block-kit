@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'dotenv', '~> 2'
+gem 'dotenv', '~> 3'
 gem 'faraday', '~> 1'
 gem 'pry', '~> 0.14'
 gem 'racc'

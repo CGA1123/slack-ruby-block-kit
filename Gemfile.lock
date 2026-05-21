@@ -145,7 +145,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     wisper (2.0.1)
-    zeitwerk (2.7.5)
+    zeitwerk (2.8.1)
 
 PLATFORMS
   ruby

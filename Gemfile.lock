@@ -14,7 +14,6 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.6.2)
-    docile (1.4.1)
     dotenv (3.2.0)
     erb (6.0.4)
     faraday (2.14.1)
@@ -117,15 +116,10 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-cobertura (3.1.0)
+    simplecov (1.0.3)
+    simplecov-cobertura (4.0.0)
       rexml
-      simplecov (~> 0.19)
-    simplecov-html (0.13.2)
-    simplecov_json_formatter (0.1.4)
+      simplecov (~> 1.0)
     string-similarity (2.1.0)
     stringio (3.2.0)
     tsort (0.2.0)
@@ -166,7 +160,7 @@ DEPENDENCIES
   rubocop (~> 1)
   rubocop-rake (~> 0.6)
   rubocop-rspec (~> 3)
-  simplecov (~> 0.22)
+  simplecov (~> 1.0)
   simplecov-cobertura
   slack-ruby-block-kit!
 

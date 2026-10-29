@@ -10,7 +10,7 @@ gem 'pry', '~> 0.14'
 gem 'racc'
 gem 'rake', '~> 13'
 gem 'rspec', '~> 3'
-gem 'rspec_junit_formatter', '~> 0.6'
+gem 'rspec_junit_formatter', '~> 0.8'
 
 gem 'debug', '~> 1.9', require: false
 gem 'retest', '~> 2.5', require: false
